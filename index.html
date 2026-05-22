@@ -12,580 +12,1215 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,700&family=Cinzel:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --primary:   #7d544f;
-      --dark:      #3a1f1c;
-      --gold:      #c9a050;
-      --bg:        #fcf9f8;
+      --bg:        #FBF7F1;
+      --bg-2:      #F4ECE0;
+      --ink:       #1F1226;
+      --ink-2:     #4B3B55;
+      --muted:     #8A7E92;
       --card:      #ffffff;
-      --muted:     rgba(58,31,28,0.5);
-      --border:    rgba(125,84,79,0.12);
+      --line:      rgba(31,18,38,0.08);
+      --grad-saffron: linear-gradient(135deg, #FF8A3D 0%, #FF4D6D 100%);
+      --grad-pink:    linear-gradient(135deg, #EC4899 0%, #6D5BFF 100%);
+      --grad-peach:   linear-gradient(135deg, #FFC6A0 0%, #E0A046 100%);
+      --grad-dusk:    linear-gradient(135deg, #FF8A3D 0%, #EC4899 50%, #6D5BFF 100%);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
     body {
-      font-family: 'Lato', sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
       background: var(--bg);
-      color: var(--dark);
+      color: var(--ink);
       overflow-x: hidden;
     }
 
-    /* ── Utility ── */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .tag {
-      font-family: 'Cinzel', serif;
-      font-size: 10px; letter-spacing: 3px;
-      color: var(--primary); text-transform: uppercase;
-      display: inline-block; margin-bottom: 14px;
+    ::selection { background: #FF4D6D; color: #fff; }
+
+    .serif { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    /* ── Layout ── */
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+    section { padding: 96px 0; position: relative; }
+    h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.05; font-weight: 700; }
+    h1 { font-size: clamp(44px, 7vw, 88px); font-weight: 800; }
+    h2 { font-size: clamp(36px, 5vw, 64px); }
+    h3 { font-size: clamp(20px, 2vw, 26px); }
+    p  { line-height: 1.6; }
+
+    .eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--muted);
     }
-    .section { padding: 96px 0; }
-    .section-alt { background: #fff5f3; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 24px; border-radius: 999px;
+      font-family: inherit; font-weight: 600; font-size: 15px;
+      letter-spacing: -0.01em; cursor: pointer; border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; box-shadow: 0 8px 24px rgba(31,18,38,0.18); }
+    .btn-primary:hover { box-shadow: 0 14px 32px rgba(31,18,38,0.24); }
+    .btn-grad { background: var(--grad-saffron); color: #fff; box-shadow: 0 12px 28px rgba(255,77,109,0.32); }
+    .btn-grad:hover { box-shadow: 0 18px 38px rgba(255,77,109,0.4); }
+    .btn-ghost { background: rgba(31,18,38,0.06); color: var(--ink); }
+    .btn-ghost:hover { background: rgba(31,18,38,0.1); }
+    .btn-outline-white {
+      background: transparent; color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+
+    /* ── Chip ── */
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 500;
+      background: rgba(31,18,38,0.04); border: 1px solid var(--line); color: var(--ink-2);
+    }
+    .chip .dot {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: #FF4D6D; box-shadow: 0 0 0 4px rgba(255,77,109,0.18);
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card); border-radius: 28px;
+      border: 1px solid var(--line);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 30px 60px -30px rgba(31,18,38,0.12);
+    }
+    .glass {
+      background: rgba(255,255,255,0.72); backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255,255,255,0.75);
+      box-shadow: 0 20px 50px -20px rgba(31,18,38,0.2);
+    }
+
+    /* ── Logo mark ── */
+    .logo-mark {
+      width: 30px; height: 30px; border-radius: 9px;
+      background: var(--grad-saffron);
+      display: grid; place-items: center;
+      color: #fff; font-weight: 800; font-size: 16px;
+      box-shadow: 0 6px 18px rgba(255,77,109,0.35);
+      flex-shrink: 0;
+    }
 
     /* ── Nav ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(252,249,248,0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+    nav.top {
+      position: sticky; top: 0; z-index: 80;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(251,247,241,0.82);
+      border-bottom: 1px solid var(--line);
     }
-    .nav-inner {
+    .nav-row {
       display: flex; align-items: center; justify-content: space-between;
-      height: 64px; max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      padding: 14px 32px; max-width: 1320px; margin: 0 auto;
     }
     .nav-logo {
-      font-family: 'Cinzel', serif;
-      font-size: 20px; font-weight: 500;
-      color: var(--dark); text-decoration: none;
-      letter-spacing: 2px;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 20px; letter-spacing: -0.03em;
+      color: var(--ink); text-decoration: none;
     }
-    .nav-logo span { color: var(--primary); }
-    .nav-cta {
-      font-family: 'Cinzel', serif;
-      font-size: 10px; letter-spacing: 2px;
-      color: #fff; background: var(--primary);
-      border: none; border-radius: 99px;
-      padding: 10px 22px; cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      color: var(--ink-2); text-decoration: none; font-weight: 500;
+      font-size: 14px; padding: 8px 14px; border-radius: 999px;
+      transition: color 0.2s, background 0.2s;
     }
-    .nav-cta:hover { background: #6a433f; transform: translateY(-1px); }
+    .nav-links a:hover { color: var(--ink); background: rgba(31,18,38,0.05); }
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
 
-    /* ── Hero ── */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      position: relative; overflow: hidden;
+    /* ── Confetti ── */
+    .confetti-wrap { position: absolute; pointer-events: none; inset: 0; overflow: hidden; z-index: 0; }
+    .confetti-piece {
+      position: absolute; border-radius: 2px; opacity: 0.9;
+      animation: confFall linear infinite;
     }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(201,160,80,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 45% at 80% 80%, rgba(125,84,79,0.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero-eyebrow {
-      font-family: 'Cinzel', serif;
-      font-size: 10px; letter-spacing: 4px;
-      color: var(--primary); margin-bottom: 20px;
-      animation: fadeUp 0.8s ease both;
-    }
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(48px, 8vw, 88px);
-      font-weight: 600; line-height: 1.1;
-      color: var(--dark); margin-bottom: 24px;
-      animation: fadeUp 0.8s 0.1s ease both;
-    }
-    .hero-title em {
-      font-style: italic; color: var(--primary);
-    }
-    .hero-sub {
-      font-size: 17px; font-weight: 300; line-height: 1.7;
-      color: var(--muted); max-width: 540px; margin: 0 auto 48px;
-      animation: fadeUp 0.8s 0.2s ease both;
-    }
-    .hero-badges {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      justify-content: center;
-      animation: fadeUp 0.8s 0.3s ease both;
-    }
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #fff; border: 1px solid var(--border);
-      border-radius: 99px; padding: 10px 20px;
-      font-family: 'Cinzel', serif; font-size: 10px;
-      letter-spacing: 1.5px; color: var(--dark);
-      box-shadow: 0 2px 12px rgba(125,84,79,0.07);
-    }
-    .badge-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--primary);
-    }
-    .hero-scroll {
-      position: absolute; bottom: 36px; left: 50%;
-      transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center;
-      gap: 6px; animation: fadeUp 0.8s 0.6s ease both;
-    }
-    .hero-scroll span {
-      font-family: 'Cinzel', serif; font-size: 8px;
-      letter-spacing: 2px; color: var(--muted);
-    }
-    .scroll-line {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, var(--primary), transparent);
-      animation: scrollPulse 1.8s ease-in-out infinite;
+    @keyframes confFall {
+      0%   { transform: translateY(-10vh) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(720deg); }
     }
 
-    /* ── What is Baraati ── */
-    .intro { text-align: center; }
-    .intro-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 600; line-height: 1.2; margin-bottom: 20px;
+    /* ── Floaty animation ── */
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+      50%       { transform: translateY(-10px) rotate(var(--rot, 0deg)); }
     }
-    .intro-body {
-      font-size: 16px; font-weight: 300; line-height: 1.8;
-      color: var(--muted); max-width: 640px; margin: 0 auto 56px;
-    }
-    .intro-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .intro-card {
-      background: #fff; border-radius: 20px; padding: 28px 24px;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 16px rgba(125,84,79,0.05);
-      text-align: left; transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .intro-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(125,84,79,0.1); }
-    .intro-icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: rgba(125,84,79,0.08);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px; margin-bottom: 16px;
-    }
-    .intro-card h3 {
-      font-family: 'Cinzel', serif; font-size: 11px;
-      letter-spacing: 1.5px; margin-bottom: 8px; color: var(--dark);
-    }
-    .intro-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .floaty { animation: floaty 5s ease-in-out infinite; }
 
-    /* ── Features ── */
-    .features-header { text-align: center; margin-bottom: 64px; }
-    .features-header h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(30px, 5vw, 48px);
-      font-weight: 600; margin-bottom: 16px;
-    }
-    .features-header p {
-      font-size: 15px; color: var(--muted); font-weight: 300;
-    }
-    .features-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
-    }
-    .feature-col {
-      background: #fff; border-radius: 24px; padding: 36px 32px;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 20px rgba(125,84,79,0.05);
-    }
-    .feature-col-label {
-      font-family: 'Cinzel', serif; font-size: 9px;
-      letter-spacing: 3px; color: var(--primary);
-      margin-bottom: 8px;
-    }
-    .feature-col h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px; font-weight: 600;
-      margin-bottom: 24px;
-    }
-    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .feature-list li {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 14px; color: var(--muted); line-height: 1.6;
-    }
-    .feature-check {
-      width: 20px; height: 20px; border-radius: 50%;
-      background: rgba(125,84,79,0.08);
-      flex-shrink: 0; display: flex; align-items: center;
-      justify-content: center; margin-top: 1px;
-      font-size: 10px; color: var(--primary);
-    }
-
-    /* ── How it works ── */
-    .how { text-align: center; }
-    .how h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(30px, 5vw, 48px);
-      font-weight: 600; margin-bottom: 56px;
-    }
-    .steps {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 32px; position: relative;
-    }
-    .steps::before {
-      content: '';
-      position: absolute; top: 28px; left: calc(16.66% + 16px); right: calc(16.66% + 16px);
-      height: 1px; background: var(--border);
-    }
-    .step { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .step-num {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: var(--primary); color: #fff;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px; font-weight: 600;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; z-index: 1;
-      box-shadow: 0 4px 16px rgba(125,84,79,0.3);
-    }
-    .step h3 {
-      font-family: 'Cinzel', serif; font-size: 11px;
-      letter-spacing: 1.5px; color: var(--dark);
-    }
-    .step p { font-size: 13px; color: var(--muted); line-height: 1.7; }
-
-    /* ── Themes ── */
-    .themes { text-align: center; }
-    .themes h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(30px, 5vw, 48px);
-      font-weight: 600; margin-bottom: 16px;
-    }
-    .themes-sub {
-      font-size: 15px; color: var(--muted);
-      font-weight: 300; margin-bottom: 48px;
-    }
-    .themes-row {
-      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
-    }
-    .theme-pill {
-      display: flex; align-items: center; gap: 10px;
-      background: #fff; border: 1px solid var(--border);
-      border-radius: 99px; padding: 10px 18px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      transition: transform 0.2s;
-    }
-    .theme-pill:hover { transform: translateY(-2px); }
-    .theme-swatch { width: 14px; height: 14px; border-radius: 50%; }
-    .theme-pill span {
-      font-family: 'Cinzel', serif; font-size: 10px;
-      letter-spacing: 1.5px; color: var(--dark);
-    }
-
-    /* ── CTA Banner ── */
-    .cta-banner {
-      background: var(--dark);
-      border-radius: 28px;
-      padding: 72px 48px;
-      text-align: center;
-      margin: 0 24px;
-      position: relative; overflow: hidden;
-    }
-    .cta-banner::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 30% 50%, rgba(201,160,80,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .cta-banner .tag { color: var(--gold); }
-    .cta-banner h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 5vw, 54px);
-      font-weight: 600; color: #fff;
-      margin-bottom: 16px; line-height: 1.15;
-    }
-    .cta-banner h2 em { font-style: italic; color: var(--gold); }
-    .cta-banner p {
-      font-size: 15px; color: rgba(255,255,255,0.55);
-      font-weight: 300; margin-bottom: 36px;
-    }
-    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      font-family: 'Cinzel', serif; font-size: 10px;
-      letter-spacing: 2px; color: var(--dark);
-      background: var(--gold); border: none; border-radius: 99px;
-      padding: 14px 32px; cursor: pointer;
-      text-decoration: none; display: inline-block;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn-outline {
-      font-family: 'Cinzel', serif; font-size: 10px;
-      letter-spacing: 2px; color: rgba(255,255,255,0.7);
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 99px; padding: 14px 32px;
-      cursor: pointer; text-decoration: none;
-      display: inline-block; transition: border-color 0.2s, color 0.2s;
-    }
-    .btn-outline:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
-
-    /* ── Footer ── */
-    footer {
-      padding: 48px 24px;
-      border-top: 1px solid var(--border);
-      display: flex; flex-direction: column;
-      align-items: center; gap: 20px; text-align: center;
-    }
-    .footer-logo {
-      font-family: 'Cinzel', serif; font-size: 18px;
-      font-weight: 500; color: var(--dark); letter-spacing: 3px;
-    }
-    .footer-logo span { color: var(--primary); }
-    .footer-links {
-      display: flex; gap: 28px; flex-wrap: wrap; justify-content: center;
-    }
-    .footer-links a {
-      font-family: 'Cinzel', serif; font-size: 9px;
-      letter-spacing: 1.5px; color: var(--muted);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--primary); }
-    .footer-copy {
-      font-size: 11px; color: rgba(58,31,28,0.3);
-    }
-
-    /* ── Animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
-      50%       { opacity: 1;   transform: scaleY(1);   transform-origin: top; }
-    }
-
-    /* Scroll-triggered fade */
-    .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* ── Responsive ── */
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      padding-top: 60px; padding-bottom: 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-blob-1 {
+      position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px; border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,138,61,0.18), rgba(255,77,109,0) 60%);
+      pointer-events: none;
+    }
+    .hero-blob-2 {
+      position: absolute; bottom: -200px; left: -200px;
+      width: 700px; height: 700px; border-radius: 999px;
+      background: radial-gradient(circle, rgba(109,91,255,0.14), rgba(236,72,153,0) 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1.1fr 1fr;
+      gap: 56px; align-items: center;
+    }
+    .hero-copy .chip { margin-bottom: 28px; }
+    .hero-copy h1 { margin-bottom: 24px; }
+    .hero-copy h1 .serif {
+      background: var(--grad-saffron);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero-sub {
+      font-size: 18px; line-height: 1.6; color: var(--ink-2);
+      max-width: 520px; margin-bottom: 32px;
+    }
+    .hero-btns { display: flex; gap: 12px; align-items: center; margin-bottom: 36px; }
+    .hero-social {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-avatars { display: flex; }
+    .hero-avatar {
+      width: 32px; height: 32px; border-radius: 999px;
+      border: 2px solid var(--bg); margin-left: -10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: #fff;
+    }
+    .hero-avatar:first-child { margin-left: 0; }
+    .hero-social-text .title { font-weight: 700; font-size: 14px; }
+    .hero-social-text .sub { font-size: 12px; color: var(--muted); }
+
+    /* Phone mock */
+    .hero-phone-wrap {
+      position: relative; height: 720px;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .phone-glow {
+      position: absolute; width: 480px; height: 480px; border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,138,61,0.28), rgba(255,77,109,0) 65%);
+      filter: blur(20px);
+    }
+    .phone-frame {
+      width: 280px; border-radius: 36px; overflow: hidden;
+      background: #F2F2F7;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.1);
+      position: relative; z-index: 1;
+    }
+    .phone-di {
+      position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+      width: 90px; height: 26px; border-radius: 18px; background: #000; z-index: 5;
+    }
+    .phone-status {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 18px 4px; position: relative; z-index: 2;
+    }
+    .phone-status span { font-size: 11px; font-weight: 600; color: #000; }
+    .phone-content { padding: 8px 14px 20px; }
+    .phone-indicator {
+      width: 100px; height: 4px; border-radius: 999px;
+      background: rgba(0,0,0,0.2); margin: 12px auto 0;
+    }
+
+    /* App screen */
+    .app-hero-tag {
+      font-size: 9px; letter-spacing: 3px; font-weight: 700;
+      color: var(--muted); text-transform: uppercase; margin-bottom: 6px;
+    }
+    .app-countdown {
+      background: linear-gradient(135deg, #FF8A3D, #FF4D6D);
+      border-radius: 16px; padding: 14px; margin-bottom: 10px; color: #fff;
+      text-align: center;
+    }
+    .app-countdown .days { font-size: 36px; font-weight: 800; line-height: 1; }
+    .app-countdown .label { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+    .app-event-row {
+      display: flex; align-items: center; gap: 10px;
+      background: #fff; border-radius: 12px; padding: 10px 12px; margin-bottom: 6px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .app-event-dot { width: 8px; height: 8px; border-radius: 999px; flex-shrink: 0; }
+    .app-event-title { font-size: 12px; font-weight: 600; color: #1F1226; }
+    .app-event-time { font-size: 10px; color: #8A7E92; margin-top: 1px; }
+
+    /* Floating cards */
+    .float-card {
+      position: absolute; border-radius: 16px; padding: 12px 14px;
+      font-size: 13px; font-weight: 500; z-index: 3; min-width: 170px;
+    }
+    .float-card-inner { display: flex; align-items: center; gap: 10px; }
+    .float-icon {
+      width: 34px; height: 34px; border-radius: 10px;
+      display: grid; place-items: center; font-size: 16px; flex-shrink: 0;
+    }
+    .float-title { font-size: 11px; color: var(--muted); }
+    .float-value { font-weight: 700; color: var(--ink); font-size: 13px; }
+
+    /* ═══════════════════════════════════════
+       SOCIAL PROOF / WHAT IS BARAATI
+    ═══════════════════════════════════════ */
+    .intro-section {
+      background: linear-gradient(180deg, var(--bg) 0%, #FFF1E6 100%);
+    }
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      margin-top: 40px; margin-bottom: 56px;
+    }
+    .metric-card {
+      padding: 24px; text-align: left;
+    }
+    .metric-num {
+      font-size: 44px; font-weight: 800; letter-spacing: -1.5px;
+      background: var(--grad-saffron);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      line-height: 1;
+    }
+    .metric-label { margin-top: 6px; color: var(--ink-2); font-weight: 500; font-size: 14px; }
+    .intro-cards-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    }
+    .intro-card {
+      border-radius: 24px; padding: 28px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .intro-card:hover { transform: translateY(-4px); }
+    .intro-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 18px;
+    }
+    .intro-card h3 { font-size: 17px; margin-bottom: 8px; }
+    .intro-card p { font-size: 13px; color: var(--ink-2); line-height: 1.65; }
+
+    /* ═══════════════════════════════════════
+       MARQUEE
+    ═══════════════════════════════════════ */
+    .marquee-wrap {
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      margin-top: 48px;
+    }
+    .marquee-inner { display: flex; gap: 64px; animation: marqueeScroll 35s linear infinite; width: max-content; }
+    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-item { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .marquee-avatar {
+      width: 32px; height: 32px; border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 12px; font-weight: 700; flex-shrink: 0;
+    }
+    .marquee-name { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; white-space: nowrap; }
+    .marquee-sep { color: var(--muted); font-size: 16px; }
+
+    /* ═══════════════════════════════════════
+       PROBLEM
+    ═══════════════════════════════════════ */
+    .problem-section {
+      background: var(--ink); border-radius: 40px;
+      margin: 0 24px; padding: 96px 0; color: #fff;
+    }
+    .problem-cards {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 16px; margin-top: 56px;
+    }
+    .problem-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 22px; padding: 20px;
+    }
+    .problem-emoji { font-size: 28px; margin-bottom: 14px; }
+    .problem-title { font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+    .problem-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+    .problem-fix {
+      margin-top: 80px; display: flex; align-items: center;
+      gap: 18px; justify-content: center; flex-wrap: wrap;
+    }
+    .problem-fix .lead { font-size: 18px; color: rgba(255,255,255,0.6); }
+    .problem-fix .punchline {
+      font-family: 'Instrument Serif', serif; font-style: italic;
+      font-size: 44px; color: #fff;
+    }
+    .problem-fix-arrow {
+      display: flex; align-items: center;
+    }
+
+    /* ═══════════════════════════════════════
+       FEATURES (BENTO)
+    ═══════════════════════════════════════ */
+    .features-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 56px;
+    }
+    .features-header-left { max-width: 640px; }
+    .features-header h2 { margin-top: 14px; }
+    .bento-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 260px; gap: 18px;
+    }
+    .bento-card {
+      border-radius: 28px; padding: 32px; overflow: hidden;
+      position: relative; border: 1px solid var(--line);
+    }
+    .bento-card .chip { background: rgba(255,255,255,0.7); margin-bottom: 18px; }
+    .bento-card h3 { margin-bottom: 12px; line-height: 1.2; }
+    .bento-card p { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+
+    .bento-hosts {
+      grid-column: span 4; grid-row: span 2;
+      background: linear-gradient(135deg, #FFE7F1 0%, #FFD5A3 100%);
+    }
+    .bento-guests {
+      grid-column: span 2; grid-row: span 2;
+      background: linear-gradient(180deg, #FFF7E6 0%, #fff 100%);
+    }
+    .bento-live {
+      grid-column: span 2; grid-row: span 2;
+      background: linear-gradient(180deg, #1F1226 0%, #4B3B55 100%);
+      color: #fff;
+    }
+    .bento-themes {
+      grid-column: span 4; grid-row: span 2;
+      background: linear-gradient(135deg, #DBEAFE 0%, #E9D5FF 100%);
+    }
+
+    .feature-list-bento { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+    .feature-list-bento li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13px; color: var(--ink-2); line-height: 1.55;
+    }
+    .feature-list-bento.dark li { color: rgba(255,255,255,0.7); }
+    .fcheck {
+      width: 18px; height: 18px; border-radius: 999px;
+      background: rgba(255,77,109,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: #FF4D6D; flex-shrink: 0; margin-top: 1px;
+    }
+    .fcheck.dark { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); }
+    .reaction-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+    .reaction-pill {
+      padding: 6px 11px; border-radius: 999px;
+      background: rgba(255,255,255,0.1); font-size: 12px; font-weight: 600;
+    }
+    .theme-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+    .theme-tag {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.9);
+      font-size: 12px; font-weight: 600;
+      backdrop-filter: blur(8px);
+    }
+    .theme-swatch { width: 12px; height: 12px; border-radius: 999px; }
+
+    /* ═══════════════════════════════════════
+       HOW IT WORKS
+    ═══════════════════════════════════════ */
+    .how-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 56px; position: relative;
+    }
+    .how-grid::before {
+      content: ''; position: absolute; top: 30px;
+      left: calc(16.5% + 16px); right: calc(16.5% + 16px);
+      height: 1px; background: var(--line);
+    }
+    .how-card {
+      padding: 28px; text-align: center;
+    }
+    .how-num {
+      width: 56px; height: 56px; border-radius: 999px;
+      background: var(--grad-saffron); color: #fff;
+      font-size: 22px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px; position: relative; z-index: 1;
+      box-shadow: 0 8px 24px rgba(255,77,109,0.3);
+    }
+    .how-card h3 { font-size: 16px; margin-bottom: 8px; }
+    .how-card p { font-size: 13px; color: var(--ink-2); line-height: 1.65; }
+
+    /* ═══════════════════════════════════════
+       TESTIMONIALS
+    ═══════════════════════════════════════ */
+    .testimonials-section { background: #fff; }
+    .testimonials-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 56px;
+    }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    }
+    .testimonial-card { padding: 36px; }
+    .testimonial-quote {
+      font-size: 48px; line-height: 0.7; font-family: 'Instrument Serif', serif;
+      margin-bottom: 14px;
+    }
+    .testimonial-body {
+      font-size: 20px; line-height: 1.45; letter-spacing: -0.3px; color: var(--ink);
+    }
+    .testimonial-author {
+      display: flex; align-items: center; gap: 12px; margin-top: 28px;
+    }
+    .t-avatar {
+      width: 42px; height: 42px; border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 14px; font-weight: 700; flex-shrink: 0;
+    }
+    .t-name { font-weight: 700; font-size: 15px; }
+    .t-loc { font-size: 13px; color: var(--muted); }
+
+    /* ═══════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════ */
+    .faq-section { background: var(--bg); }
+    .faq-inner { max-width: 880px; margin: 0 auto; }
+    .faq-inner h2 { text-align: center; margin: 14px 0 48px; }
+    .faq-list { border-top: 1px solid var(--line); }
+    details.faq-item { border-bottom: 1px solid var(--line); }
+    details.faq-item summary {
+      list-style: none; display: flex;
+      justify-content: space-between; align-items: center;
+      padding: 22px 0; font-size: 18px; font-weight: 600;
+      cursor: pointer; color: var(--ink);
+      user-select: none;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary .faq-icon { font-size: 20px; color: var(--muted); transition: transform 0.25s; }
+    details.faq-item[open] summary .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: 0 0 22px; font-size: 16px; color: var(--ink-2); max-width: 720px; }
+
+    /* ═══════════════════════════════════════
+       CTA
+    ═══════════════════════════════════════ */
+    .cta-outer { padding: 0 24px 80px; }
+    .cta-inner {
+      border-radius: 48px; padding: 120px 48px;
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #FF8A3D 0%, #EC4899 50%, #6D5BFF 100%);
+      color: #fff; text-align: center;
+    }
+    .cta-inner .confetti-wrap { z-index: 0; }
+    .cta-dots {
+      position: absolute; inset: 0; opacity: 0.1; pointer-events: none;
+      background-image: radial-gradient(circle at 20% 30%, #fff 1px, transparent 2px),
+                        radial-gradient(circle at 70% 60%, #fff 1px, transparent 2px),
+                        radial-gradient(circle at 40% 80%, #fff 1px, transparent 2px);
+      background-size: 40px 40px, 50px 50px, 60px 60px;
+    }
+    .cta-content { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; }
+    .cta-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
+      color: #fff; font-size: 13px; font-weight: 500; margin-bottom: 24px;
+    }
+    .cta-dot { width: 6px; height: 6px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,0.3); }
+    .cta-inner h2 { font-size: clamp(44px, 7vw, 88px); margin-bottom: 24px; }
+    .cta-inner h2 .serif { font-style: italic; }
+    .cta-sub { font-size: 20px; opacity: 0.9; margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: var(--ink); font-weight: 700; box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+    .btn-white:hover { box-shadow: 0 18px 40px rgba(0,0,0,0.2); }
+    .cta-note { margin-top: 20px; font-size: 13px; opacity: 0.8; }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    footer {
+      padding: 64px 32px 48px;
+      border-top: 1px solid var(--line);
+    }
+    .footer-inner {
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px;
+    }
+    .footer-brand-logo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 20px; letter-spacing: -0.03em;
+      color: var(--ink); text-decoration: none; margin-bottom: 14px;
+    }
+    .footer-brand-desc { font-size: 14px; color: var(--ink-2); max-width: 300px; line-height: 1.65; }
+    .footer-col-title { font-size: 13px; font-weight: 700; margin-bottom: 16px; color: var(--ink); }
+    .footer-col a {
+      display: block; padding: 6px 0; color: var(--ink-2);
+      text-decoration: none; font-size: 14px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--ink); }
+    .footer-bottom {
+      max-width: 1240px; margin: 48px auto 0;
+      padding-top: 24px; border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--muted); flex-wrap: wrap; gap: 8px;
+    }
+    .footer-heart { color: #FF4D6D; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .bento-grid { grid-template-columns: repeat(4, 1fr); }
+      .bento-hosts { grid-column: span 4; grid-row: span 1; }
+      .bento-guests { grid-column: span 2; }
+      .bento-live { grid-column: span 2; }
+      .bento-themes { grid-column: span 4; grid-row: span 1; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .intro-cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .problem-cards { grid-template-columns: repeat(3, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 768px) {
-      .features-grid { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr; gap: 40px; }
-      .steps::before { display: none; }
-      .cta-banner { padding: 48px 28px; margin: 0 16px; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-phone-wrap { display: none; }
+      .features-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+      .bento-card { grid-column: span 1 !important; grid-row: span 1 !important; }
+      .how-grid { grid-template-columns: 1fr; }
+      .how-grid::before { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .problem-cards { grid-template-columns: 1fr 1fr; }
+      .cta-inner { padding: 60px 28px; border-radius: 28px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 480px) {
-      .nav-logo { font-size: 16px; }
-      .badge { font-size: 9px; padding: 8px 14px; }
+      .intro-cards-grid { grid-template-columns: 1fr; }
+      .problem-cards { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; align-items: flex-start; }
+      .wrap { padding: 0 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── Nav ── -->
-  <nav>
-    <div class="nav-inner">
-      <a class="nav-logo" href="#">Bara<span>ati</span></a>
-      <a class="nav-cta" href="mailto:hello@baraati.co.in">GET IN TOUCH</a>
+<!-- ══════════════ NAV ══════════════ -->
+<nav class="top">
+  <div class="nav-row">
+    <a class="nav-logo" href="#">
+      <span class="logo-mark">B</span>
+      <span>baraati</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#stories">Stories</a>
+      <a href="#faq">FAQ</a>
     </div>
-  </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="mailto:hello@baraati.co.in" style="padding:10px 20px; font-size:13px;">Get in touch</a>
+    </div>
+  </div>
+</nav>
 
-  <!-- ── Hero ── -->
-  <section class="hero">
-    <p class="hero-eyebrow">Introducing Baraati</p>
-    <h1 class="hero-title">
-      Your wedding,<br><em>its own app.</em>
-    </h1>
-    <p class="hero-sub">
-      A private, beautifully themed companion app made just for your celebration — for your guests, your schedule, and every moment in between.
-    </p>
-    <div class="hero-badges">
-      <div class="badge"><div class="badge-dot"></div>Private invite only</div>
-      <div class="badge"><div class="badge-dot" style="background:#c9a050"></div>6 unique themes</div>
-      <div class="badge"><div class="badge-dot" style="background:#2d6a4f"></div>For hosts &amp; guests</div>
-    </div>
-    <div class="hero-scroll">
-      <span>SCROLL</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-blob-1"></div>
+  <div class="hero-blob-2"></div>
 
-  <!-- ── What is Baraati ── -->
-  <section class="section reveal">
-    <div class="container intro">
-      <p class="tag">What is Baraati</p>
-      <h2 class="intro-title">
-        One beautiful space<br>for your entire wedding
+  <!-- Confetti -->
+  <div class="confetti-wrap" id="confetti"></div>
+
+  <div class="wrap hero-inner">
+    <!-- Copy -->
+    <div class="hero-copy">
+      <div class="chip" style="margin-bottom:28px;">
+        <span class="dot"></span>
+        <span>Introducing Baraati · Indian weddings, reimagined</span>
+      </div>
+      <h1>
+        Your <span class="serif">wedding,</span><br>
+        its own app.
+      </h1>
+      <p class="hero-sub">
+        A private, beautifully themed companion app made just for your celebration — for your guests, your schedule, and every moment in between.
+      </p>
+      <div class="hero-btns">
+        <a href="mailto:hello@baraati.co.in" class="btn btn-grad">
+          Get in touch
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#features" class="btn btn-ghost">Explore features</a>
+      </div>
+      <div class="hero-social">
+        <div class="hero-avatars">
+          <div class="hero-avatar" style="background:#FF8A3D;">A</div>
+          <div class="hero-avatar" style="background:#EC4899;">T</div>
+          <div class="hero-avatar" style="background:#6D5BFF;">M</div>
+          <div class="hero-avatar" style="background:#10B981;">N</div>
+          <div class="hero-avatar" style="background:#F59E0B;">R</div>
+        </div>
+        <div class="hero-social-text">
+          <div class="title">Join the waitlist</div>
+          <div class="sub">Mumbai · Delhi · Bangalore · Jaipur</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phone + floating cards -->
+    <div class="hero-phone-wrap">
+      <div class="phone-glow"></div>
+
+      <!-- Phone frame -->
+      <div class="phone-frame" style="position:relative;">
+        <div class="phone-di"></div>
+        <div class="phone-status">
+          <span>9:41</span>
+          <span style="display:flex;gap:5px;align-items:center;">
+            <svg width="14" height="10" viewBox="0 0 19 12"><rect x="0" y="7.5" width="3.2" height="4.5" rx="0.7" fill="#000"/><rect x="4.8" y="5" width="3.2" height="7" rx="0.7" fill="#000"/><rect x="9.6" y="2.5" width="3.2" height="9.5" rx="0.7" fill="#000"/><rect x="14.4" y="0" width="3.2" height="12" rx="0.7" fill="#000"/></svg>
+            <svg width="11" height="8" viewBox="0 0 19 12"><rect x="0.5" y="0.5" width="16" height="11" rx="3" stroke="#000" stroke-opacity="0.35" fill="none"/><rect x="2" y="2" width="13" height="8" rx="2" fill="#000"/></svg>
+          </span>
+        </div>
+        <div class="phone-content">
+          <div class="app-hero-tag">Baraati</div>
+          <div class="app-countdown">
+            <div class="days">12</div>
+            <div class="label">days until your wedding ✨</div>
+          </div>
+          <div class="app-event-row">
+            <div class="app-event-dot" style="background:#F59E0B;"></div>
+            <div>
+              <div class="app-event-title">Haldi Ceremony</div>
+              <div class="app-event-time">Tomorrow · 10:00 AM · The Grand</div>
+            </div>
+          </div>
+          <div class="app-event-row">
+            <div class="app-event-dot" style="background:#10B981;"></div>
+            <div>
+              <div class="app-event-title">Mehendi &amp; Sangeet</div>
+              <div class="app-event-time">Sat · 6:00 PM · Rooftop Lawn</div>
+            </div>
+          </div>
+          <div class="app-event-row">
+            <div class="app-event-dot" style="background:#FF4D6D;"></div>
+            <div>
+              <div class="app-event-title">Wedding Ceremony</div>
+              <div class="app-event-time">Sun · 11:00 AM · Main Hall</div>
+            </div>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:#8A7E92;text-align:center;">🎲 Who cries first? · Play now</div>
+        </div>
+        <div class="phone-indicator"></div>
+      </div>
+
+      <!-- Floating glass cards -->
+      <div class="float-card glass floaty" style="top:50px;left:-20px;--rot:-4deg;animation-delay:0s;">
+        <div class="float-card-inner">
+          <div class="float-icon" style="background:linear-gradient(135deg,#6D5BFF,#EC4899);">🎲</div>
+          <div>
+            <div class="float-title">Live game</div>
+            <div class="float-value">"Who cries first?"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="float-card glass floaty" style="top:130px;right:-30px;--rot:5deg;animation-delay:1.5s;">
+        <div class="float-card-inner">
+          <div class="float-icon" style="background:#10B981;color:#fff;border-radius:999px;">N</div>
+          <div>
+            <div class="float-title">Couple trivia</div>
+            <div class="float-value">Nishit scored 9/10 🎯</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="float-card glass floaty" style="bottom:220px;left:-50px;--rot:4deg;animation-delay:0.8s;min-width:150px;">
+        <div class="float-card-inner">
+          <div style="display:flex;">
+            <div style="width:26px;height:26px;border-radius:999px;background:#FF8A3D;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;">A</div>
+            <div style="width:26px;height:26px;border-radius:999px;background:#EC4899;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-left:-8px;">T</div>
+            <div style="width:26px;height:26px;border-radius:999px;background:#6D5BFF;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-left:-8px;">M</div>
+          </div>
+          <div class="float-value" style="font-size:12px;">143 guests joined</div>
+        </div>
+      </div>
+
+      <div class="float-card glass floaty" style="bottom:100px;right:-10px;--rot:-3deg;animation-delay:2s;min-width:130px;padding:10px 14px;">
+        <div class="float-card-inner" style="justify-content:center;gap:6px;">
+          <span style="font-size:18px;">❤️</span>
+          <span style="font-size:18px;">🔥</span>
+          <span style="font-size:18px;">👏</span>
+          <span style="font-size:12px;color:var(--muted);font-weight:600;">+428</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ INTRO / WHAT IS BARAATI ══════════════ -->
+<section class="intro-section reveal">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:0;">
+      <div class="eyebrow">What is Baraati</div>
+      <h2 style="margin-top:14px;max-width:880px;margin-left:auto;margin-right:auto;">
+        One beautiful space for your <span class="serif" style="color:#FF4D6D;">entire</span> wedding
       </h2>
-      <p class="intro-body">
+      <p style="margin-top:18px;font-size:17px;color:var(--ink-2);max-width:640px;margin-left:auto;margin-right:auto;">
         Indian weddings are multi-day, multi-event celebrations with hundreds of guests travelling from across the country. Baraati replaces scattered WhatsApp groups, PDFs, and phone calls with a single private app — personalised for your wedding.
       </p>
-      <div class="intro-grid">
-        <div class="intro-card">
-          <div class="intro-icon">🎨</div>
-          <h3>Themed Experience</h3>
-          <p>Choose from 6 distinct visual themes. Every guest sees your wedding's unique personality the moment they open the app.</p>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="card metric-card">
+        <div class="metric-num">Private</div>
+        <div class="metric-label">invite-only access</div>
+      </div>
+      <div class="card metric-card">
+        <div class="metric-num">6</div>
+        <div class="metric-label">distinct visual themes</div>
+      </div>
+      <div class="card metric-card">
+        <div class="metric-num">Live</div>
+        <div class="metric-label">real-time updates</div>
+      </div>
+      <div class="card metric-card">
+        <div class="metric-num">One</div>
+        <div class="metric-label">app for everything</div>
+      </div>
+    </div>
+
+    <div class="intro-cards-grid">
+      <div class="intro-card card">
+        <div class="intro-icon" style="background:rgba(255,138,61,0.12);">🎨</div>
+        <h3>Themed Experience</h3>
+        <p>Choose from 6 distinct visual themes. Every guest sees your wedding's unique personality the moment they open the app.</p>
+      </div>
+      <div class="intro-card card">
+        <div class="intro-icon" style="background:rgba(109,91,255,0.1);">🔐</div>
+        <h3>Private by Design</h3>
+        <p>Guests join only via your invite code. No public listings, no strangers — just your people.</p>
+      </div>
+      <div class="intro-card card">
+        <div class="intro-icon" style="background:rgba(16,185,129,0.1);">📱</div>
+        <h3>Everything in One Place</h3>
+        <p>Schedule, venue, guest list, photos, travel info, and notifications — all inside one app.</p>
+      </div>
+      <div class="intro-card card">
+        <div class="intro-icon" style="background:rgba(236,72,153,0.1);">✨</div>
+        <h3>Live &amp; Real-time</h3>
+        <p>Updates happen instantly. Change a venue, send a notification, share a photo — guests see it right away.</p>
+      </div>
+    </div>
+
+    <!-- Marquee of couple names -->
+    <div class="marquee-wrap">
+      <div class="marquee-inner" id="marquee">
+        <!-- items injected by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PROBLEM ══════════════ -->
+<section style="padding:80px 0;">
+  <div class="problem-section reveal">
+    <div class="wrap">
+      <div class="eyebrow" style="color:rgba(255,255,255,0.5);">The problem</div>
+      <h2 style="margin-top:14px;max-width:880px;">
+        Weddings today are <span class="serif" style="color:#FF8A3D;">chaotic.</span>
+      </h2>
+      <p style="margin-top:18px;font-size:18px;color:rgba(255,255,255,0.6);max-width:580px;">
+        The most important week of your life shouldn't be coordinated in five group chats and a shared Google Doc.
+      </p>
+      <div class="problem-cards">
+        <div class="problem-card" style="transform:rotate(-3deg);">
+          <div class="problem-emoji">💬</div>
+          <div class="problem-title">WhatsApp spam</div>
+          <div class="problem-desc">247 unread. Three groups. Aunties forwarding chains at 6 AM.</div>
         </div>
-        <div class="intro-card">
-          <div class="intro-icon">🔐</div>
-          <h3>Private by Design</h3>
-          <p>Guests join only via your invite code. No public listings, no strangers — just your people.</p>
+        <div class="problem-card" style="transform:rotate(-1.5deg);">
+          <div class="problem-emoji">🤷</div>
+          <div class="problem-title">Guests miss schedules</div>
+          <div class="problem-desc">Where's the haldi? When does sangeet start? Nobody knows.</div>
         </div>
-        <div class="intro-card">
-          <div class="intro-icon">📱</div>
-          <h3>Everything in One Place</h3>
-          <p>Schedule, venue, guest list, photos, travel info, and notifications — all inside one app.</p>
+        <div class="problem-card" style="transform:rotate(0deg);">
+          <div class="problem-emoji">📷</div>
+          <div class="problem-title">Photos get scattered</div>
+          <div class="problem-desc">40 phones, 14 cameras, 0 albums you'll ever assemble.</div>
         </div>
-        <div class="intro-card">
-          <div class="intro-icon">✨</div>
-          <h3>Live &amp; Real-time</h3>
-          <p>Updates happen instantly. Change a venue, send a notification, share a photo — guests see it right away.</p>
+        <div class="problem-card" style="transform:rotate(1.5deg);">
+          <div class="problem-emoji">😴</div>
+          <div class="problem-title">No pre-event buzz</div>
+          <div class="problem-desc">Guests show up cold. The dance floor takes hours to warm up.</div>
+        </div>
+        <div class="problem-card" style="transform:rotate(3deg);">
+          <div class="problem-emoji">😶</div>
+          <div class="problem-title">Low interaction</div>
+          <div class="problem-desc">Most guests are spectators, not part of the celebration.</div>
+        </div>
+      </div>
+      <div class="problem-fix">
+        <span class="lead">Baraati fixes this.</span>
+        <div class="problem-fix-arrow">
+          <svg width="40" height="14" viewBox="0 0 40 14" fill="none">
+            <path d="M2 7h36M32 2l6 5-6 5" stroke="#FF8A3D" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="punchline">One app. Everyone in.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FEATURES BENTO ══════════════ -->
+<section id="features">
+  <div class="wrap">
+    <div class="features-header reveal">
+      <div class="features-header-left">
+        <div class="eyebrow">Features</div>
+        <h2>Built for <span class="serif" style="color:#EC4899;">everyone</span> at the wedding.</h2>
+      </div>
+      <a href="mailto:hello@baraati.co.in" class="btn btn-ghost">Get in touch →</a>
+    </div>
+
+    <div class="bento-grid reveal">
+      <!-- Hosts — wide card -->
+      <div class="bento-card bento-hosts">
+        <div class="chip">For Hosts</div>
+        <h3 style="font-size:28px;max-width:340px;">
+          Run your wedding <span class="serif" style="color:#EC4899;">from your phone.</span>
+        </h3>
+        <ul class="feature-list-bento">
+          <li><span class="fcheck">✓</span>Set the visual theme — full UI revamp for all guests instantly</li>
+          <li><span class="fcheck">✓</span>Manage guest list, assign room numbers &amp; track travel</li>
+          <li><span class="fcheck">✓</span>Build a multi-day schedule with venues &amp; dress codes</li>
+          <li><span class="fcheck">✓</span>Collect government IDs for hotel check-in</li>
+          <li><span class="fcheck">✓</span>Send push notifications to all guests at once</li>
+          <li><span class="fcheck">✓</span>Set up I-Spy photo challenges for the wedding</li>
+          <li><span class="fcheck">✓</span>Organise guests into groups for coordination</li>
+        </ul>
+      </div>
+
+      <!-- Guests — narrow card -->
+      <div class="bento-card bento-guests">
+        <div class="chip">For Guests</div>
+        <h3>
+          <span class="serif" style="color:#F59E0B;">Feel</span> every moment.
+        </h3>
+        <ul class="feature-list-bento">
+          <li><span class="fcheck">✓</span>Join via a private invite code</li>
+          <li><span class="fcheck">✓</span>Live countdown to the wedding day</li>
+          <li><span class="fcheck">✓</span>Full schedule with venues &amp; dress codes</li>
+          <li><span class="fcheck">✓</span>Share photos &amp; react to posts</li>
+          <li><span class="fcheck">✓</span>Complete I-Spy photo challenges</li>
+          <li><span class="fcheck">✓</span>Know who else is attending</li>
+          <li><span class="fcheck">✓</span>One-tap directions to venue</li>
+        </ul>
+      </div>
+
+      <!-- Live moments -->
+      <div class="bento-card bento-live">
+        <div class="chip" style="background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.15);">Live</div>
+        <h3>
+          <span class="serif" style="color:#FF8A3D;">Real-time</span> reactions.
+        </h3>
+        <p style="color:rgba(255,255,255,0.65);">Photo wall, reactions, dedications — all as the dance floor heats up.</p>
+        <div class="reaction-pills">
+          <div class="reaction-pill">❤️ 1.2k</div>
+          <div class="reaction-pill">🔥 840</div>
+          <div class="reaction-pill">👏 612</div>
+          <div class="reaction-pill">🥳 503</div>
+        </div>
+      </div>
+
+      <!-- Themes — wide card -->
+      <div class="bento-card bento-themes">
+        <div class="chip" style="background:rgba(255,255,255,0.7);">Themes</div>
+        <h3 style="font-size:28px;max-width:400px;">
+          Six distinct aesthetics. <span class="serif" style="color:#6D5BFF;">One that's yours.</span>
+        </h3>
+        <p style="color:var(--ink-2);max-width:440px;">Every theme changes fonts, colours, card shapes, and shadows — a complete visual identity, not just a colour swap.</p>
+        <div class="theme-tags" style="margin-top:20px;">
+          <div class="theme-tag"><div class="theme-swatch" style="background:#7d544f;"></div>Classic Burgundy</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#c9a050;"></div>Dark Romance</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#b5687a;"></div>Blush Rose</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#2d6a4f;"></div>Garden Fresh</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#7b9fd4;"></div>Midnight</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#9b7d3a;"></div>Champagne Gold</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── Features ── -->
-  <section class="section section-alt reveal">
-    <div class="container">
-      <div class="features-header">
-        <p class="tag">Features</p>
-        <h2>Built for everyone<br>at the wedding</h2>
-        <p>Powerful tools for hosts. A delightful experience for guests.</p>
+<!-- ══════════════ HOW IT WORKS ══════════════ -->
+<section id="how" style="background:#fff;">
+  <div class="wrap reveal">
+    <div style="max-width:680px;margin-bottom:0;">
+      <div class="eyebrow">How it works</div>
+      <h2 style="margin-top:14px;">
+        Up and running in <span class="serif" style="color:#FF4D6D;">minutes.</span>
+      </h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-card card">
+        <div class="how-num">1</div>
+        <h3>Host Creates</h3>
+        <p>Set up your wedding — names, date, venue, and choose your theme. You get a private invite code.</p>
       </div>
-      <div class="features-grid">
-
-        <div class="feature-col">
-          <p class="feature-col-label">For Hosts</p>
-          <h3>Run your wedding<br>from your phone</h3>
-          <ul class="feature-list">
-            <li><div class="feature-check">✓</div>Set the visual theme — full UI revamp for all guests instantly</li>
-            <li><div class="feature-check">✓</div>Manage the guest list, assign room numbers &amp; track travel</li>
-            <li><div class="feature-check">✓</div>Build a multi-day event schedule with venues &amp; dress codes</li>
-            <li><div class="feature-check">✓</div>Collect government IDs from guests for hotel check-in</li>
-            <li><div class="feature-check">✓</div>Send push notifications to all guests at once</li>
-            <li><div class="feature-check">✓</div>Set up I-Spy photo challenges for the wedding</li>
-            <li><div class="feature-check">✓</div>Organise guests into groups for coordination</li>
-          </ul>
-        </div>
-
-        <div class="feature-col">
-          <p class="feature-col-label">For Guests</p>
-          <h3>Feel connected<br>to every moment</h3>
-          <ul class="feature-list">
-            <li><div class="feature-check">✓</div>Join via a private invite code — no account creation friction</li>
-            <li><div class="feature-check">✓</div>Live countdown to the wedding day</li>
-            <li><div class="feature-check">✓</div>Full event schedule with timings, venues &amp; dress codes</li>
-            <li><div class="feature-check">✓</div>Share photos &amp; videos in the wedding feed, react to posts</li>
-            <li><div class="feature-check">✓</div>Complete I-Spy photo challenges during the events</li>
-            <li><div class="feature-check">✓</div>Know who else is attending and explore the couple's story</li>
-            <li><div class="feature-check">✓</div>One-tap directions to the venue</li>
-          </ul>
-        </div>
-
+      <div class="how-card card">
+        <div class="how-num">2</div>
+        <h3>Guests Join</h3>
+        <p>Download Baraati, enter the invite code, and they're instantly inside your wedding's private space.</p>
+      </div>
+      <div class="how-card card">
+        <div class="how-num">3</div>
+        <h3>Everyone Connects</h3>
+        <p>Share moments, stay updated on the schedule, and relive memories — all in one beautiful place.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── How it works ── -->
-  <section class="section reveal">
-    <div class="container how">
-      <p class="tag">How it works</p>
-      <h2>Up and running<br>in minutes</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Host Creates</h3>
-          <p>Set up your wedding — names, date, venue, and choose your theme. You get a private invite code.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Guests Join</h3>
-          <p>Download Baraati, enter the invite code, and they're instantly inside your wedding's private space.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Everyone Connects</h3>
-          <p>Share moments, stay updated on the schedule, and relive memories — all in one beautiful place.</p>
-        </div>
+<!-- ══════════════ TESTIMONIALS ══════════════ -->
+<section id="stories" class="testimonials-section">
+  <div class="wrap reveal">
+    <div class="testimonials-header">
+      <div style="max-width:600px;">
+        <div class="eyebrow">Stories</div>
+        <h2 style="margin-top:14px;">
+          Loved by modern <span class="serif" style="color:#EC4899;">Indian weddings.</span>
+        </h2>
       </div>
     </div>
-  </section>
-
-  <!-- ── Themes ── -->
-  <section class="section section-alt reveal">
-    <div class="container themes">
-      <p class="tag">Themes</p>
-      <h2>Six distinct aesthetics.<br>One that's yours.</h2>
-      <p class="themes-sub">Every theme changes fonts, colours, card shapes, and shadows — a complete visual identity, not just a colour swap.</p>
-      <div class="themes-row">
-        <div class="theme-pill">
-          <div class="theme-swatch" style="background:#7d544f"></div>
-          <span>CLASSIC BURGUNDY</span>
+    <div class="testimonials-grid">
+      <div class="testimonial-card card" style="background:linear-gradient(180deg,#FFE7F1 0%,#fff 100%);">
+        <div class="testimonial-quote" style="color:#FF8A3D;">"</div>
+        <p class="testimonial-body">We thought guests would just attend. Baraati made everyone participate. My nani was playing trivia.</p>
+        <div class="testimonial-author">
+          <div class="t-avatar" style="background:#FF8A3D;">A</div>
+          <div>
+            <div class="t-name">Aanya &amp; Nishit</div>
+            <div class="t-loc">Jaipur · Dec 2025</div>
+          </div>
         </div>
-        <div class="theme-pill">
-          <div class="theme-swatch" style="background:#c9a050"></div>
-          <span>DARK ROMANCE</span>
+      </div>
+      <div class="testimonial-card card" style="background:linear-gradient(180deg,#FFF7E6 0%,#fff 100%);">
+        <div class="testimonial-quote" style="color:#EC4899;">"</div>
+        <p class="testimonial-body">The photo wall was the most-talked-about thing at our wedding. People are still texting me about it.</p>
+        <div class="testimonial-author">
+          <div class="t-avatar" style="background:#EC4899;">T</div>
+          <div>
+            <div class="t-name">Tara &amp; Vir</div>
+            <div class="t-loc">Mumbai · Nov 2025</div>
+          </div>
         </div>
-        <div class="theme-pill">
-          <div class="theme-swatch" style="background:#b5687a"></div>
-          <span>BLUSH ROSE</span>
+      </div>
+      <div class="testimonial-card card" style="background:linear-gradient(180deg,#E9D5FF 0%,#fff 100%);">
+        <div class="testimonial-quote" style="color:#6D5BFF;">"</div>
+        <p class="testimonial-body">I planned 38 weddings last year. This is the first tool that's actually moved the guest experience forward.</p>
+        <div class="testimonial-author">
+          <div class="t-avatar" style="background:#6D5BFF;">S</div>
+          <div>
+            <div class="t-name">Sanaa K.</div>
+            <div class="t-loc">Wedding planner · Delhi</div>
+          </div>
         </div>
-        <div class="theme-pill">
-          <div class="theme-swatch" style="background:#2d6a4f"></div>
-          <span>GARDEN FRESH</span>
-        </div>
-        <div class="theme-pill">
-          <div class="theme-swatch" style="background:#7b9fd4"></div>
-          <span>MIDNIGHT</span>
-        </div>
-        <div class="theme-pill">
-          <div class="theme-swatch" style="background:#9b7d3a"></div>
-          <span>CHAMPAGNE GOLD</span>
+      </div>
+      <div class="testimonial-card card" style="background:linear-gradient(180deg,#DBEAFE 0%,#fff 100%);">
+        <div class="testimonial-quote" style="color:#10B981;">"</div>
+        <p class="testimonial-body">My dad doesn't use Instagram. He used Baraati. That's the highest compliment I can give a product.</p>
+        <div class="testimonial-author">
+          <div class="t-avatar" style="background:#10B981;">M</div>
+          <div>
+            <div class="t-name">Meher &amp; Aarav</div>
+            <div class="t-loc">Goa · Feb 2026</div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── CTA Banner ── -->
-  <section class="section">
-    <div class="container">
-      <div class="cta-banner reveal">
-        <p class="tag">Coming Soon</p>
-        <h2>Every love story<br>deserves an <em>app</em>.</h2>
-        <p>Baraati is launching soon on iOS and Android. Get in touch to learn more.</p>
-        <div class="cta-buttons">
-          <a class="btn-primary" href="mailto:hello@baraati.co.in">GET IN TOUCH</a>
-          <a class="btn-outline" href="mailto:hello@baraati.co.in">hello@baraati.co.in</a>
-        </div>
+<!-- ══════════════ FAQ ══════════════ -->
+<section id="faq" class="faq-section">
+  <div class="wrap reveal">
+    <div class="faq-inner">
+      <div class="eyebrow" style="text-align:center;">Questions</div>
+      <h2>The fine <span class="serif" style="color:#FF4D6D;">print.</span></h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>
+            Do guests need to download an app?
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p class="faq-answer">Baraati works as a progressive web app — guests open a link and they're in. Couples can install the full app from the App Store or Play Store.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            Is my wedding private?
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p class="faq-answer">Yes. Every wedding is invitation-only. Photos, games and chat live inside your wedding's private space. No public listings, no strangers.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            What does it cost?
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p class="faq-answer">Free during beta. Paid plans start at ₹2,499 for the wedding week and scale with guest count. Get in touch to learn more about pricing for your wedding.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            Can our planner manage it?
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p class="faq-answer">Yes. Planners get co-host access, multi-wedding dashboards, and dedicated support.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            When is Baraati launching?
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p class="faq-answer">Baraati is launching soon on iOS and Android. Get in touch to learn more and be among the first couples to use it.</p>
+        </details>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── Footer ── -->
-  <footer>
-    <div class="footer-logo">Bara<span>ati</span></div>
-    <nav class="footer-links">
+<!-- ══════════════ CTA ══════════════ -->
+<section style="padding:0 0 80px;">
+  <div class="cta-outer" style="padding:0 24px 80px;">
+    <div class="cta-inner reveal">
+      <div class="confetti-wrap" id="confetti-cta"></div>
+      <div class="cta-dots"></div>
+      <div class="cta-content">
+        <div class="cta-chip">
+          <span class="cta-dot"></span>
+          <span>Coming soon · iOS &amp; Android</span>
+        </div>
+        <h2>
+          Every love story<br>deserves an <span class="serif">app.</span>
+        </h2>
+        <p class="cta-sub">Because memories should live beyond the mandap.</p>
+        <div class="cta-btns">
+          <a href="mailto:hello@baraati.co.in" class="btn btn-white">
+            Get in Touch
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="mailto:hello@baraati.co.in" class="btn btn-outline-white">hello@baraati.co.in</a>
+        </div>
+        <p class="cta-note">Free during beta · No credit card · One link to share with everyone</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-brand-logo" href="#">
+        <span class="logo-mark">B</span>
+        <span>baraati</span>
+      </a>
+      <p class="footer-brand-desc">One app for every part of an Indian wedding. Memories included.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Product</div>
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#stories">Stories</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
       <a href="mailto:hello@baraati.co.in">Contact</a>
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Use</a>
-    </nav>
-    <p class="footer-copy">© 2026 Baraati. All rights reserved.</p>
-  </footer>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Follow</div>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Baraati. Made with <span class="footer-heart">❤</span> for Indian weddings.</span>
+    <span>Mumbai · Bangalore · Delhi</span>
+  </div>
+</footer>
 
-  <script>
-    // Scroll-triggered reveal
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
-      { threshold: 0.12 }
-    );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+<script>
+  // ── Confetti ──────────────────────────────────────────────
+  function spawnConfetti(containerId, count) {
+    const wrap = document.getElementById(containerId);
+    if (!wrap) return;
+    const colors = ['#FF8A3D','#FF4D6D','#EC4899','#6D5BFF','#F59E0B','#10B981','#FFC6A0'];
+    for (let i = 0; i < count; i++) {
+      const piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      const size = 6 + Math.random() * 8;
+      piece.style.cssText = `
+        left:${Math.random()*100}%;
+        width:${size}px; height:${size*1.4}px;
+        background:${colors[i % colors.length]};
+        animation-duration:${12 + Math.random()*10}s;
+        animation-delay:${-Math.random()*16}s;
+        transform:rotate(${Math.random()*360}deg);
+        border-radius:${i % 3 === 0 ? '50%' : '2px'};
+      `;
+      wrap.appendChild(piece);
+    }
+  }
+  spawnConfetti('confetti', 36);
+  spawnConfetti('confetti-cta', 40);
+
+  // ── Marquee ───────────────────────────────────────────────
+  const couples = [
+    { name: 'Aanya & Nishit · Jaipur', color: '#FF8A3D', init: 'A' },
+    { name: 'Tara & Vir · Mumbai', color: '#EC4899', init: 'T' },
+    { name: 'Meher & Aarav · Delhi', color: '#6D5BFF', init: 'M' },
+    { name: 'Ishani & Karan · Goa', color: '#10B981', init: 'I' },
+    { name: 'Riya & Dev · Udaipur', color: '#F59E0B', init: 'R' },
+    { name: 'Naina & Arjun · Bangalore', color: '#FF4D6D', init: 'N' },
+    { name: 'Sana & Rohan · Hyderabad', color: '#EC4899', init: 'S' },
+    { name: 'Pia & Yash · Chandigarh', color: '#6D5BFF', init: 'P' },
+  ];
+  const marquee = document.getElementById('marquee');
+  if (marquee) {
+    const doubled = [...couples, ...couples];
+    doubled.forEach((c, i) => {
+      const item = document.createElement('div');
+      item.className = 'marquee-item';
+      item.innerHTML = `
+        <div class="marquee-avatar" style="background:${c.color};">${c.init}</div>
+        <span class="marquee-name">${c.name}</span>
+        <span class="marquee-sep">✶</span>
+      `;
+      marquee.appendChild(item);
+    });
+  }
+
+  // ── Scroll reveal ─────────────────────────────────────────
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
