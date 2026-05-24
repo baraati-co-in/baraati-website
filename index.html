@@ -197,20 +197,6 @@
       max-width: 520px; margin-bottom: 32px;
     }
     .hero-btns { display: flex; gap: 12px; align-items: center; margin-bottom: 36px; }
-    .hero-social {
-      display: flex; align-items: center; gap: 14px;
-    }
-    .hero-avatars { display: flex; }
-    .hero-avatar {
-      width: 32px; height: 32px; border-radius: 999px;
-      border: 2px solid var(--bg); margin-left: -10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 700; color: #fff;
-    }
-    .hero-avatar:first-child { margin-left: 0; }
-    .hero-social-text .title { font-weight: 700; font-size: 14px; }
-    .hero-social-text .sub { font-size: 12px; color: var(--muted); }
-
     /* Phone mock */
     .hero-phone-wrap {
       position: relative; height: 720px;
@@ -311,26 +297,6 @@
     }
     .intro-card h3 { font-size: 17px; margin-bottom: 8px; }
     .intro-card p { font-size: 13px; color: var(--ink-2); line-height: 1.65; }
-
-    /* ═══════════════════════════════════════
-       MARQUEE
-    ═══════════════════════════════════════ */
-    .marquee-wrap {
-      overflow: hidden;
-      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-      margin-top: 48px;
-    }
-    .marquee-inner { display: flex; gap: 64px; animation: marqueeScroll 35s linear infinite; width: max-content; }
-    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee-item { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-    .marquee-avatar {
-      width: 32px; height: 32px; border-radius: 999px;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 12px; font-weight: 700; flex-shrink: 0;
-    }
-    .marquee-name { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; white-space: nowrap; }
-    .marquee-sep { color: var(--muted); font-size: 16px; }
 
     /* ═══════════════════════════════════════
        PROBLEM
@@ -459,36 +425,6 @@
     .how-card p { font-size: 13px; color: var(--ink-2); line-height: 1.65; }
 
     /* ═══════════════════════════════════════
-       TESTIMONIALS
-    ═══════════════════════════════════════ */
-    .testimonials-section { background: #fff; }
-    .testimonials-header {
-      display: flex; justify-content: space-between;
-      align-items: flex-end; margin-bottom: 56px;
-    }
-    .testimonials-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-    }
-    .testimonial-card { padding: 36px; }
-    .testimonial-quote {
-      font-size: 48px; line-height: 0.7; font-family: 'Instrument Serif', serif;
-      margin-bottom: 14px;
-    }
-    .testimonial-body {
-      font-size: 20px; line-height: 1.45; letter-spacing: -0.3px; color: var(--ink);
-    }
-    .testimonial-author {
-      display: flex; align-items: center; gap: 12px; margin-top: 28px;
-    }
-    .t-avatar {
-      width: 42px; height: 42px; border-radius: 999px;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 14px; font-weight: 700; flex-shrink: 0;
-    }
-    .t-name { font-weight: 700; font-size: 15px; }
-    .t-loc { font-size: 13px; color: var(--muted); }
-
-    /* ═══════════════════════════════════════
        FAQ
     ═══════════════════════════════════════ */
     .faq-section { background: var(--bg); }
@@ -595,7 +531,6 @@
       .bento-card { grid-column: span 1 !important; grid-row: span 1 !important; }
       .how-grid { grid-template-columns: 1fr; }
       .how-grid::before { display: none; }
-      .testimonials-grid { grid-template-columns: 1fr; }
       .problem-cards { grid-template-columns: 1fr 1fr; }
       .cta-inner { padding: 60px 28px; border-radius: 28px; }
       .footer-inner { grid-template-columns: 1fr; }
@@ -605,7 +540,6 @@
     @media (max-width: 480px) {
       .intro-cards-grid { grid-template-columns: 1fr; }
       .problem-cards { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
       .hero-btns { flex-direction: column; align-items: flex-start; }
       .wrap { padding: 0 20px; }
     }
@@ -623,7 +557,6 @@
     <div class="nav-links">
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
-      <a href="#stories">Stories</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
@@ -660,19 +593,6 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a href="#features" class="btn btn-ghost">Explore features</a>
-      </div>
-      <div class="hero-social">
-        <div class="hero-avatars">
-          <div class="hero-avatar" style="background:#FF8A3D;">A</div>
-          <div class="hero-avatar" style="background:#EC4899;">T</div>
-          <div class="hero-avatar" style="background:#6D5BFF;">M</div>
-          <div class="hero-avatar" style="background:#10B981;">N</div>
-          <div class="hero-avatar" style="background:#F59E0B;">R</div>
-        </div>
-        <div class="hero-social-text">
-          <div class="title">Join the waitlist</div>
-          <div class="sub">Mumbai · Delhi · Bangalore · Jaipur</div>
-        </div>
       </div>
     </div>
 
@@ -735,22 +655,21 @@
 
       <div class="float-card glass floaty" style="top:130px;right:-30px;--rot:5deg;animation-delay:1.5s;">
         <div class="float-card-inner">
-          <div class="float-icon" style="background:#10B981;color:#fff;border-radius:999px;">N</div>
+          <div class="float-icon" style="background:linear-gradient(135deg,#10B981,#6D5BFF);">🏆</div>
           <div>
             <div class="float-title">Couple trivia</div>
-            <div class="float-value">Nishit scored 9/10 🎯</div>
+            <div class="float-value">Play with guests</div>
           </div>
         </div>
       </div>
 
       <div class="float-card glass floaty" style="bottom:220px;left:-50px;--rot:4deg;animation-delay:0.8s;min-width:150px;">
         <div class="float-card-inner">
-          <div style="display:flex;">
-            <div style="width:26px;height:26px;border-radius:999px;background:#FF8A3D;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;">A</div>
-            <div style="width:26px;height:26px;border-radius:999px;background:#EC4899;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-left:-8px;">T</div>
-            <div style="width:26px;height:26px;border-radius:999px;background:#6D5BFF;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-left:-8px;">M</div>
+          <div class="float-icon" style="background:linear-gradient(135deg,#FF8A3D,#EC4899);">📸</div>
+          <div>
+            <div class="float-title">Photo wall</div>
+            <div class="float-value">Live &amp; shared</div>
           </div>
-          <div class="float-value" style="font-size:12px;">143 guests joined</div>
         </div>
       </div>
 
@@ -759,7 +678,7 @@
           <span style="font-size:18px;">❤️</span>
           <span style="font-size:18px;">🔥</span>
           <span style="font-size:18px;">👏</span>
-          <span style="font-size:12px;color:var(--muted);font-weight:600;">+428</span>
+          <span style="font-size:12px;color:var(--muted);font-weight:600;">Live reactions</span>
         </div>
       </div>
     </div>
@@ -821,12 +740,6 @@
       </div>
     </div>
 
-    <!-- Marquee of couple names -->
-    <div class="marquee-wrap">
-      <div class="marquee-inner" id="marquee">
-        <!-- items injected by JS -->
-      </div>
-    </div>
   </div>
 </section>
 
@@ -935,10 +848,10 @@
         </h3>
         <p style="color:rgba(255,255,255,0.65);">Photo wall, reactions, dedications — all as the dance floor heats up.</p>
         <div class="reaction-pills">
-          <div class="reaction-pill">❤️ 1.2k</div>
-          <div class="reaction-pill">🔥 840</div>
-          <div class="reaction-pill">👏 612</div>
-          <div class="reaction-pill">🥳 503</div>
+          <div class="reaction-pill">❤️ Reactions</div>
+          <div class="reaction-pill">🔥 Moments</div>
+          <div class="reaction-pill">👏 Dedications</div>
+          <div class="reaction-pill">🥳 Song requests</div>
         </div>
       </div>
 
@@ -986,66 +899,6 @@
         <div class="how-num">3</div>
         <h3>Everyone Connects</h3>
         <p>Share moments, stay updated on the schedule, and relive memories — all in one beautiful place.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ TESTIMONIALS ══════════════ -->
-<section id="stories" class="testimonials-section">
-  <div class="wrap reveal">
-    <div class="testimonials-header">
-      <div style="max-width:600px;">
-        <div class="eyebrow">Stories</div>
-        <h2 style="margin-top:14px;">
-          Loved by modern <span class="serif" style="color:#EC4899;">Indian weddings.</span>
-        </h2>
-      </div>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card card" style="background:linear-gradient(180deg,#FFE7F1 0%,#fff 100%);">
-        <div class="testimonial-quote" style="color:#FF8A3D;">"</div>
-        <p class="testimonial-body">We thought guests would just attend. Baraati made everyone participate. My nani was playing trivia.</p>
-        <div class="testimonial-author">
-          <div class="t-avatar" style="background:#FF8A3D;">A</div>
-          <div>
-            <div class="t-name">Aanya &amp; Nishit</div>
-            <div class="t-loc">Jaipur · Dec 2025</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card card" style="background:linear-gradient(180deg,#FFF7E6 0%,#fff 100%);">
-        <div class="testimonial-quote" style="color:#EC4899;">"</div>
-        <p class="testimonial-body">The photo wall was the most-talked-about thing at our wedding. People are still texting me about it.</p>
-        <div class="testimonial-author">
-          <div class="t-avatar" style="background:#EC4899;">T</div>
-          <div>
-            <div class="t-name">Tara &amp; Vir</div>
-            <div class="t-loc">Mumbai · Nov 2025</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card card" style="background:linear-gradient(180deg,#E9D5FF 0%,#fff 100%);">
-        <div class="testimonial-quote" style="color:#6D5BFF;">"</div>
-        <p class="testimonial-body">I planned 38 weddings last year. This is the first tool that's actually moved the guest experience forward.</p>
-        <div class="testimonial-author">
-          <div class="t-avatar" style="background:#6D5BFF;">S</div>
-          <div>
-            <div class="t-name">Sanaa K.</div>
-            <div class="t-loc">Wedding planner · Delhi</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card card" style="background:linear-gradient(180deg,#DBEAFE 0%,#fff 100%);">
-        <div class="testimonial-quote" style="color:#10B981;">"</div>
-        <p class="testimonial-body">My dad doesn't use Instagram. He used Baraati. That's the highest compliment I can give a product.</p>
-        <div class="testimonial-author">
-          <div class="t-avatar" style="background:#10B981;">M</div>
-          <div>
-            <div class="t-name">Meher &amp; Aarav</div>
-            <div class="t-loc">Goa · Feb 2026</div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -1140,7 +993,6 @@
       <div class="footer-col-title">Product</div>
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
-      <a href="#stories">Stories</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="footer-col">
@@ -1185,32 +1037,6 @@
   }
   spawnConfetti('confetti', 36);
   spawnConfetti('confetti-cta', 40);
-
-  // ── Marquee ───────────────────────────────────────────────
-  const couples = [
-    { name: 'Aanya & Nishit · Jaipur', color: '#FF8A3D', init: 'A' },
-    { name: 'Tara & Vir · Mumbai', color: '#EC4899', init: 'T' },
-    { name: 'Meher & Aarav · Delhi', color: '#6D5BFF', init: 'M' },
-    { name: 'Ishani & Karan · Goa', color: '#10B981', init: 'I' },
-    { name: 'Riya & Dev · Udaipur', color: '#F59E0B', init: 'R' },
-    { name: 'Naina & Arjun · Bangalore', color: '#FF4D6D', init: 'N' },
-    { name: 'Sana & Rohan · Hyderabad', color: '#EC4899', init: 'S' },
-    { name: 'Pia & Yash · Chandigarh', color: '#6D5BFF', init: 'P' },
-  ];
-  const marquee = document.getElementById('marquee');
-  if (marquee) {
-    const doubled = [...couples, ...couples];
-    doubled.forEach((c, i) => {
-      const item = document.createElement('div');
-      item.className = 'marquee-item';
-      item.innerHTML = `
-        <div class="marquee-avatar" style="background:${c.color};">${c.init}</div>
-        <span class="marquee-name">${c.name}</span>
-        <span class="marquee-sep">✶</span>
-      `;
-      marquee.appendChild(item);
-    });
-  }
 
   // ── Scroll reveal ─────────────────────────────────────────
   const observer = new IntersectionObserver(
