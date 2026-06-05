@@ -336,7 +336,7 @@
     .features-header h2 { margin-top: 14px; }
     .bento-grid {
       display: grid; grid-template-columns: repeat(6, 1fr);
-      grid-auto-rows: 260px; gap: 18px;
+      gap: 18px;
     }
     .bento-card {
       border-radius: 28px; padding: 32px; overflow: hidden;
@@ -347,20 +347,20 @@
     .bento-card p { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
 
     .bento-hosts {
-      grid-column: span 4; grid-row: span 2;
+      grid-column: span 3;
       background: linear-gradient(135deg, #FFE7F1 0%, #FFD5A3 100%);
     }
     .bento-guests {
-      grid-column: span 2; grid-row: span 2;
+      grid-column: span 3;
       background: linear-gradient(180deg, #FFF7E6 0%, #fff 100%);
     }
     .bento-live {
-      grid-column: span 2; grid-row: span 2;
+      grid-column: span 2;
       background: linear-gradient(180deg, #1F1226 0%, #4B3B55 100%);
       color: #fff;
     }
     .bento-themes {
-      grid-column: span 4; grid-row: span 2;
+      grid-column: span 4;
       background: linear-gradient(135deg, #DBEAFE 0%, #E9D5FF 100%);
     }
 
@@ -509,10 +509,10 @@
     ═══════════════════════════════════════ */
     @media (max-width: 1024px) {
       .bento-grid { grid-template-columns: repeat(4, 1fr); }
-      .bento-hosts { grid-column: span 4; grid-row: span 1; }
-      .bento-guests { grid-column: span 2; }
+      .bento-hosts { grid-column: span 4; }
+      .bento-guests { grid-column: span 4; }
       .bento-live { grid-column: span 2; }
-      .bento-themes { grid-column: span 4; grid-row: span 1; }
+      .bento-themes { grid-column: span 4; }
       .metrics-grid { grid-template-columns: repeat(2, 1fr); }
       .intro-cards-grid { grid-template-columns: repeat(2, 1fr); }
       .problem-cards { grid-template-columns: repeat(3, 1fr); }
@@ -522,8 +522,8 @@
       .hero-inner { grid-template-columns: 1fr; }
       .hero-phone-wrap { display: none; }
       .features-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
-      .bento-card { grid-column: span 1 !important; grid-row: span 1 !important; }
+      .bento-grid { grid-template-columns: 1fr; }
+      .bento-card { grid-column: span 1 !important; }
       .how-grid { grid-template-columns: 1fr 1fr !important; }
       .how-grid::before { display: none; }
       .problem-cards { grid-template-columns: 1fr 1fr; }
