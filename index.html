@@ -524,7 +524,7 @@
       .features-header { flex-direction: column; align-items: flex-start; gap: 20px; }
       .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
       .bento-card { grid-column: span 1 !important; grid-row: span 1 !important; }
-      .how-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr 1fr !important; }
       .how-grid::before { display: none; }
       .problem-cards { grid-template-columns: 1fr 1fr; }
       .cta-inner { padding: 60px 28px; border-radius: 28px; }
@@ -535,6 +535,7 @@
     @media (max-width: 480px) {
       .intro-cards-grid { grid-template-columns: 1fr; }
       .problem-cards { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr !important; }
       .hero-btns { flex-direction: column; align-items: flex-start; }
       .wrap { padding: 0 20px; }
     }
@@ -632,7 +633,7 @@
               <div class="app-event-time">Sun · 11:00 AM · Main Hall</div>
             </div>
           </div>
-          <div style="margin-top:10px;font-size:11px;color:#8A7E92;text-align:center;">🎲 Who cries first? · Play now</div>
+          <div style="margin-top:10px;font-size:11px;color:#8A7E92;text-align:center;">🎮 Who's Most Likely? · Play now</div>
         </div>
         <div class="phone-indicator"></div>
       </div>
@@ -695,43 +696,43 @@
 
     <div class="metrics-grid">
       <div class="card metric-card">
-        <div class="metric-num">Private</div>
-        <div class="metric-label">invite-only access</div>
-      </div>
-      <div class="card metric-card">
         <div class="metric-num">6</div>
         <div class="metric-label">distinct visual themes</div>
       </div>
       <div class="card metric-card">
-        <div class="metric-num">Live</div>
-        <div class="metric-label">real-time updates</div>
+        <div class="metric-num">3</div>
+        <div class="metric-label">built-in wedding games</div>
       </div>
       <div class="card metric-card">
-        <div class="metric-num">One</div>
-        <div class="metric-label">app for everything</div>
+        <div class="metric-num">Private</div>
+        <div class="metric-label">invite-only access</div>
+      </div>
+      <div class="card metric-card">
+        <div class="metric-num">Live</div>
+        <div class="metric-label">real-time feed &amp; reactions</div>
       </div>
     </div>
 
     <div class="intro-cards-grid">
       <div class="intro-card card">
         <div class="intro-icon" style="background:rgba(255,138,61,0.12);">🎨</div>
-        <h3>Themed Experience</h3>
-        <p>Choose from 6 distinct visual themes. Every guest sees your wedding's unique personality the moment they open the app.</p>
+        <h3>6 Stunning Themes</h3>
+        <p>From Gulabi Raat to Shwet Sangam — every theme changes fonts, colours, and card shapes. A complete visual identity for your wedding.</p>
       </div>
       <div class="intro-card card">
         <div class="intro-icon" style="background:rgba(109,91,255,0.1);">🔐</div>
         <h3>Private by Design</h3>
-        <p>Guests join only via your invite code. No public listings, no strangers — just your people.</p>
+        <p>Guests join via your unique invite code. No public listings, no strangers — just the people you invited.</p>
       </div>
       <div class="intro-card card">
-        <div class="intro-icon" style="background:rgba(16,185,129,0.1);">📱</div>
-        <h3>Everything in One Place</h3>
-        <p>Schedule, venue, guest list, photos, travel info, and notifications — all inside one app.</p>
+        <div class="intro-icon" style="background:rgba(16,185,129,0.1);">🎮</div>
+        <h3>Games &amp; Leaderboard</h3>
+        <p>Word Search, Predictions, and Who's Most Likely? — guests compete, earn points, and climb the wedding leaderboard.</p>
       </div>
       <div class="intro-card card">
-        <div class="intro-icon" style="background:rgba(236,72,153,0.1);">✨</div>
-        <h3>Live &amp; Real-time</h3>
-        <p>Updates happen instantly. Change a venue, send a notification, share a photo — guests see it right away.</p>
+        <div class="intro-icon" style="background:rgba(236,72,153,0.1);">📸</div>
+        <h3>I-Spy &amp; Social Feed</h3>
+        <p>A shared photo feed with emoji reactions, a BTS feed, and I-Spy photo challenges across 10 wedding moments.</p>
       </div>
     </div>
 
@@ -808,13 +809,13 @@
           Run your wedding <span class="serif" style="color:#EC4899;">from your phone.</span>
         </h3>
         <ul class="feature-list-bento">
-          <li><span class="fcheck">✓</span>Set the visual theme — full UI revamp for all guests instantly</li>
-          <li><span class="fcheck">✓</span>Manage guest list, assign room numbers &amp; track travel</li>
-          <li><span class="fcheck">✓</span>Build a multi-day schedule with venues &amp; dress codes</li>
-          <li><span class="fcheck">✓</span>Collect government IDs for hotel check-in</li>
-          <li><span class="fcheck">✓</span>Send push notifications to all guests at once</li>
-          <li><span class="fcheck">✓</span>Set up I-Spy photo challenges for the wedding</li>
-          <li><span class="fcheck">✓</span>Organise guests into groups for coordination</li>
+          <li><span class="fcheck">✓</span>Choose from 6 themes — the entire UI updates for every guest instantly</li>
+          <li><span class="fcheck">✓</span>Manage guest list with roles, room assignments &amp; travel tracking</li>
+          <li><span class="fcheck">✓</span>Build a multi-day event schedule with venues &amp; dress codes</li>
+          <li><span class="fcheck">✓</span>Collect government IDs from guests for hotel check-in</li>
+          <li><span class="fcheck">✓</span>Send push notifications to all guests or targeted groups</li>
+          <li><span class="fcheck">✓</span>Configure games: Word Search, Predictions &amp; Who's Most Likely?</li>
+          <li><span class="fcheck">✓</span>Set up I-Spy photo moments &amp; export travel data as CSV</li>
         </ul>
       </div>
 
@@ -825,28 +826,28 @@
           <span class="serif" style="color:#F59E0B;">Feel</span> every moment.
         </h3>
         <ul class="feature-list-bento">
-          <li><span class="fcheck">✓</span>Join via a private invite code</li>
-          <li><span class="fcheck">✓</span>Live countdown to the wedding day</li>
-          <li><span class="fcheck">✓</span>Full schedule with venues &amp; dress codes</li>
-          <li><span class="fcheck">✓</span>Share photos &amp; react to posts</li>
-          <li><span class="fcheck">✓</span>Complete I-Spy photo challenges</li>
-          <li><span class="fcheck">✓</span>Know who else is attending</li>
-          <li><span class="fcheck">✓</span>One-tap directions to venue</li>
+          <li><span class="fcheck">✓</span>Join via private invite code — no account friction</li>
+          <li><span class="fcheck">✓</span>Live countdown with flip animations</li>
+          <li><span class="fcheck">✓</span>Full event schedule with timings &amp; dress codes</li>
+          <li><span class="fcheck">✓</span>Social feed + BTS feed with 5 emoji reactions</li>
+          <li><span class="fcheck">✓</span>Play games &amp; track your rank on the leaderboard</li>
+          <li><span class="fcheck">✓</span>Complete I-Spy photo challenges across 10 moments</li>
+          <li><span class="fcheck">✓</span>View guest directory, couple's story &amp; venue info</li>
         </ul>
       </div>
 
-      <!-- Live moments -->
+      <!-- Games card -->
       <div class="bento-card bento-live">
-        <div class="chip" style="background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.15);">Live</div>
+        <div class="chip" style="background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.15);">Games</div>
         <h3>
-          <span class="serif" style="color:#FF8A3D;">Real-time</span> reactions.
+          <span class="serif" style="color:#FF8A3D;">3 games.</span> 1 leaderboard.
         </h3>
-        <p style="color:rgba(255,255,255,0.65);">Photo wall, reactions, dedications — all as the dance floor heats up.</p>
+        <p style="color:rgba(255,255,255,0.65);margin-bottom:16px;">Guests compete before, during &amp; after the celebrations.</p>
         <div class="reaction-pills">
-          <div class="reaction-pill">❤️ Reactions</div>
-          <div class="reaction-pill">🔥 Moments</div>
-          <div class="reaction-pill">👏 Dedications</div>
-          <div class="reaction-pill">🥳 Song requests</div>
+          <div class="reaction-pill">🔤 Word Search</div>
+          <div class="reaction-pill">🔮 Predictions</div>
+          <div class="reaction-pill">💑 Who's Most Likely?</div>
+          <div class="reaction-pill">🏆 Leaderboard</div>
         </div>
       </div>
 
@@ -858,12 +859,12 @@
         </h3>
         <p style="color:var(--ink-2);max-width:440px;">Every theme changes fonts, colours, card shapes, and shadows — a complete visual identity, not just a colour swap.</p>
         <div class="theme-tags" style="margin-top:20px;">
-          <div class="theme-tag"><div class="theme-swatch" style="background:#7d544f;"></div>Classic Burgundy</div>
-          <div class="theme-tag"><div class="theme-swatch" style="background:#c9a050;"></div>Dark Romance</div>
-          <div class="theme-tag"><div class="theme-swatch" style="background:#b5687a;"></div>Blush Rose</div>
-          <div class="theme-tag"><div class="theme-swatch" style="background:#2d6a4f;"></div>Garden Fresh</div>
-          <div class="theme-tag"><div class="theme-swatch" style="background:#7b9fd4;"></div>Midnight</div>
-          <div class="theme-tag"><div class="theme-swatch" style="background:#9b7d3a;"></div>Champagne Gold</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#C8415A;"></div>Gulabi Raat</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#6B8CFF;"></div>Neel Shahi</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#E8820A;"></div>Haldi Utsav</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#1A7A4A;"></div>Mint Mehendi</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#E070A0;"></div>Raat Ki Rani</div>
+          <div class="theme-tag"><div class="theme-swatch" style="background:#141210;"></div>Shwet Sangam</div>
         </div>
       </div>
     </div>
@@ -879,21 +880,26 @@
         Up and running in <span class="serif" style="color:#FF4D6D;">minutes.</span>
       </h2>
     </div>
-    <div class="how-grid">
+    <div class="how-grid" style="grid-template-columns:repeat(4,1fr);">
       <div class="how-card card">
         <div class="how-num">1</div>
         <h3>Host Creates</h3>
-        <p>Set up your wedding — names, date, venue, and choose your theme. You get a private invite code.</p>
+        <p>Add couple names, venue, dates &amp; ceremonies. Pick your theme. Get a private invite code.</p>
       </div>
       <div class="how-card card">
         <div class="how-num">2</div>
         <h3>Guests Join</h3>
-        <p>Download Baraati, enter the invite code, and they're instantly inside your wedding's private space.</p>
+        <p>Download Baraati, enter the invite code, select their side — they're in within seconds.</p>
       </div>
       <div class="how-card card">
         <div class="how-num">3</div>
-        <h3>Everyone Connects</h3>
-        <p>Share moments, stay updated on the schedule, and relive memories — all in one beautiful place.</p>
+        <h3>Play &amp; Celebrate</h3>
+        <p>Guests play games, post to the feed, complete I-Spy challenges, and climb the leaderboard.</p>
+      </div>
+      <div class="how-card card">
+        <div class="how-num">4</div>
+        <h3>Relive the Memories</h3>
+        <p>Every photo, reaction, and moment lives in one place long after the celebrations end.</p>
       </div>
     </div>
   </div>
@@ -908,38 +914,45 @@
       <div class="faq-list">
         <details class="faq-item">
           <summary>
-            Do guests need to download an app?
+            How do guests join the wedding?
             <span class="faq-icon">＋</span>
           </summary>
-          <p class="faq-answer">Baraati works as a progressive web app — guests open a link and they're in. Couples can install the full app from the App Store or Play Store.</p>
+          <p class="faq-answer">Guests download the Baraati app and enter the 6-character invite code the host shares with them. They pick their side (Bride's, Groom's, or Event Team) and they're in — no lengthy sign-up required.</p>
         </details>
         <details class="faq-item">
           <summary>
             Is my wedding private?
             <span class="faq-icon">＋</span>
           </summary>
-          <p class="faq-answer">Yes. Every wedding is invitation-only. Photos, games and chat live inside your wedding's private space. No public listings, no strangers.</p>
+          <p class="faq-answer">Yes. Every wedding is invitation-only — accessible only via your unique invite code. Photos, games, and the social feed all live inside your wedding's private space. No public listings, no strangers.</p>
         </details>
         <details class="faq-item">
           <summary>
-            What does it cost?
+            What games are available?
             <span class="faq-icon">＋</span>
           </summary>
-          <p class="faq-answer">Free during beta. Paid plans start at ₹2,499 for the wedding week and scale with guest count. Get in touch to learn more about pricing for your wedding.</p>
+          <p class="faq-answer">Baraati includes three built-in games: Word Search (find hidden wedding words in a 15×15 grid), Predictions (vote on questions about the couple), and Who's Most Likely? (rapid-fire 15-second bride-or-groom questions). All games feed into a shared leaderboard.</p>
         </details>
         <details class="faq-item">
           <summary>
-            Can our planner manage it?
+            What is I-Spy?
             <span class="faq-icon">＋</span>
           </summary>
-          <p class="faq-answer">Yes. Planners get co-host access, multi-wedding dashboards, and dedicated support.</p>
+          <p class="faq-answer">I-Spy is a photo challenge where guests capture specific wedding moments — with the Bride, with the Groom, on the dance floor, candid emotions, and more. Each guest can upload up to 10 photos per moment, and everyone can react to submissions.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            Can the host collect guest travel &amp; ID details?
+            <span class="faq-icon">＋</span>
+          </summary>
+          <p class="faq-answer">Yes. Guests can submit their travel itinerary (arrival/departure date, time, mode, and confirmation number), and hosts can export it as a CSV. Guests can also upload government-issued ID documents (Aadhar, Passport, Driving License) for hotel check-in — stored securely and viewable only by the host.</p>
         </details>
         <details class="faq-item">
           <summary>
             When is Baraati launching?
             <span class="faq-icon">＋</span>
           </summary>
-          <p class="faq-answer">Baraati is launching soon on iOS and Android. Get in touch to learn more and be among the first couples to use it.</p>
+          <p class="faq-answer">Baraati is coming soon to iOS and Android. Get in touch at support@baraati.co.in to learn more and be among the first to use it for your wedding.</p>
         </details>
       </div>
     </div>
