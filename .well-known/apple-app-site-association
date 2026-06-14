@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "8AZQCND9PG.com.baraati.app",
+        "paths": ["/join", "/join/*"]
+      }
+    ]
+  }
+}
