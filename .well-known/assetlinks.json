@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.baraati.app",
+      "sha256_cert_fingerprints": [
+        "9D:6F:F0:E2:92:70:E1:1E:D8:A8:0A:F6:B6:A1:44:A2:71:7C:C9:93:57:D2:64:E8:1F:B0:6E:85:D4:86:AA:CA"
+      ]
+    }
+  }
+]
