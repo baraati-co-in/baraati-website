@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the wedding · Baraati</title>
+  <meta name="robots" content="noindex" />
+  <!-- iOS Safari smart app banner (works once the app is live on the App Store) -->
+  <meta name="apple-itunes-app" content="app-id=6779397081" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <style>
+    :root {
+      --bg: #FBF7F2; --card: #ffffff; --ink: #2A1A12; --muted: #8A7560;
+      --accent: #C2410C; --gold: #B8860B; --border: rgba(120,90,60,0.16);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(120% 120% at 50% 0%, #FFF6E9 0%, var(--bg) 55%);
+      color: var(--ink); min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; padding: 24px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+      max-width: 380px; width: 100%; padding: 36px 28px; text-align: center;
+      box-shadow: 0 20px 50px -20px rgba(80,50,20,0.25);
+    }
+    .logo { width: 84px; height: 84px; object-fit: contain; margin: 0 auto 18px; display: block; }
+    h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 8px; }
+    p { color: var(--muted); font-size: 15px; line-height: 1.5; margin-bottom: 22px; }
+    .code {
+      display: inline-block; font-family: "SFMono-Regular", ui-monospace, Menlo, monospace;
+      letter-spacing: 3px; font-size: 18px; font-weight: 700; color: var(--accent);
+      background: rgba(194,65,12,0.07); border: 1px dashed rgba(194,65,12,0.3);
+      border-radius: 12px; padding: 10px 18px; margin-bottom: 24px;
+    }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 15px 18px; border-radius: 14px; font-size: 15px;
+      font-weight: 700; text-decoration: none; margin-bottom: 12px; border: none; cursor: pointer;
+    }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-store { background: #fff; color: var(--ink); border: 1px solid var(--border); }
+    .hint { font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+    .stores { margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="logo.png" alt="Baraati" />
+    <h1>You're invited! 💍</h1>
+    <p>Open this invitation in the <strong>Baraati</strong> app to RSVP and join the celebration.</p>
+    <div id="code" class="code" hidden></div>
+
+    <a id="openApp" class="btn btn-primary" href="#">Open in the Baraati app</a>
+    <div class="stores">
+      <a id="playBtn" class="btn btn-store" href="https://play.google.com/store/apps/details?id=com.baraati.app">📲&nbsp; Get it on Google Play</a>
+      <a id="appStoreBtn" class="btn btn-store" href="https://apps.apple.com/app/id6779397081">🍎&nbsp; Download on the App Store</a>
+    </div>
+    <p class="hint">Don't have the app yet? Install it, then open this link again — or enter the code above in the app.</p>
+  </main>
+
+  <script>
+    (function () {
+      var APP_SCHEME   = 'baraati://join';
+      var PLAY_URL     = 'https://play.google.com/store/apps/details?id=com.baraati.app';
+      var APPSTORE_URL = 'https://apps.apple.com/app/id6779397081';
+      var ANDROID_PKG  = 'com.baraati.app';
+
+      var params = new URLSearchParams(location.search);
+      var code = (params.get('code') || '').trim().toUpperCase();
+
+      // Show the invite code as a manual fallback.
+      if (code) {
+        var el = document.getElementById('code');
+        el.textContent = code;
+        el.hidden = false;
+      }
+
+      var ua = navigator.userAgent || '';
+      var isAndroid = /android/i.test(ua);
+      var isIOS = /iphone|ipad|ipod/i.test(ua) || (/Mac/.test(ua) && 'ontouchend' in document);
+      var qs = code ? ('?code=' + encodeURIComponent(code)) : '';
+
+      // Wire the manual "Open in app" button per platform.
+      var openApp = document.getElementById('openApp');
+      if (isAndroid) {
+        // Chrome intent: opens the app if installed, else falls back to Play Store.
+        var intentUrl = 'intent://join' + qs +
+          '#Intent;scheme=baraati;package=' + ANDROID_PKG +
+          ';S.browser_fallback_url=' + encodeURIComponent(PLAY_URL) + ';end';
+        openApp.setAttribute('href', intentUrl);
+        document.getElementById('appStoreBtn').style.display = 'none';
+      } else if (isIOS) {
+        openApp.setAttribute('href', APP_SCHEME + qs);
+        document.getElementById('playBtn').style.display = 'none';
+      } else {
+        // Desktop: hide the app-open button, just show stores.
+        openApp.style.display = 'none';
+      }
+
+      // Auto-attempt to open the app on mobile; if it isn't installed the page
+      // stays and the store buttons remain. (We don't hard-redirect to the store
+      // so installed-but-unverified users can still get into the app.)
+      if (isAndroid) {
+        window.location.href = openApp.getAttribute('href'); // intent handles app-or-store
+      } else if (isIOS) {
+        var now = Date.now();
+        window.location.href = APP_SCHEME + qs;
+        // If still here ~1.2s later, the app likely isn't installed → App Store.
+        setTimeout(function () {
+          if (Date.now() - now < 2000 && !document.hidden) {
+            window.location.href = APPSTORE_URL;
+          }
+        }, 1200);
+      }
+    })();
+  </script>
+</body>
+</html>
