@@ -5,3 +5,7 @@ node_modules
 .gitignore
 .assetsignore
 wrangler.jsonc
+# The Next.js project under site/ is a separate, not-yet-deployed build whose
+# .next cache holds >25 MiB packs that Workers Assets rejects. Only the root
+# static pages are served.
+site
