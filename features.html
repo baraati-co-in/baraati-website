@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baraati — Features</title>
+  <meta name="description" content="Animated invitations and RSVP, live itineraries, a private photo feed, wedding games, a host command center, travel concierge, and a lasting web album. Every feature, in one place." />
+  <meta property="og:title" content="Baraati — Features" />
+  <meta property="og:description" content="Everything a wedding needs, in one private app — for your guests and for the family running the show." />
+  <meta property="og:image" content="https://baraati.co.in/og.jpg" />
+  <meta property="og:url" content="https://baraati.co.in/features" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #FBF7F1;
+      --bg-2:      #F4ECE0;
+      --ink:       #1F1226;
+      --ink-2:     #4B3B55;
+      --muted:     #8A7E92;
+      --card:      #ffffff;
+      --line:      rgba(31,18,38,0.08);
+      --gold:      #C9922A;
+      --rose:      #FF4D6D;
+      --grad-saffron: linear-gradient(135deg, #FF8A3D 0%, #FF4D6D 100%);
+      --grad-dusk:    linear-gradient(135deg, #FF8A3D 0%, #EC4899 50%, #6D5BFF 100%);
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--bg); color: var(--ink); overflow-x: hidden;
+    }
+    ::selection { background: #FF4D6D; color: #fff; }
+    .serif { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+    section { padding: 56px 0; position: relative; }
+    h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.08; font-weight: 700; }
+    h1 { font-size: clamp(38px, 5.6vw, 68px); font-weight: 800; }
+    h2 { font-size: clamp(26px, 3.4vw, 40px); }
+    h3 { font-size: 19px; font-weight: 700; }
+    p  { line-height: 1.6; }
+
+    .eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--rose);
+    }
+    .eyebrow .tick { color: var(--gold); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 24px; border-radius: 999px;
+      font-family: inherit; font-weight: 600; font-size: 15px;
+      letter-spacing: -0.01em; cursor: pointer; border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; box-shadow: 0 8px 24px rgba(31,18,38,0.18); }
+    .btn-primary:hover { box-shadow: 0 14px 32px rgba(31,18,38,0.24); }
+    .btn-grad { background: var(--grad-saffron); color: #fff; box-shadow: 0 12px 28px rgba(255,77,109,0.32); }
+    .btn-grad:hover { box-shadow: 0 18px 38px rgba(255,77,109,0.4); }
+    .btn-ghost { background: rgba(31,18,38,0.06); color: var(--ink); }
+    .btn-ghost:hover { background: rgba(31,18,38,0.1); }
+
+    .logo-img { height: 38px; width: 38px; object-fit: contain; flex-shrink: 0; }
+
+    /* ── Nav ── */
+    nav.top {
+      position: sticky; top: 0; z-index: 80;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(251,247,241,0.82);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px; max-width: 1320px; margin: 0 auto;
+    }
+    .nav-logo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 20px; letter-spacing: -0.03em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      color: var(--ink-2); text-decoration: none; font-weight: 500;
+      font-size: 14px; padding: 8px 14px; border-radius: 999px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); background: rgba(31,18,38,0.05); }
+    .nav-links a.active { color: var(--ink); background: rgba(31,18,38,0.06); }
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
+
+    /* ── Header ── */
+    .feat-hero { text-align: center; padding: 84px 0 8px; }
+    .feat-hero h1 { margin: 18px auto 20px; max-width: 900px; }
+    .feat-hero .sub { font-size: clamp(16px, 2vw, 20px); color: var(--ink-2); max-width: 660px; margin: 0 auto; }
+
+    /* ── Feature section ── */
+    .feat-section { padding-top: 8px; }
+    .feat-section + .feat-section { padding-top: 48px; }
+    .feat-head { max-width: 720px; margin-bottom: 28px; }
+    .feat-head h2 { margin-top: 12px; }
+    .feat-head p { margin-top: 12px; color: var(--ink-2); font-size: 16px; }
+
+    .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feat-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .fcard {
+      background: var(--card); border: 1px solid var(--line); border-radius: 22px;
+      padding: 26px 24px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 24px 48px -28px rgba(31,18,38,0.12);
+    }
+    .fcard .ficon {
+      width: 46px; height: 46px; border-radius: 14px; display: inline-flex;
+      align-items: center; justify-content: center; font-size: 22px;
+      background: rgba(255,138,61,0.12); margin-bottom: 16px;
+    }
+    .fcard h3 { margin-bottom: 8px; }
+    .fcard p { font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
+
+    /* ── Spotlight (concierge) ── */
+    .spotlight {
+      background: linear-gradient(135deg, #201029 0%, #3a1f45 100%);
+      border-radius: 28px; padding: 44px 40px; color: #fff;
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;
+    }
+    .spotlight .chip {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; color: #FFD9A8;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+      padding: 6px 12px; border-radius: 999px; margin-bottom: 18px;
+    }
+    .spotlight h2 { color: #fff; }
+    .spotlight p { color: rgba(255,255,255,0.72); margin-top: 14px; font-size: 16px; }
+    .roster { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 18px; }
+    .roster-row { display: flex; align-items: center; gap: 12px; padding: 9px 0; }
+    .roster-row + .roster-row { border-top: 1px solid rgba(255,255,255,0.08); }
+    .roster-badge { width: 34px; height: 34px; border-radius: 999px; background: var(--grad-saffron); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+    .roster-name { font-size: 14px; font-weight: 600; }
+    .roster-detail { font-size: 12.5px; color: rgba(255,255,255,0.6); }
+    .roster-cue { margin-top: 14px; font-size: 13px; color: #FFD9A8; display: flex; align-items: center; gap: 8px; }
+
+    /* ── Themes strip ── */
+    .theme-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .theme-tag {
+      display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px;
+      background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+      font-size: 14px; font-weight: 600; color: var(--ink-2);
+    }
+    .theme-swatch { width: 14px; height: 14px; border-radius: 999px; flex-shrink: 0; }
+
+    /* ── CTA ── */
+    .feat-cta { text-align: center; }
+    .feat-cta p { color: var(--ink-2); max-width: 520px; margin: 16px auto 26px; }
+    .cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* ── Footer ── */
+    footer { padding: 64px 32px 48px; border-top: 1px solid var(--line); }
+    .footer-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+    .footer-brand-logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; letter-spacing: -0.03em; color: var(--ink); text-decoration: none; margin-bottom: 14px; }
+    .footer-brand-desc { font-size: 14px; color: var(--ink-2); max-width: 300px; line-height: 1.65; }
+    .footer-col-title { font-size: 13px; font-weight: 700; margin-bottom: 16px; color: var(--ink); }
+    .footer-col a { display: block; padding: 6px 0; color: var(--ink-2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--ink); }
+    .footer-bottom { max-width: 1240px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); flex-wrap: wrap; gap: 8px; }
+    .footer-heart { color: #FF4D6D; }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) {
+      .feat-grid, .feat-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+      .spotlight { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .feat-grid, .feat-grid.cols-2 { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) { .wrap { padding: 0 20px; } .spotlight { padding: 32px 24px; } }
+  </style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-row">
+    <a class="nav-logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Baraati logo" />
+      <span>baraati</span>
+    </a>
+    <div class="nav-links">
+      <a href="features.html" class="active">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://wa.me/917058117443" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp" style="padding:10px; width:42px; height:42px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.69-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01s-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="feat-hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">✦</span> Features</span>
+    <h1>Everything a wedding needs,<br /><span class="serif">in one private app.</span></h1>
+    <p class="sub">From the first invitation to the album that outlives the week — here is everything Baraati does for your guests and for the family running the show.</p>
+  </div>
+</header>
+
+<!-- ══════════════ INVITATIONS & RSVP ══════════════ -->
+<section class="feat-section">
+  <div class="wrap">
+    <div class="feat-head">
+      <div class="eyebrow">Invitations &amp; RSVP</div>
+      <h2>An invitation they can feel. <span class="serif" style="color:#EC4899;">RSVPs you can count on.</span></h2>
+      <p>Every guest opens a full-screen animated invitation — your photo in a parallax hero, your names in poster type, every ceremony laid out day by day. To say yes, they slide: one satisfying gesture, a burst of petals, and you get a push the moment it happens.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="fcard"><div class="ficon">💌</div><h3>Animated invitation</h3><p>A full-screen digital invite with a parallax hero and every ceremony, day by day.</p></div>
+      <div class="fcard"><div class="ficon">👆</div><h3>Slide to RSVP</h3><p>Yes, Can't-make-it, or Tentative — one gesture, with a push notification for every response.</p></div>
+      <div class="fcard"><div class="ficon">📊</div><h3>Live headcount</h3><p>Yes, no, tentative, and still-pending at a glance. No chasing maybes in the family chat.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ GUEST EXPERIENCE ══════════════ -->
+<section class="feat-section">
+  <div class="wrap">
+    <div class="feat-head">
+      <div class="eyebrow">The guest experience</div>
+      <h2>Everything a guest needs, <span class="serif" style="color:#F59E0B;">before they think to ask.</span></h2>
+      <p>The whole week in their pocket, always current — change anything and every guest's phone updates instantly, with a push to match.</p>
+    </div>
+    <div class="feat-grid cols-2">
+      <div class="fcard"><div class="ficon">🗓️</div><h3>Itinerary</h3><p>Mehndi, haldi, sangeet, baraat, phera, reception — each ceremony gets its own card with time, venue, and dress code.</p></div>
+      <div class="fcard"><div class="ficon">📸</div><h3>Feed &amp; BTS</h3><p>A private feed for the whole baraat — photos, videos, and emoji reactions — plus a behind-the-scenes channel for the inner circle.</p></div>
+      <div class="fcard"><div class="ficon">🙋</div><h3>Who's coming</h3><p>A guest directory with photos and roles, so nobody spends the cocktail hour guessing who's who.</p></div>
+      <div class="fcard"><div class="ficon">📍</div><h3>Info hub</h3><p>Venues with map links, host contacts one tap away, and a notice board for dress codes, menus, and maps.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ GAMES ══════════════ -->
+<section class="feat-section">
+  <div class="wrap">
+    <div class="feat-head">
+      <div class="eyebrow">Shaadi ka khel</div>
+      <h2>Games that turn 300 strangers <span class="serif" style="color:#6D5BFF;">into one baraat.</span></h2>
+      <p>Hosts unlock each game on cue — trivia at the sangeet, I-Spy through the week — and one leaderboard runs across everything. Yes, we gamified the paperwork. It works.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="fcard"><div class="ficon">🔍</div><h3>I-Spy</h3><p>A photo scavenger hunt for the moments you set — "someone crying at the phera", "the best lehenga twirl".</p></div>
+      <div class="fcard"><div class="ficon">🔤</div><h3>Crossword</h3><p>A timed crossword about the couple, with hidden secret words for bonus points.</p></div>
+      <div class="fcard"><div class="ficon">🔮</div><h3>Predictions</h3><p>Live polls with running vote percentages. Who cries first? Who's last on the dance floor?</p></div>
+      <div class="fcard"><div class="ficon">💑</div><h3>Most Likely To</h3><p>Bride or groom? Every question splits the room, and the couple gets the verdict in real time.</p></div>
+      <div class="fcard"><div class="ficon">🏆</div><h3>One leaderboard</h3><p>Points for every game — and for finishing your profile, adding travel, and uploading your ID.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOR HOSTS ══════════════ -->
+<section class="feat-section">
+  <div class="wrap">
+    <div class="feat-head">
+      <div class="eyebrow">For hosts</div>
+      <h2>Run the wedding <span class="serif" style="color:#FF4D6D;">from your pocket.</span></h2>
+      <p>Everything the family WhatsApp admin does at 2 AM, done properly — with a dashboard instead of forwarded screenshots.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="fcard"><div class="ficon">✅</div><h3>Live RSVPs</h3><p>Real-time yes / no / maybe / pending, with a push for every response.</p></div>
+      <div class="fcard"><div class="ficon">📣</div><h3>Broadcast Notify</h3><p>"Baraat departs at 4, not 5" reaches every pocket in seconds — everyone, a group, or one person.</p></div>
+      <div class="fcard"><div class="ficon">🛏️</div><h3>Rooms</h3><p>Assign hotel room numbers; guests see theirs in-app. No lobby chaos.</p></div>
+      <div class="fcard"><div class="ficon">👥</div><h3>Guest groups</h3><p>Bride's side, bus 2, college gang — segment once, message precisely.</p></div>
+      <div class="fcard"><div class="ficon">🧳</div><h3>One travel roster</h3><p>Guests enter their own flights and trains; you see a single arrivals board.</p></div>
+      <div class="fcard"><div class="ficon">✉️</div><h3>Thank-you cards</h3><p>Design 150 printed A5 thank-you cards in-app after the wedding — shipped to your door, on us.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TRAVEL CONCIERGE (spotlight) ══════════════ -->
+<section class="feat-section">
+  <div class="wrap">
+    <div class="spotlight">
+      <div>
+        <span class="chip">✨ Travel concierge</span>
+        <h2>It plans the pickups <span class="serif" style="color:#FFB980;">before you've had chai.</span></h2>
+        <p>Baraati reads the travel roster and clusters guests landing together into shared pickups — with a vehicle recommendation and a dispatch time. One tap makes a WhatsApp-ready roster for the driver team.</p>
+      </div>
+      <div class="roster">
+        <div class="roster-row"><span class="roster-badge">RS</span><div><div class="roster-name">Riya S.</div><div class="roster-detail">AI 864 · lands 1:50 PM</div></div></div>
+        <div class="roster-row"><span class="roster-badge">KM</span><div><div class="roster-name">Kabir M.</div><div class="roster-detail">6E 2214 · lands 2:05 PM</div></div></div>
+        <div class="roster-row"><span class="roster-badge">AT</span><div><div class="roster-name">Anaya T.</div><div class="roster-detail">UK 951 · lands 2:15 PM</div></div></div>
+        <div class="roster-cue">🚐 Send one Innova to T2 by 2:15 PM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ AFTER THE WEDDING ══════════════ -->
+<section class="feat-section">
+  <div class="wrap">
+    <div class="feat-head">
+      <div class="eyebrow">After the wedding</div>
+      <h2>The shaadi ends. <span class="serif" style="color:#EC4899;">Baraati doesn't.</span></h2>
+    </div>
+    <div class="feat-grid cols-2">
+      <div class="fcard"><div class="ficon">🌐</div><h3>Your album, at your own address</h3><p>Premium weddings get a web album at your-names.baraati.co.in — every feed photo, every I-Spy find, the whole story of the week, live for three years. Share one link with everyone who was there.</p></div>
+      <div class="fcard"><div class="ficon">💐</div><h3>Thank-yous, actually sent</h3><p>Standard and Premium hosts design 150 printed A5 thank-you cards right in the app — your artwork or a message and photo — and they arrive at your door, ready to post.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ THEMES ══════════════ -->
+<section class="feat-section">
+  <div class="wrap">
+    <div class="feat-head">
+      <div class="eyebrow">Seven themes</div>
+      <h2>Not a colour swap. <span class="serif" style="color:#6D5BFF;">A full design system.</span></h2>
+      <p>Each wedding is its own world — fonts, palette, and mood chosen to match your celebration.</p>
+    </div>
+    <div class="theme-tags">
+      <div class="theme-tag"><div class="theme-swatch" style="background:#C8415A;"></div>Gulabi Raat</div>
+      <div class="theme-tag"><div class="theme-swatch" style="background:#6B8CFF;"></div>Neel</div>
+      <div class="theme-tag"><div class="theme-swatch" style="background:#E8820A;"></div>Haldi</div>
+      <div class="theme-tag"><div class="theme-swatch" style="background:#1A7A4A;"></div>Mint</div>
+      <div class="theme-tag"><div class="theme-swatch" style="background:#E070A0;"></div>Raat</div>
+      <div class="theme-tag"><div class="theme-swatch" style="background:#141210;"></div>Shwet</div>
+      <div class="theme-tag"><div class="theme-swatch" style="background:#7A2233;"></div>Burgundy</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA ══════════════ -->
+<section class="feat-cta">
+  <div class="wrap">
+    <h2>See it running at <span class="serif">your wedding.</span></h2>
+    <p>Start free, invite your guests, and upgrade whenever you're ready. Every guest joins free, on every plan.</p>
+    <div class="cta-row">
+      <a class="btn btn-grad" href="https://wa.me/917058117443" target="_blank" rel="noopener">Get in touch</a>
+      <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-brand-logo" href="index.html">
+        <img class="logo-img" style="height:48px;width:48px;" src="logo.png" alt="Baraati logo" />
+        <span>baraati</span>
+      </a>
+      <p class="footer-brand-desc">One app for every part of an Indian wedding. Memories included.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Product</div>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <a href="https://wa.me/917058117443" target="_blank" rel="noopener">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Follow</div>
+      <a href="https://www.instagram.com/baraati.co.in/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/company/baraati" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/baraatii" target="_blank" rel="noopener">X (Twitter)</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Baraati. Made with <span class="footer-heart">❤</span> for Indian weddings.</span>
+    <span>Mumbai · Bangalore · Delhi</span>
+  </div>
+</footer>
+
+</body>
+</html>

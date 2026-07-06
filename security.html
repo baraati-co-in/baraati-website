@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security — How Baraati Protects Your Wedding</title>
+  <meta name="description" content="AES-256 envelope encryption for guest IDs, audit-logged access, auto-deletion after the wedding, OTP-only sign-in, and per-wedding isolation. The details, plainly." />
+  <meta property="og:title" content="Security — How Baraati Protects Your Wedding" />
+  <meta property="og:description" content="How Baraati protects your guest lists, travel plans, photos, and government IDs — explained plainly." />
+  <meta property="og:image" content="https://baraati.co.in/og.jpg" />
+  <meta property="og:url" content="https://baraati.co.in/security" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #FBF7F1;
+      --bg-2:      #F4ECE0;
+      --ink:       #1F1226;
+      --ink-2:     #4B3B55;
+      --muted:     #8A7E92;
+      --card:      #ffffff;
+      --line:      rgba(31,18,38,0.08);
+      --gold:      #C9922A;
+      --rose:      #FF4D6D;
+      --grad-saffron: linear-gradient(135deg, #FF8A3D 0%, #FF4D6D 100%);
+      --grad-dusk:    linear-gradient(135deg, #FF8A3D 0%, #EC4899 50%, #6D5BFF 100%);
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--bg); color: var(--ink); overflow-x: hidden;
+    }
+    ::selection { background: #FF4D6D; color: #fff; }
+    .serif { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+    h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.08; font-weight: 700; }
+    h1 { font-size: clamp(38px, 5.6vw, 68px); font-weight: 800; }
+    h2 { font-size: clamp(24px, 3vw, 34px); }
+    p  { line-height: 1.65; }
+
+    .eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--rose);
+    }
+    .eyebrow .tick { color: var(--gold); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 24px; border-radius: 999px;
+      font-family: inherit; font-weight: 600; font-size: 15px;
+      letter-spacing: -0.01em; cursor: pointer; border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; box-shadow: 0 8px 24px rgba(31,18,38,0.18); }
+    .btn-primary:hover { box-shadow: 0 14px 32px rgba(31,18,38,0.24); }
+    .btn-grad { background: var(--grad-saffron); color: #fff; box-shadow: 0 12px 28px rgba(255,77,109,0.32); }
+    .btn-grad:hover { box-shadow: 0 18px 38px rgba(255,77,109,0.4); }
+    .btn-ghost { background: rgba(31,18,38,0.06); color: var(--ink); }
+    .btn-ghost:hover { background: rgba(31,18,38,0.1); }
+
+    .logo-img { height: 38px; width: 38px; object-fit: contain; flex-shrink: 0; }
+
+    /* ── Nav ── */
+    nav.top {
+      position: sticky; top: 0; z-index: 80;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(251,247,241,0.82);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px; max-width: 1320px; margin: 0 auto;
+    }
+    .nav-logo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 20px; letter-spacing: -0.03em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      color: var(--ink-2); text-decoration: none; font-weight: 500;
+      font-size: 14px; padding: 8px 14px; border-radius: 999px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); background: rgba(31,18,38,0.05); }
+    .nav-links a.active { color: var(--ink); background: rgba(31,18,38,0.06); }
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
+
+    /* ── Security header ── */
+    .sec-hero { text-align: center; padding: 84px 0 8px; }
+    .sec-hero h1 { margin: 18px auto 20px; max-width: 900px; }
+    .sec-hero .sub { font-size: clamp(16px, 2vw, 20px); color: var(--ink-2); max-width: 640px; margin: 0 auto; }
+    .shield { width: 44px; height: 44px; color: var(--gold); margin: 28px auto 0; display: block; }
+
+    /* ── Body column ── */
+    .sec-body { max-width: 760px; margin: 0 auto; padding: 8px 0 96px; }
+    .sec-block { margin-top: 60px; }
+    .sec-block h2 { color: var(--ink); }
+    .sec-block p { margin-top: 16px; font-size: 16px; color: var(--ink-2); }
+    .sec-list { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 11px; }
+    .sec-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+    .sec-list li .tick { flex-shrink: 0; color: var(--gold); margin-top: 1px; }
+
+    /* ── Divider ── */
+    .divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 72px auto 0; color: var(--gold); }
+    .divider::before, .divider::after { content: ""; height: 1px; width: 90px; background: currentColor; opacity: 0.4; }
+    .divider .dot { font-size: 12px; }
+
+    /* ── Contact CTA ── */
+    .sec-contact { text-align: center; margin-top: 48px; }
+    .sec-contact p { max-width: 440px; margin: 12px auto 0; font-size: 15px; color: var(--ink-2); }
+    .sec-contact .btn { margin-top: 24px; }
+    .sec-contact .fine { margin-top: 24px; font-size: 14px; color: var(--muted); }
+    .sec-contact .fine a { color: var(--rose); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ── Footer ── */
+    footer { padding: 64px 32px 48px; border-top: 1px solid var(--line); }
+    .footer-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+    .footer-brand-logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; letter-spacing: -0.03em; color: var(--ink); text-decoration: none; margin-bottom: 14px; }
+    .footer-brand-desc { font-size: 14px; color: var(--ink-2); max-width: 300px; line-height: 1.65; }
+    .footer-col-title { font-size: 13px; font-weight: 700; margin-bottom: 16px; color: var(--ink); }
+    .footer-col a { display: block; padding: 6px 0; color: var(--ink-2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--ink); }
+    .footer-bottom { max-width: 1240px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); flex-wrap: wrap; gap: 8px; }
+    .footer-heart { color: #FF4D6D; }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { .nav-links { display: none; } .footer-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .wrap { padding: 0 20px; } }
+  </style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-row">
+    <a class="nav-logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Baraati logo" />
+      <span>baraati</span>
+    </a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html" class="active">Security</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://wa.me/917058117443" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp" style="padding:10px; width:42px; height:42px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.69-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01s-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="sec-hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">✦</span> Security at Baraati</span>
+    <h1>Built like it's carrying your<br /><span class="serif">family's IDs. Because it is.</span></h1>
+    <p class="sub">Baraati handles guest lists, travel plans, photos, and government identity documents. This page describes, plainly, how each of those is protected.</p>
+    <svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 2 20 5v6c0 5-3.5 9.3-8 11-4.5-1.7-8-6-8-11V5l8-3Z" />
+      <path d="M12 8c1.4 1.6 2.2 3 2.2 4.4A2.3 2.3 0 0 1 12 14.7a2.3 2.3 0 0 1-2.2-2.3C9.8 11 10.6 9.6 12 8Z" />
+      <path d="M8.5 12.5c.4 1.6 1.6 2.7 3.5 2.7s3.1-1.1 3.5-2.7" />
+    </svg>
+  </div>
+</header>
+
+<!-- ══════════════ BODY ══════════════ -->
+<div class="wrap">
+  <div class="sec-body">
+
+    <section class="sec-block">
+      <h2>Government IDs</h2>
+      <p>Indian hotels, airlines, and visa processes routinely require guest IDs, so Baraati includes a dedicated pipeline for them — separate from photos and everything else.</p>
+      <p>Each document is encrypted with AES-256-GCM envelope encryption the moment it is uploaded: every document gets its own key, and those keys are themselves encrypted by a master key that never leaves the server. Documents live in a private storage bucket that has no public access.</p>
+      <ul class="sec-list">
+        <li><span class="tick">✦</span><span>Viewing an ID is a streamed decrypt for that single request — there is never a shareable link to the file.</span></li>
+        <li><span class="tick">✦</span><span>Only the hosts of that specific wedding (and the guest who uploaded it) can access a document.</span></li>
+        <li><span class="tick">✦</span><span>Every access is audit-logged: who, when, from which IP and device.</span></li>
+        <li><span class="tick">✦</span><span>Hosts export one encrypted master PDF for hotel check-in instead of forwarding individual photos.</span></li>
+        <li><span class="tick">✦</span><span>ID features are disabled on rooted or jailbroken devices, and require recent re-authentication.</span></li>
+        <li><span class="tick">✦</span><span>Documents are automatically and permanently deleted 3 days after the wedding's last day — or sooner, whenever the guest chooses.</span></li>
+      </ul>
+    </section>
+
+    <section class="sec-block">
+      <h2>Your account</h2>
+      <p>There are no passwords on Baraati, which means there are no passwords to reuse, guess, or leak. Sign-in uses one-time codes delivered to your email or phone, and sessions are stored in your device's encrypted secure storage.</p>
+      <ul class="sec-list">
+        <li><span class="tick">✦</span><span>OTP-only sign-in — a code per sign-in, verified server-side.</span></li>
+        <li><span class="tick">✦</span><span>No social logins, no third-party identity providers.</span></li>
+        <li><span class="tick">✦</span><span>Full account deletion available in-app and at baraati.co.in/delete-account.</span></li>
+      </ul>
+    </section>
+
+    <section class="sec-block">
+      <h2>Wedding isolation</h2>
+      <p>Every wedding on Baraati is a sealed space. Access rules are enforced at the database layer with row-level security — not just in the app — so a member of one wedding cannot read another wedding's data, even in principle. Joining requires an invite code from the hosts.</p>
+      <ul class="sec-list">
+        <li><span class="tick">✦</span><span>Row-level security on every table.</span></li>
+        <li><span class="tick">✦</span><span>Invite-only joining, controlled by the hosts.</span></li>
+        <li><span class="tick">✦</span><span>Hosts and guests see different data, enforced server-side.</span></li>
+      </ul>
+    </section>
+
+    <section class="sec-block">
+      <h2>In transit and at rest</h2>
+      <p>All traffic uses HTTPS/TLS, and the app pins our certificates so it refuses to talk to an impostor server even on a hostile network. Sensitive operations are rate-limited, and error messages never leak internal details.</p>
+      <ul class="sec-list">
+        <li><span class="tick">✦</span><span>TLS everywhere, with certificate pinning in the app.</span></li>
+        <li><span class="tick">✦</span><span>Encrypted secure storage for sessions on the device.</span></li>
+        <li><span class="tick">✦</span><span>Rate limiting on sensitive operations.</span></li>
+      </ul>
+    </section>
+
+    <section class="sec-block">
+      <h2>What we don't do</h2>
+      <p>No advertising, no behavioural tracking, no selling of data, no GPS location collection, and no advertising identifiers. Baraati's business is wedding plans, not your data. The full detail lives in our privacy policy.</p>
+    </section>
+
+    <div class="divider"><span class="dot">✦</span></div>
+
+    <div class="sec-contact">
+      <h2>Found something? We take reports seriously.</h2>
+      <p>If you believe you've found a security issue, write to us and we'll respond promptly.</p>
+      <a class="btn btn-primary" href="mailto:support@baraati.co.in">Email support@baraati.co.in</a>
+      <p class="fine">For the full data story, read our <a href="privacy.html">privacy policy</a>.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-brand-logo" href="index.html">
+        <img class="logo-img" style="height:48px;width:48px;" src="logo.png" alt="Baraati logo" />
+        <span>baraati</span>
+      </a>
+      <p class="footer-brand-desc">One app for every part of an Indian wedding. Memories included.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Product</div>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <a href="https://wa.me/917058117443" target="_blank" rel="noopener">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Follow</div>
+      <a href="https://www.instagram.com/baraati.co.in/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/company/baraati" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/baraatii" target="_blank" rel="noopener">X (Twitter)</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Baraati. Made with <span class="footer-heart">❤</span> for Indian weddings.</span>
+    <span>Mumbai · Bangalore · Delhi</span>
+  </div>
+</footer>
+
+</body>
+</html>
