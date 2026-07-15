@@ -54,7 +54,7 @@
 
     <a id="openApp" class="btn btn-primary" href="#">Open in the Baraati app</a>
     <div class="stores">
-      <a id="playBtn" class="btn btn-store" href="https://play.google.com/store/apps/details?id=com.baraati.app">📲&nbsp; Get it on Google Play</a>
+      <span id="playBtn" class="btn btn-store" style="opacity:0.6;cursor:default;">🤖&nbsp; Android — coming soon</span>
       <a id="appStoreBtn" class="btn btn-store" href="https://apps.apple.com/app/id6779397081">🍎&nbsp; Download on the App Store</a>
     </div>
     <p class="hint">Don't have the app yet? Install it, then open this link again — or enter the code above in the app.</p>
@@ -63,7 +63,9 @@
   <script>
     (function () {
       var APP_SCHEME   = 'baraati://join';
-      var PLAY_URL     = 'https://play.google.com/store/apps/details?id=com.baraati.app';
+      // Android app isn't on Google Play yet — installed testers open via the
+      // intent; everyone else falls back to the site's "coming soon" messaging.
+      var PLAY_URL     = 'https://baraati.co.in';
       var APPSTORE_URL = 'https://apps.apple.com/app/id6779397081';
       var ANDROID_PKG  = 'com.baraati.app';
 
@@ -102,9 +104,7 @@
       // Auto-attempt to open the app on mobile; if it isn't installed the page
       // stays and the store buttons remain. (We don't hard-redirect to the store
       // so installed-but-unverified users can still get into the app.)
-      if (isAndroid) {
-        window.location.href = openApp.getAttribute('href'); // intent handles app-or-store
-      } else if (isIOS) {
+      if (isIOS) {
         var now = Date.now();
         window.location.href = APP_SCHEME + qs;
         // If still here ~1.2s later, the app likely isn't installed → App Store.
