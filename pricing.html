@@ -120,6 +120,11 @@
     .founding-banner .fb-text strong { font-weight: 700; }
     .founding-banner .fb-text .fb-sub { color: var(--muted); }
     .founding-banner .btn { flex-shrink: 0; padding: 11px 20px; font-size: 14px; }
+    .fb-count { flex-basis: 100%; margin-top: 4px; }
+    .fb-bar { height: 7px; border-radius: 999px; background: rgba(31,18,38,0.08); overflow: hidden; }
+    .fb-bar span { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--grad-saffron); transition: width 0.7s ease; }
+    .fb-count-label { margin-top: 8px; font-size: 13px; color: var(--ink-2); text-align: center; }
+    .fb-count-label strong { color: var(--ink); font-weight: 700; }
 
     /* ── Pricing grid ── */
     .price-grid {
@@ -272,6 +277,10 @@
         <strong>🎉 Founding 100:</strong> the first 100 weddings on Baraati get a special launch discount. <span class="fb-sub">Limited spots — while they last.</span>
       </div>
       <a class="btn btn-grad" href="https://wa.me/917058117443?text=Hi%20Baraati%2C%20I%27d%20like%20to%20know%20about%20the%20Founding%20100%20launch%20discount%20for%20my%20wedding." target="_blank" rel="noopener">Reach out to know more</a>
+      <div class="fb-count" id="fbCount" hidden>
+        <div class="fb-bar"><span id="fbBar"></span></div>
+        <div class="fb-count-label"><strong id="fbClaimed"></strong> of 100 claimed · <span id="fbLeft"></span> spots left</div>
+      </div>
     </div>
   </div>
 </header>
@@ -446,5 +455,27 @@
 </footer>
 
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+  /* ─────────────────────────────────────────────────────────────
+     Founding 100 counter.
+     👉 UPDATE THIS ONE NUMBER as weddings claim the offer.
+     Keep it honest. It drives both the bar and the labels.
+     ───────────────────────────────────────────────────────────── */
+  var FOUNDING_CLAIMED = 12;
+
+  (function () {
+    var TOTAL = 100;
+    var claimed = Math.max(0, Math.min(TOTAL, FOUNDING_CLAIMED));
+    var wrap = document.getElementById('fbCount');
+    if (!wrap) return;
+    document.getElementById('fbClaimed').textContent = claimed;
+    document.getElementById('fbLeft').textContent = TOTAL - claimed;
+    wrap.hidden = false;
+    // Animate the bar in on next frame.
+    requestAnimationFrame(function () {
+      document.getElementById('fbBar').style.width = (claimed / TOTAL * 100) + '%';
+    });
+  })();
+</script>
 </body>
 </html>
