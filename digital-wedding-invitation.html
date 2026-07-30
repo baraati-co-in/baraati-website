@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Wedding Invitation with RSVP | Baraati</title>
+  <meta name="description" content="Send a beautiful digital wedding invitation with built-in RSVP. Guests open an animated invite, slide to reply, and see your whole schedule — in one private app." />
+  <meta property="og:title" content="Digital Wedding Invitation with RSVP | Baraati" />
+  <meta property="og:description" content="An animated digital wedding invitation your guests actually open — with RSVP, schedule, and everything they need built in." />
+  <meta property="og:image" content="https://baraati.co.in/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Baraati — the private wedding app" />
+  <meta property="og:url" content="https://baraati.co.in/digital-wedding-invitation" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Baraati" />
+  <link rel="canonical" href="https://baraati.co.in/digital-wedding-invitation" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Digital Wedding Invitation with RSVP | Baraati" />
+  <meta name="twitter:description" content="An animated digital wedding invitation your guests actually open — with RSVP built in." />
+  <meta name="twitter:image" content="https://baraati.co.in/og.png" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://baraati.co.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Digital Wedding Invitation", "item": "https://baraati.co.in/digital-wedding-invitation" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is a digital wedding invitation with RSVP?", "acceptedAnswer": { "@type": "Answer", "text": "It is an online wedding invitation your guests open on their phone instead of a paper card or PDF. In Baraati, guests open a full-screen animated invitation and respond by sliding to confirm — Yes, Can't make it, or Tentative — and you get their reply instantly." } },
+          { "@type": "Question", "name": "How do guests RSVP to a Baraati invitation?", "acceptedAnswer": { "@type": "Answer", "text": "Guests open the invitation, read your details, and slide to confirm. You see a live headcount of yes, no, tentative and pending, and get a push notification for every response — no chasing replies in the family WhatsApp group." } },
+          { "@type": "Question", "name": "Is the digital wedding invitation free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Baraati is free for a wedding with up to 10 guests, and guests always join free on every plan. Paid plans unlock unlimited guests, printed thank-you cards, and a published album website." } },
+          { "@type": "Question", "name": "Can I include multiple ceremonies in one invitation?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Baraati is built for multi-day Indian weddings. Your invitation lays out every ceremony — mehndi, haldi, sangeet, baraat, phera, reception — each with its own date, time and venue." } },
+          { "@type": "Question", "name": "How do I share the invitation with my guests?", "acceptedAnswer": { "@type": "Answer", "text": "You share one private invite link. Guests tap it, join your wedding, and land straight on your animated invitation — no app store hunting, no adding 300 numbers to a group." } }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #FBF7F1;
+      --bg-2:      #F4ECE0;
+      --ink:       #1F1226;
+      --ink-2:     #4B3B55;
+      --muted:     #8A7E92;
+      --card:      #ffffff;
+      --line:      rgba(31,18,38,0.08);
+      --gold:      #C9922A;
+      --rose:      #FF4D6D;
+      --grad-saffron: linear-gradient(135deg, #FF8A3D 0%, #FF4D6D 100%);
+      --grad-dusk:    linear-gradient(135deg, #FF8A3D 0%, #EC4899 50%, #6D5BFF 100%);
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--bg); color: var(--ink); overflow-x: hidden;
+    }
+    ::selection { background: #FF4D6D; color: #fff; }
+    .serif { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+    section { padding: 56px 0; position: relative; }
+    h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.08; font-weight: 700; }
+    h1 { font-size: clamp(38px, 5.6vw, 66px); font-weight: 800; }
+    h2 { font-size: clamp(26px, 3.4vw, 40px); }
+    h3 { font-size: 19px; font-weight: 700; }
+    p  { line-height: 1.6; }
+
+    .eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--rose);
+    }
+    .eyebrow .tick { color: var(--gold); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 24px; border-radius: 999px;
+      font-family: inherit; font-weight: 600; font-size: 15px;
+      letter-spacing: -0.01em; cursor: pointer; border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; box-shadow: 0 8px 24px rgba(31,18,38,0.18); }
+    .btn-primary:hover { box-shadow: 0 14px 32px rgba(31,18,38,0.24); }
+    .btn-grad { background: var(--grad-saffron); color: #fff; box-shadow: 0 12px 28px rgba(255,77,109,0.32); }
+    .btn-grad:hover { box-shadow: 0 18px 38px rgba(255,77,109,0.4); }
+    .btn-ghost { background: rgba(31,18,38,0.06); color: var(--ink); }
+    .btn-ghost:hover { background: rgba(31,18,38,0.1); }
+
+    .logo-img { height: 38px; width: 38px; object-fit: contain; flex-shrink: 0; }
+
+    /* ── Nav ── */
+    nav.top {
+      position: sticky; top: 0; z-index: 80;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(251,247,241,0.82);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px; max-width: 1320px; margin: 0 auto;
+    }
+    .nav-logo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 20px; letter-spacing: -0.03em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      color: var(--ink-2); text-decoration: none; font-weight: 500;
+      font-size: 14px; padding: 8px 14px; border-radius: 999px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); background: rgba(31,18,38,0.05); }
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
+
+    /* ── Hero ── */
+    .lp-hero { padding: 72px 0 24px; }
+    .lp-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+    .lp-hero h1 { margin: 16px 0 20px; }
+    .lp-hero .sub { font-size: clamp(16px, 2vw, 20px); color: var(--ink-2); max-width: 520px; margin-bottom: 28px; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-note { margin-top: 16px; font-size: 13.5px; color: var(--muted); }
+
+    /* ── Invitation mock ── */
+    .invite-frame {
+      background: linear-gradient(160deg, #2A0E1E 0%, #4A1530 55%, #201029 100%);
+      border-radius: 30px; padding: 12px; position: relative;
+      box-shadow: 0 40px 80px -30px rgba(74,21,48,0.55);
+      max-width: 380px; margin: 0 auto; width: 100%;
+    }
+    .invite-inner {
+      background: radial-gradient(120% 90% at 50% 0%, #FFF3E0 0%, #FBF7F1 60%);
+      border-radius: 22px; padding: 34px 26px 26px; text-align: center;
+    }
+    .invite-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); }
+    .invite-names { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 44px; line-height: 1.05; margin: 12px 0 6px; color: var(--ink); }
+    .invite-amp { color: var(--rose); }
+    .invite-date { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+    .invite-cere { margin: 22px 0; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+    .invite-row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; padding: 8px 12px; background: rgba(31,18,38,0.04); border-radius: 12px; }
+    .invite-row b { font-weight: 700; color: var(--ink); }
+    .invite-row span { color: var(--muted); font-size: 12px; }
+    .slide-pill {
+      margin-top: 8px; position: relative; height: 52px; border-radius: 999px;
+      background: var(--grad-saffron); color: #fff; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; letter-spacing: 0.02em;
+      box-shadow: 0 12px 24px rgba(255,77,109,0.35); overflow: hidden;
+    }
+    .slide-knob {
+      position: absolute; left: 6px; top: 6px; width: 40px; height: 40px; border-radius: 999px;
+      background: #fff; color: var(--rose); display: flex; align-items: center; justify-content: center; font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* ── Generic content section ── */
+    .sec-head { max-width: 720px; margin-bottom: 30px; }
+    .sec-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+    .sec-head h2 { margin-top: 12px; }
+    .sec-head p { margin-top: 12px; color: var(--ink-2); font-size: 16px; }
+
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px 24px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 24px 48px -28px rgba(31,18,38,0.12);
+    }
+    .card .icon {
+      width: 46px; height: 46px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center;
+      font-size: 22px; background: rgba(255,138,61,0.12); margin-bottom: 16px;
+    }
+    .card h3 { margin-bottom: 8px; }
+    .card p { font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
+
+    /* ── Steps ── */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: step; }
+    .step { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px 24px; position: relative; }
+    .step-num { width: 34px; height: 34px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 800; font-size: 15px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .step h3 { margin-bottom: 8px; }
+    .step p { font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
+
+    /* ── Compare ── */
+    .compare { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+    .col { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px; }
+    .col.dim { background: transparent; border-style: dashed; }
+    .col h3 { margin-bottom: 16px; }
+    .col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .col li { font-size: 14.5px; color: var(--ink-2); padding-left: 28px; position: relative; line-height: 1.5; }
+    .col.win li::before { content: '✓'; position: absolute; left: 0; top: -1px; color: #1A7A4A; font-weight: 800; }
+    .col.dim li::before { content: '✕'; position: absolute; left: 0; top: -1px; color: var(--muted); font-weight: 800; }
+
+    /* ── FAQ ── */
+    .faq { max-width: 800px; margin: 0 auto; }
+    .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 4px 22px; margin-bottom: 12px; }
+    .faq summary { cursor: pointer; list-style: none; padding: 18px 0; font-weight: 700; font-size: 16.5px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; font-size: 22px; color: var(--rose); font-weight: 400; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq details p { padding: 0 0 20px; color: var(--ink-2); font-size: 15px; line-height: 1.65; }
+
+    /* ── CTA ── */
+    .lp-cta { text-align: center; }
+    .lp-cta p { color: var(--ink-2); max-width: 520px; margin: 16px auto 26px; }
+    .cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* ── Footer ── */
+    footer { padding: 64px 32px 48px; border-top: 1px solid var(--line); }
+    .footer-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+    .footer-brand-logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; letter-spacing: -0.03em; color: var(--ink); text-decoration: none; margin-bottom: 14px; }
+    .footer-brand-desc { font-size: 14px; color: var(--ink-2); max-width: 300px; line-height: 1.65; }
+    .footer-col-title { font-size: 13px; font-weight: 700; margin-bottom: 16px; color: var(--ink); }
+    .footer-col a { display: block; padding: 6px 0; color: var(--ink-2); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--ink); }
+    .footer-bottom { max-width: 1240px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); flex-wrap: wrap; gap: 8px; }
+    .footer-heart { color: #FF4D6D; }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) {
+      .lp-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .invite-frame { order: -1; }
+      .grid3, .steps { grid-template-columns: 1fr 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .grid3, .steps { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) { .wrap { padding: 0 20px; } }
+    .nav-toggle { display: none; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; color: var(--ink); padding: 6px; }
+    .nav-mobile { display: none; flex-direction: column; padding: 4px 32px 20px; }
+    .nav-mobile > a { padding: 13px 2px; color: var(--ink-2); text-decoration: none; font-weight: 600; font-size: 16px; border-bottom: 1px solid var(--line); }
+    .nav-mobile-cta { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+    .nav-mobile-cta .btn { width: 100%; }
+    nav.top.open .nav-mobile { display: flex; }
+    @media (max-width: 768px) {
+      .nav-toggle { display: inline-flex; }
+      .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-row">
+    <a class="nav-logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Baraati logo" />
+      <span>Baraati</span>
+    </a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" target="_blank" rel="noopener" style="padding:10px 18px; font-size:13.5px;">Book a demo</a>
+      <a class="btn btn-primary" href="https://wa.me/917058117443" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp" style="padding:10px; width:42px; height:42px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.69-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01s-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+      </a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" onclick="var n=this.closest('nav.top');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="nav-mobile">
+    <a href="features.html">Features</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="security.html">Security</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
+    <div class="nav-mobile-cta">
+      <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" target="_blank" rel="noopener">Book a demo</a>
+      <a class="btn btn-ghost" href="https://wa.me/917058117443" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<header class="lp-hero">
+  <div class="wrap">
+    <div class="lp-hero-grid">
+      <div>
+        <span class="eyebrow"><span class="tick">✦</span> Digital Wedding Invitation</span>
+        <h1>A digital wedding invitation <span class="serif">with RSVP built in.</span></h1>
+        <p class="sub">Skip the paper card and the forwarded PDF. With Baraati, every guest opens a full-screen animated invitation, slides to RSVP, and finds your whole wedding waiting inside — one private app, not seven WhatsApp groups.</p>
+        <div class="hero-cta">
+          <a class="btn btn-grad" href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener">Create your invitation</a>
+          <a class="btn btn-ghost" href="features.html">See all features</a>
+        </div>
+        <p class="hero-note">Free for up to 10 guests · Guests always join free · No ads, ever</p>
+      </div>
+      <div class="invite-frame">
+        <div class="invite-inner">
+          <div class="invite-eyebrow">Together with their families</div>
+          <div class="invite-names">Aanya <span class="invite-amp">&amp;</span> Vivaan</div>
+          <div class="invite-date">12 · 02 · 2027 &nbsp;·&nbsp; Udaipur</div>
+          <div class="invite-cere">
+            <div class="invite-row"><b>Mehndi</b><span>10 Feb · 4:00 PM</span></div>
+            <div class="invite-row"><b>Sangeet</b><span>11 Feb · 7:00 PM</span></div>
+            <div class="invite-row"><b>Phere</b><span>12 Feb · 9:00 PM</span></div>
+          </div>
+          <div class="slide-pill"><span class="slide-knob">›</span>Slide to RSVP — we'll be there</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════ WHY DIGITAL ══════════════ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Beyond a pretty card</div>
+      <h2>An invitation that <span class="serif" style="color:#EC4899;">does the work.</span></h2>
+      <p>A paper card looks lovely and then sits in a drawer. A digital wedding invitation from Baraati keeps working all the way to vidaai — collecting RSVPs, answering questions, and updating itself when plans change.</p>
+    </div>
+    <div class="grid3">
+      <div class="card"><div class="icon">💌</div><h3>Animated, not static</h3><p>Your photo in a scrolling parallax hero, your names in poster type, every ceremony revealed as guests scroll. An invite they actually want to open.</p></div>
+      <div class="card"><div class="icon">👆</div><h3>RSVP in one slide</h3><p>Guests reply with a single gesture — Yes, Can't make it, or Tentative — and you get a push the instant they do. No forms, no phone calls.</p></div>
+      <div class="card"><div class="icon">🔄</div><h3>Always up to date</h3><p>Change a venue or a time and every guest's invitation updates instantly, with a notification. No "please note the revised timing" forwards.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ HOW IT WORKS ══════════════ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">How it works</div>
+      <h2>From "we're engaged" to <span class="serif" style="color:#F59E0B;">"they've RSVP'd"</span> in minutes.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Create your wedding</h3><p>Add your names, your photo, your dates, and each ceremony. Pick one of six themes — fonts and palette included — and your invitation designs itself.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Share one link</h3><p>Send a single private invite link over WhatsApp or anywhere else. Guests tap it, join your wedding, and land straight on your animated invitation.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Watch the RSVPs land</h3><p>Guests slide to confirm. You see a live headcount — yes, no, tentative, pending — and a notification for every reply. Chasing maybes is over.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ COMPARE ══════════════ -->
+<section class="compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Digital invite vs the old way</div>
+      <h2>WhatsApp forwards and PDFs <span class="serif" style="color:#6D5BFF;">can't do this.</span></h2>
+    </div>
+    <div class="compare-grid">
+      <div class="col win">
+        <h3>A Baraati digital invitation</h3>
+        <ul>
+          <li>Animated, full-screen, and on-brand for your wedding</li>
+          <li>Built-in RSVP with a live, trustworthy headcount</li>
+          <li>Every ceremony, venue, and dress code inside the same invite</li>
+          <li>Updates itself when plans change — everyone sees the latest</li>
+          <li>Private and invite-only — no phone numbers exposed to 300 people</li>
+          <li>Becomes the whole wedding: schedule, photos, travel, games</li>
+        </ul>
+      </div>
+      <div class="col dim">
+        <h3>A forwarded PDF / WhatsApp group</h3>
+        <ul>
+          <li>A flat image that looks the same for everyone</li>
+          <li>RSVPs lost in a scroll of "Congratulations 🎉" messages</li>
+          <li>Details scattered across forwards nobody can find later</li>
+          <li>"Please note the revised timing" — again</li>
+          <li>Every guest's number visible to every stranger in the group</li>
+          <li>Stops being useful the moment it's sent</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ MORE THAN AN INVITE ══════════════ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">One invite, the whole wedding</div>
+      <h2>The invitation is just <span class="serif" style="color:#FF4D6D;">the front door.</span></h2>
+      <p>Once your guests are in, they have everything Baraati offers — because a wedding is more than a date and a venue.</p>
+    </div>
+    <div class="grid3">
+      <div class="card"><div class="icon">🗓️</div><h3>Live itinerary</h3><p>Every ceremony with time, venue, directions and dress code — always current. <a href="features.html" style="color:var(--rose);text-decoration:none;">See features →</a></p></div>
+      <div class="card"><div class="icon">📸</div><h3>Private photo feed</h3><p>A shared feed for your wedding only — no strangers, no algorithm — so every photo lands in one place.</p></div>
+      <div class="card"><div class="icon">🔒</div><h3>Private by design</h3><p>Invite-only, one-time-code sign-in, no ads and no tracking. Guest IDs, when needed, are encrypted. <a href="security.html" style="color:var(--rose);text-decoration:none;">How it's secured →</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">Questions</div>
+      <h2>Digital wedding invitations, <span class="serif">answered.</span></h2>
+    </div>
+    <div class="faq">
+      <details open><summary>What is a digital wedding invitation with RSVP?</summary><p>It's an online wedding invitation your guests open on their phone instead of a paper card or PDF. In Baraati, guests open a full-screen animated invitation and respond by sliding to confirm — Yes, Can't make it, or Tentative — and you get their reply instantly.</p></details>
+      <details><summary>How do guests RSVP to a Baraati invitation?</summary><p>Guests open the invitation, read your details, and slide to confirm. You see a live headcount of yes, no, tentative and pending, and get a push notification for every response — no chasing replies in the family WhatsApp group.</p></details>
+      <details><summary>Is the digital wedding invitation free?</summary><p>Yes. Baraati is free for a wedding with up to 10 guests, and guests always join free on every plan. Paid plans unlock unlimited guests, printed thank-you cards, and a published album website. <a href="pricing.html" style="color:var(--rose);text-decoration:none;">See pricing →</a></p></details>
+      <details><summary>Can I include multiple ceremonies in one invitation?</summary><p>Yes. Baraati is built for multi-day Indian weddings. Your invitation lays out every ceremony — mehndi, haldi, sangeet, baraat, phera, reception — each with its own date, time and venue.</p></details>
+      <details><summary>How do I share the invitation with my guests?</summary><p>You share one private invite link. Guests tap it, join your wedding, and land straight on your animated invitation — no app-store hunting, no adding 300 numbers to a group.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA ══════════════ -->
+<section class="lp-cta">
+  <div class="wrap">
+    <h2>Send an invitation they'll <span class="serif">actually open.</span></h2>
+    <p>Start free, design your invitation, and share one link. Every guest joins free, on every plan.</p>
+    <div class="cta-row">
+      <a class="btn btn-grad" href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener">Get Baraati on iOS</a>
+      <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-brand-logo" href="index.html">
+        <img class="logo-img" style="height:48px;width:48px;" src="logo.png" alt="Baraati logo" />
+        <span>Baraati</span>
+      </a>
+      <p class="footer-brand-desc">One app for every part of an Indian wedding. Memories included.</p>
+      <a href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener" class="btn" style="background:#111;color:#fff;gap:9px;padding:9px 16px;margin-top:18px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.7 2.2-3.99 2.3-4.06-1.25-1.83-3.2-2.08-3.89-2.11-1.66-.17-3.24.98-4.08.98-.84 0-2.14-.96-3.52-.93-1.81.03-3.48 1.05-4.41 2.66-1.88 3.27-.48 8.1 1.35 10.75.89 1.29 1.96 2.74 3.36 2.69 1.34-.05 1.85-.87 3.47-.87s2.08.87 3.5.84c1.44-.03 2.36-1.32 3.24-2.62 1.02-1.5 1.44-2.95 1.46-3.03-.03-.01-2.8-1.08-2.83-4.27zM14.47 4.2c.74-.9 1.24-2.15 1.1-3.4-1.07.04-2.36.71-3.13 1.61-.68.79-1.28 2.06-1.12 3.28 1.19.09 2.41-.6 3.15-1.49z"/></svg>
+        <span style="text-align:left;line-height:1.05;">
+          <span style="font-size:9px;font-weight:500;opacity:0.9;display:block;">Download on the</span>
+          <span style="font-size:14px;font-weight:700;display:block;">App Store</span>
+        </span>
+      </a>
+      <div style="font-size:12px;color:#8A7E92;margin-top:10px;">🤖 Android app coming soon</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Product</div>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <a href="https://wa.me/917058117443" target="_blank" rel="noopener">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Follow</div>
+      <a href="https://www.instagram.com/baraati.co.in/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/company/baraati" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/baraatii" target="_blank" rel="noopener">X (Twitter)</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Baraati. Made with <span class="footer-heart">❤</span> for Indian weddings.</span>
+  </div>
+</footer>
+
+</body>
+</html>
