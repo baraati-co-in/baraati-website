@@ -5,7 +5,8 @@
       "namespace": "android_app",
       "package_name": "com.baraati.app",
       "sha256_cert_fingerprints": [
-        "9D:6F:F0:E2:92:70:E1:1E:D8:A8:0A:F6:B6:A1:44:A2:71:7C:C9:93:57:D2:64:E8:1F:B0:6E:85:D4:86:AA:CA"
+        "9D:6F:F0:E2:92:70:E1:1E:D8:A8:0A:F6:B6:A1:44:A2:71:7C:C9:93:57:D2:64:E8:1F:B0:6E:85:D4:86:AA:CA",
+        "89:34:40:2F:5B:57:26:FC:21:37:47:7D:AA:79:33:F3:47:AC:2C:AF:68:2B:7E:2C:5A:41:D8:A4:CE:F1:9F:E7"
       ]
     }
   }
