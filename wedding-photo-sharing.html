@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Photo Sharing App for Guests | Baraati</title>
+  <meta name="description" content="A private wedding photo sharing app — one shared feed for your wedding only. No strangers, no algorithm, no compression. Every guest's photos and videos in one place." />
+  <meta property="og:title" content="Wedding Photo Sharing App for Guests | Baraati" />
+  <meta property="og:description" content="One private feed for your wedding's photos and videos — no strangers, no algorithm. Every guest's shots in one place." />
+  <meta property="og:image" content="https://baraati.co.in/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Baraati — the private wedding app" />
+  <meta property="og:url" content="https://baraati.co.in/wedding-photo-sharing" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Baraati" />
+  <link rel="canonical" href="https://baraati.co.in/wedding-photo-sharing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wedding Photo Sharing App for Guests | Baraati" />
+  <meta name="twitter:description" content="One private feed for your wedding's photos and videos — no strangers, no algorithm." />
+  <meta name="twitter:image" content="https://baraati.co.in/og.png" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "BreadcrumbList", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://baraati.co.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Wedding Photo Sharing", "item": "https://baraati.co.in/wedding-photo-sharing" }
+      ]},
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "What is a wedding photo sharing app?", "acceptedAnswer": { "@type": "Answer", "text": "A wedding photo sharing app gives everyone at your wedding one private place to post and see photos and videos. In Baraati the feed is invite-only — visible to your guests, not to strangers or a public algorithm." } },
+        { "@type": "Question", "name": "Is the wedding photo feed private?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The feed belongs to one wedding and is only visible to that wedding's members. Baraati has no ads, no public sharing, and no behavioural tracking, so your photos stay among the people who were there." } },
+        { "@type": "Question", "name": "Do guests need to make an account to share photos?", "acceptedAnswer": { "@type": "Answer", "text": "No account or password — guests join with your invite link and a one-time code, then post to the feed straight away. It is designed for guests of every age." } },
+        { "@type": "Question", "name": "What happens to the photos after the wedding?", "acceptedAnswer": { "@type": "Answer", "text": "On the Premium plan, your wedding is published as an album website that keeps every feed photo online for years at your own address, so you can share one link with everyone who was there." } }
+      ]}
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#FBF7F1; --bg-2:#F4ECE0; --ink:#1F1226; --ink-2:#4B3B55; --muted:#8A7E92; --card:#ffffff; --line:rgba(31,18,38,0.08); --gold:#C9922A; --rose:#FF4D6D; --grad-saffron:linear-gradient(135deg,#FF8A3D 0%,#FF4D6D 100%); }
+    html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+    body { font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--bg); color:var(--ink); overflow-x:hidden; }
+    ::selection { background:#FF4D6D; color:#fff; }
+    .serif { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-0.01em; }
+    .wrap { max-width:1240px; margin:0 auto; padding:0 32px; }
+    section { padding:56px 0; }
+    h1,h2,h3 { letter-spacing:-0.03em; line-height:1.08; font-weight:700; }
+    h1 { font-size:clamp(38px,5.6vw,62px); font-weight:800; }
+    h2 { font-size:clamp(26px,3.4vw,40px); }
+    h3 { font-size:19px; font-weight:700; }
+    p { line-height:1.6; }
+    .eyebrow { font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--rose); }
+    .eyebrow .tick { color:var(--gold); }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 24px; border-radius:999px; font-family:inherit; font-weight:600; font-size:15px; letter-spacing:-0.01em; cursor:pointer; border:none; transition:transform .2s,box-shadow .2s; text-decoration:none; }
+    .btn:hover { transform:translateY(-1px); }
+    .btn-primary { background:var(--ink); color:#fff; box-shadow:0 8px 24px rgba(31,18,38,0.18); }
+    .btn-grad { background:var(--grad-saffron); color:#fff; box-shadow:0 12px 28px rgba(255,77,109,0.32); }
+    .btn-grad:hover { box-shadow:0 18px 38px rgba(255,77,109,0.4); }
+    .btn-ghost { background:rgba(31,18,38,0.06); color:var(--ink); }
+    .btn-ghost:hover { background:rgba(31,18,38,0.1); }
+    .logo-img { height:38px; width:38px; object-fit:contain; flex-shrink:0; }
+    nav.top { position:sticky; top:0; z-index:80; backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); background:rgba(251,247,241,0.82); border-bottom:1px solid var(--line); }
+    .nav-row { display:flex; align-items:center; justify-content:space-between; padding:14px 32px; max-width:1320px; margin:0 auto; }
+    .nav-logo { display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:20px; letter-spacing:-0.03em; color:var(--ink); text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:6px; }
+    .nav-links a { color:var(--ink-2); text-decoration:none; font-weight:500; font-size:14px; padding:8px 14px; border-radius:999px; transition:color .2s,background .2s; }
+    .nav-links a:hover { color:var(--ink); background:rgba(31,18,38,0.05); }
+    .nav-cta { display:flex; align-items:center; gap:10px; }
+    .lp-hero { padding:76px 0 20px; text-align:center; }
+    .lp-hero h1 { max-width:920px; margin:16px auto 20px; }
+    .lp-hero .sub { font-size:clamp(16px,2vw,20px); color:var(--ink-2); max-width:640px; margin:0 auto 28px; }
+    .hero-cta { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+    .hero-note { margin-top:16px; font-size:13.5px; color:var(--muted); }
+    .sec-head { max-width:720px; margin-bottom:30px; }
+    .sec-head.center { margin-left:auto; margin-right:auto; text-align:center; }
+    .sec-head h2 { margin-top:12px; }
+    .sec-head p { margin-top:12px; color:var(--ink-2); font-size:16px; }
+    .lead { max-width:760px; font-size:17px; color:var(--ink-2); line-height:1.7; }
+    .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:26px 24px; box-shadow:0 1px 0 rgba(255,255,255,0.6) inset,0 24px 48px -28px rgba(31,18,38,0.12); }
+    .card .icon { width:46px; height:46px; border-radius:14px; display:inline-flex; align-items:center; justify-content:center; font-size:22px; background:rgba(255,138,61,0.12); margin-bottom:16px; }
+    .card h3 { margin-bottom:8px; }
+    .card p { font-size:14.5px; color:var(--ink-2); line-height:1.55; }
+    .band { background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .faq { max-width:800px; margin:0 auto; }
+    .faq details { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:4px 22px; margin-bottom:12px; }
+    .faq summary { cursor:pointer; list-style:none; padding:18px 0; font-weight:700; font-size:16.5px; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+    .faq summary::-webkit-details-marker { display:none; }
+    .faq summary::after { content:'+'; font-size:22px; color:var(--rose); font-weight:400; }
+    .faq details[open] summary::after { content:'\2013'; }
+    .faq details p { padding:0 0 20px; color:var(--ink-2); font-size:15px; line-height:1.65; }
+    .lp-cta { text-align:center; }
+    .lp-cta p { color:var(--ink-2); max-width:520px; margin:16px auto 26px; }
+    .cta-row { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+    footer { padding:64px 32px 48px; border-top:1px solid var(--line); }
+    .footer-inner { max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:40px; }
+    .footer-brand-logo { display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:20px; letter-spacing:-0.03em; color:var(--ink); text-decoration:none; margin-bottom:14px; }
+    .footer-brand-desc { font-size:14px; color:var(--ink-2); max-width:300px; line-height:1.65; }
+    .footer-col-title { font-size:13px; font-weight:700; margin-bottom:16px; color:var(--ink); }
+    .footer-col a { display:block; padding:6px 0; color:var(--ink-2); text-decoration:none; font-size:14px; transition:color .2s; }
+    .footer-col a:hover { color:var(--ink); }
+    .footer-bottom { max-width:1240px; margin:48px auto 0; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--muted); flex-wrap:wrap; gap:8px; }
+    .footer-heart { color:#FF4D6D; }
+    @media (max-width:980px){ .grid3{ grid-template-columns:1fr 1fr; } .footer-inner{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:768px){ .nav-links{ display:none; } .grid3{ grid-template-columns:1fr; } .footer-inner{ grid-template-columns:1fr; } }
+    @media (max-width:480px){ .wrap{ padding:0 20px; } }
+    .nav-toggle { display:none; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; color:var(--ink); padding:6px; }
+    .nav-mobile { display:none; flex-direction:column; padding:4px 32px 20px; }
+    .nav-mobile > a { padding:13px 2px; color:var(--ink-2); text-decoration:none; font-weight:600; font-size:16px; border-bottom:1px solid var(--line); }
+    .nav-mobile-cta { display:flex; flex-direction:column; gap:10px; margin-top:16px; }
+    .nav-mobile-cta .btn { width:100%; }
+    nav.top.open .nav-mobile { display:flex; }
+    @media (max-width:768px){ .nav-toggle{ display:inline-flex; } .nav-cta{ display:none; } }
+  </style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-row">
+    <a class="nav-logo" href="index.html"><img class="logo-img" src="logo.png" alt="Baraati logo" /><span>Baraati</span></a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" target="_blank" rel="noopener" style="padding:10px 18px; font-size:13.5px;">Book a demo</a>
+      <a class="btn btn-primary" href="https://wa.me/917058117443" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp" style="padding:10px; width:42px; height:42px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.69-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01s-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+      </a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" onclick="var n=this.closest('nav.top');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="nav-mobile">
+    <a href="features.html">Features</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="security.html">Security</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
+    <div class="nav-mobile-cta">
+      <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" target="_blank" rel="noopener">Book a demo</a>
+      <a class="btn btn-ghost" href="https://wa.me/917058117443" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
+</nav>
+
+<header class="lp-hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">✦</span> Wedding Photo Sharing</span>
+    <h1>A private wedding photo feed — <span class="serif">no strangers, no algorithm.</span></h1>
+    <p class="sub">The best shots of your wedding shouldn't be scattered across five WhatsApp chats, compressed to mush, or lost in someone's camera roll. Baraati gives your whole baraat one private feed — every photo and video, in one place, for your people only.</p>
+    <div class="hero-cta">
+      <a class="btn btn-grad" href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener">Get Baraati on iOS</a>
+      <a class="btn btn-ghost" href="wedding-guest-app.html">What is a guest app?</a>
+    </div>
+    <p class="hero-note">Free for up to 10 guests · Guests always join free · No ads, ever</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Why not just WhatsApp or a shared drive</div>
+      <h2>Your wedding photos deserve <span class="serif" style="color:#EC4899;">better than a group chat.</span></h2>
+    </div>
+    <p class="lead">Photos posted to a WhatsApp group get compressed and buried. A shared Google Photos link means handing strangers your account, and half the guests never upload. A public hashtag puts your wedding in front of the whole internet. Baraati's feed is different: invite-only, full-quality, and built into the same app your guests already use for the invitation and schedule — so the photos actually get shared.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">One feed, every moment</div>
+      <h2>Everything from the week, <span class="serif" style="color:#F59E0B;">in one place.</span></h2>
+    </div>
+    <div class="grid3">
+      <div class="card"><div class="icon">📸</div><h3>The private feed</h3><p>A shared feed for your wedding only — post photos and videos, react with emoji, and scroll the whole celebration in one thread.</p></div>
+      <div class="card"><div class="icon">🎬</div><h3>Behind the scenes</h3><p>A separate channel for the inner circle — the getting-ready chaos and candid moments, kept to the people closest to you.</p></div>
+      <div class="card"><div class="icon">🔍</div><h3>I-Spy captures</h3><p>A photo scavenger hunt gets guests shooting the moments you'd have missed — "the best twirl", "someone crying at the phere".</p></div>
+      <div class="card"><div class="icon">🔒</div><h3>Private by design</h3><p>Invite-only, no ads, no public sharing, no behavioural tracking. Your photos stay among the people who were there.</p></div>
+      <div class="card"><div class="icon">🌐</div><h3>A lasting album</h3><p>On Premium, your feed becomes a published album website at your own address — every photo, live for years.</p></div>
+      <div class="card"><div class="icon">👨‍👩‍👧</div><h3>Everyone can join</h3><p>No account, no password — designed so guests from 8 to 80 can post and browse without a lesson.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">Explore</div>
+      <h2>Part of the whole <span class="serif" style="color:#6D5BFF;">wedding app.</span></h2>
+      <p>The photo feed lives inside Baraati, alongside the invitation, RSVP, schedule and games.</p>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+      <a class="btn btn-ghost" href="wedding-guest-app.html">Wedding guest app →</a>
+      <a class="btn btn-ghost" href="digital-wedding-invitation.html">Digital invitation →</a>
+      <a class="btn btn-ghost" href="security.html">How it's secured →</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">Questions</div>
+      <h2>Wedding photo sharing, <span class="serif">answered.</span></h2>
+    </div>
+    <div class="faq">
+      <details open><summary>What is a wedding photo sharing app?</summary><p>A wedding photo sharing app gives everyone at your wedding one private place to post and see photos and videos. In Baraati the feed is invite-only — visible to your guests, not to strangers or a public algorithm.</p></details>
+      <details><summary>Is the wedding photo feed private?</summary><p>Yes. The feed belongs to one wedding and is only visible to that wedding's members. Baraati has no ads, no public sharing, and no behavioural tracking, so your photos stay among the people who were there. <a href="security.html" style="color:var(--rose);text-decoration:none;">How it's secured →</a></p></details>
+      <details><summary>Do guests need to make an account to share photos?</summary><p>No account or password — guests join with your invite link and a one-time code, then post to the feed straight away. It's designed for guests of every age.</p></details>
+      <details><summary>What happens to the photos after the wedding?</summary><p>On the Premium plan, your wedding is published as an album website that keeps every feed photo online for years at your own address, so you can share one link with everyone who was there. <a href="pricing.html" style="color:var(--rose);text-decoration:none;">See pricing →</a></p></details>
+    </div>
+  </div>
+</section>
+
+<section class="lp-cta">
+  <div class="wrap">
+    <h2>Keep every photo <span class="serif">in one place.</span></h2>
+    <p>Start free, invite your guests, and let the whole wedding land in one private feed.</p>
+    <div class="cta-row">
+      <a class="btn btn-grad" href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener">Get Baraati on iOS</a>
+      <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-brand-logo" href="index.html"><img class="logo-img" style="height:48px;width:48px;" src="logo.png" alt="Baraati logo" /><span>Baraati</span></a>
+      <p class="footer-brand-desc">One app for every part of an Indian wedding. Memories included.</p>
+      <a href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener" class="btn" style="background:#111;color:#fff;gap:9px;padding:9px 16px;margin-top:18px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.7 2.2-3.99 2.3-4.06-1.25-1.83-3.2-2.08-3.89-2.11-1.66-.17-3.24.98-4.08.98-.84 0-2.14-.96-3.52-.93-1.81.03-3.48 1.05-4.41 2.66-1.88 3.27-.48 8.1 1.35 10.75.89 1.29 1.96 2.74 3.36 2.69 1.34-.05 1.85-.87 3.47-.87s2.08.87 3.5.84c1.44-.03 2.36-1.32 3.24-2.62 1.02-1.5 1.44-2.95 1.46-3.03-.03-.01-2.8-1.08-2.83-4.27zM14.47 4.2c.74-.9 1.24-2.15 1.1-3.4-1.07.04-2.36.71-3.13 1.61-.68.79-1.28 2.06-1.12 3.28 1.19.09 2.41-.6 3.15-1.49z"/></svg>
+        <span style="text-align:left;line-height:1.05;"><span style="font-size:9px;font-weight:500;opacity:0.9;display:block;">Download on the</span><span style="font-size:14px;font-weight:700;display:block;">App Store</span></span>
+      </a>
+      <div style="font-size:12px;color:#8A7E92;margin-top:10px;">🤖 Android app coming soon</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Product</div>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Guides</div>
+      <a href="wedding-guest-app.html">Wedding guest app</a>
+      <a href="digital-wedding-invitation.html">Digital invitation</a>
+      <a href="wedding-rsvp-app.html">Wedding RSVP app</a>
+      <a href="wedding-itinerary-app.html">Wedding itinerary app</a>
+      <a href="destination-wedding-guest-app.html">Destination weddings</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <a href="https://wa.me/917058117443" target="_blank" rel="noopener">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Baraati. Made with <span class="footer-heart">❤</span> for Indian weddings.</span>
+  </div>
+</footer>
+
+</body>
+</html>
