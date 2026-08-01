@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete your payment · Baraati</title>
+  <!-- Never indexable: every URL here is a one-time, host-specific checkout token. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <style>
+    :root {
+      --bg: #FBF7F2; --card: #ffffff; --ink: #2A1A12; --muted: #8A7560;
+      --accent: #C2410C; --gold: #B8860B; --border: rgba(120,90,60,0.16);
+      --ok: #197A4B;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(120% 120% at 50% 0%, #FFF6E9 0%, var(--bg) 55%);
+      color: var(--ink); min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; padding: 24px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+      max-width: 400px; width: 100%; padding: 36px 28px; text-align: center;
+      box-shadow: 0 20px 50px -20px rgba(80,50,20,0.25);
+    }
+    .logo { width: 72px; height: 72px; object-fit: contain; margin: 0 auto 18px; display: block; }
+    h1 { font-size: 21px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 8px; }
+    p { color: var(--muted); font-size: 14.5px; line-height: 1.55; }
+    .couple {
+      font-size: 13px; letter-spacing: 1.4px; text-transform: uppercase;
+      color: var(--gold); font-weight: 700; margin-bottom: 6px;
+    }
+    .summary {
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 18px; margin: 22px 0; background: #FDFBF8;
+    }
+    .row { display: flex; align-items: baseline; justify-content: space-between; }
+    .row + .row { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); }
+    .row .label { font-size: 14px; color: var(--muted); }
+    .row .value { font-size: 15px; font-weight: 700; }
+    .row .total { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 15px 18px; border-radius: 14px; font-size: 15px;
+      font-weight: 700; text-decoration: none; border: none; cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-primary:disabled { opacity: 0.55; cursor: default; }
+    .hint { font-size: 12.5px; color: var(--muted); margin-top: 14px; }
+    .hint a { color: var(--accent); }
+    .badge {
+      width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 18px;
+      display: flex; align-items: center; justify-content: center; font-size: 27px;
+    }
+    .badge-ok   { background: rgba(25,122,75,0.10); }
+    .badge-warn { background: rgba(194,65,12,0.10); }
+    .spinner {
+      width: 30px; height: 30px; margin: 8px auto 18px;
+      border: 3px solid rgba(120,90,60,0.18); border-top-color: var(--accent);
+      border-radius: 50%; animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <!-- logo-icon.png (256px, ~80KB) not logo.png (1024px, ~1.9MB) — this page
+         is on the critical path to a payment, often on mobile data. -->
+    <img class="logo" src="logo-icon.png" alt="Baraati" />
+
+    <!-- Loading -->
+    <section id="view-loading">
+      <div class="spinner"></div>
+      <p>Preparing your payment…</p>
+    </section>
+
+    <!-- Ready to pay -->
+    <section id="view-ready" hidden>
+      <div id="couple" class="couple"></div>
+      <h1>Complete your payment</h1>
+      <div class="summary">
+        <div class="row">
+          <span class="label">Plan</span>
+          <span class="value" id="planName">—</span>
+        </div>
+        <div class="row">
+          <span class="label">Amount</span>
+          <span class="total" id="amount">—</span>
+        </div>
+      </div>
+      <button id="payBtn" class="btn btn-primary" type="button">Pay securely</button>
+      <p class="hint">
+        Payments are processed by Razorpay. UPI, cards, net banking and wallets accepted.
+        One-time payment — no auto-renewal.
+      </p>
+    </section>
+
+    <!-- Confirming after payment -->
+    <section id="view-confirming" hidden>
+      <div class="spinner"></div>
+      <h1>Confirming your payment…</h1>
+      <p>This takes a few seconds. Please don't close this page.</p>
+    </section>
+
+    <!-- Success -->
+    <section id="view-paid" hidden>
+      <div class="badge badge-ok">🎉</div>
+      <h1>Payment received</h1>
+      <p id="paidCopy">Your plan is now active. Head back to the Baraati app — pull down to refresh and everything will be unlocked.</p>
+      <p class="hint">A receipt has been emailed to you by Razorpay. Questions? <a href="mailto:support@baraati.co.in">support@baraati.co.in</a></p>
+    </section>
+
+    <!-- Anything that needs a human -->
+    <section id="view-error" hidden>
+      <div class="badge badge-warn">⚠️</div>
+      <h1 id="errTitle">Something went wrong</h1>
+      <p id="errCopy">Please try again from the Baraati app.</p>
+      <p class="hint">Need a hand? <a href="mailto:support@baraati.co.in">support@baraati.co.in</a> or <a href="https://wa.me/917058117443">WhatsApp us</a>.</p>
+    </section>
+  </main>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    (function () {
+      var FUNCTIONS_URL = 'https://nvirvasqwtenwqwpntog.supabase.co/functions/v1';
+
+      var token = (new URLSearchParams(location.search).get('t') || '').trim();
+
+      function show(id) {
+        ['loading', 'ready', 'confirming', 'paid', 'error'].forEach(function (v) {
+          document.getElementById('view-' + v).hidden = (v !== id);
+        });
+      }
+      function fail(title, copy) {
+        document.getElementById('errTitle').textContent = title;
+        document.getElementById('errCopy').textContent = copy;
+        show('error');
+      }
+      function rupees(paise) {
+        return '₹' + (paise / 100).toLocaleString('en-IN');
+      }
+      function fetchSession() {
+        return fetch(FUNCTIONS_URL + '/checkout-session?t=' + encodeURIComponent(token), {
+          headers: { 'Accept': 'application/json' },
+        }).then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (body) {
+            return { status: res.status, body: body };
+          });
+        });
+      }
+
+      if (!token) {
+        fail('Link not valid', 'This checkout link is missing its code. Please start again from the Baraati app.');
+        return;
+      }
+
+      fetchSession().then(function (r) {
+        var s = r.body || {};
+
+        if (r.status === 404) {
+          return fail('Link not valid', 'This checkout link is not recognised. Please start again from the Baraati app.');
+        }
+        if (r.status === 410 || s.status === 'expired') {
+          return fail('This link has expired', 'Checkout links are valid for 30 minutes. Please start again from the Baraati app.');
+        }
+        if (r.status === 503) {
+          return fail('Payments unavailable', 'Online payments aren’t switched on yet. Please contact us and we’ll set your plan up directly.');
+        }
+        if (s.status === 'paid') {
+          return show('paid');
+        }
+        if (r.status !== 200 || !s.orderId || !s.keyId) {
+          return fail('Something went wrong', 'We couldn’t start the payment. Please try again from the Baraati app.');
+        }
+
+        document.getElementById('couple').textContent = s.coupleLabel || '';
+        document.getElementById('planName').textContent = (s.planName || '') + ' plan';
+        document.getElementById('amount').textContent = rupees(s.amountPaise);
+        show('ready');
+
+        var payBtn = document.getElementById('payBtn');
+        payBtn.textContent = 'Pay ' + rupees(s.amountPaise) + ' securely';
+
+        // Poll for the webhook to land. The browser's "success" callback is NOT
+        // proof of payment — the server-side webhook is the source of truth, so
+        // we wait for it to flip the session to `paid`.
+        function awaitConfirmation(attempt) {
+          if (attempt > 15) {
+            document.getElementById('paidCopy').textContent =
+              'Your payment went through. It can take a minute or two to unlock — reopen the Baraati app shortly and pull down to refresh. If it still looks locked, email support@baraati.co.in.';
+            return show('paid');
+          }
+          fetchSession().then(function (r2) {
+            if (r2.body && r2.body.status === 'paid') return show('paid');
+            setTimeout(function () { awaitConfirmation(attempt + 1); }, 2000);
+          }).catch(function () {
+            setTimeout(function () { awaitConfirmation(attempt + 1); }, 2000);
+          });
+        }
+
+        var rzp = new Razorpay({
+          key: s.keyId,
+          order_id: s.orderId,
+          amount: s.amountPaise,
+          currency: s.currency || 'INR',
+          name: 'Baraati',
+          description: (s.planName || 'Plan') + (s.coupleLabel ? ' · ' + s.coupleLabel : ''),
+          image: 'https://baraati.co.in/logo-icon.png',
+          theme: { color: '#C2410C' },
+          handler: function () {
+            show('confirming');
+            awaitConfirmation(0);
+          },
+          modal: {
+            ondismiss: function () { payBtn.disabled = false; },
+          },
+        });
+
+        rzp.on('payment.failed', function () {
+          payBtn.disabled = false;
+        });
+
+        payBtn.addEventListener('click', function () {
+          payBtn.disabled = true;
+          rzp.open();
+        });
+      }).catch(function () {
+        fail('Connection problem', 'We couldn’t reach our servers. Check your connection and try again.');
+      });
+    })();
+  </script>
+</body>
+</html>
