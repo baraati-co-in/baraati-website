@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upgrade your wedding · Baraati</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #FBF7F1;
+      --ink:       #1F1226;
+      --ink-2:     #4B3B55;
+      --muted:     #8A7E92;
+      --card:      #ffffff;
+      --line:      rgba(31,18,38,0.08);
+      --grad-saffron: linear-gradient(135deg, #FF8A3D 0%, #FF4D6D 100%);
+      --err:       #C2410C;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--bg); color: var(--ink);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 24px;
+      max-width: 420px; width: 100%; padding: 32px 26px;
+      box-shadow: 0 24px 60px -28px rgba(31,18,38,0.28);
+    }
+    .logo { width: 60px; height: 60px; object-fit: contain; margin: 0 auto 16px; display: block; }
+    h1 { font-size: 21px; font-weight: 800; letter-spacing: -0.4px; text-align: center; margin-bottom: 6px; }
+    .sub { font-size: 14px; color: var(--muted); text-align: center; line-height: 1.55; margin-bottom: 22px; }
+    .serif { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; }
+
+    label { display: block; font-size: 12.5px; font-weight: 600; color: var(--ink-2); margin-bottom: 7px; }
+    input {
+      width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
+      background: #fff; border: 1px solid rgba(31,18,38,0.16); border-radius: 12px;
+      padding: 13px 14px; margin-bottom: 14px;
+    }
+    input:focus { outline: none; border-color: #FF4D6D; box-shadow: 0 0 0 3px rgba(255,77,109,0.12); }
+    .otp { letter-spacing: 6px; font-size: 19px; font-weight: 700; text-align: center; }
+
+    .btn {
+      width: 100%; display: flex; align-items: center; justify-content: center;
+      font-family: inherit; font-size: 15px; font-weight: 700; border: none; cursor: pointer;
+      padding: 14px 18px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .btn-grad { background: var(--grad-saffron); color: #fff; box-shadow: 0 12px 28px rgba(255,77,109,0.32); }
+    .btn-ghost { background: rgba(31,18,38,0.06); color: var(--ink); }
+    .btn:disabled { opacity: 0.55; cursor: default; box-shadow: none; }
+
+    .seg { display: flex; gap: 8px; margin-bottom: 16px; }
+    .seg button {
+      flex: 1; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+      padding: 9px; border-radius: 999px; border: 1px solid var(--line);
+      background: transparent; color: var(--muted);
+    }
+    .seg button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    .wlist { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+    .wrow {
+      display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+      font-family: inherit; cursor: pointer;
+      border: 1px solid var(--line); background: #fff; border-radius: 14px; padding: 13px 15px;
+    }
+    .wrow:hover:not(:disabled) { border-color: #FF4D6D; }
+    .wrow:disabled { opacity: 0.5; cursor: default; }
+    .wrow .nm { font-size: 14.5px; font-weight: 700; color: var(--ink); }
+    .wrow .mt { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .pill {
+      margin-left: auto; font-size: 10px; font-weight: 800; letter-spacing: 0.6px;
+      padding: 4px 9px; border-radius: 999px; background: rgba(31,18,38,0.07); color: var(--muted);
+    }
+    .pill.prem { background: rgba(200,160,68,0.18); color: #9a7b1e; }
+
+    .msg { font-size: 13px; border-radius: 12px; padding: 11px 13px; margin-bottom: 14px; line-height: 1.5; }
+    .msg.err { background: rgba(194,65,12,0.07); border: 1px solid rgba(194,65,12,0.22); color: var(--err); }
+    .msg.ok  { background: rgba(31,18,38,0.04); border: 1px solid var(--line); color: var(--ink-2); }
+
+    .foot { font-size: 12px; color: var(--muted); text-align: center; margin-top: 8px; line-height: 1.6; }
+    .foot a { color: #FF4D6D; }
+    .spinner {
+      width: 26px; height: 26px; margin: 6px auto 14px;
+      border: 3px solid rgba(31,18,38,0.12); border-top-color: #FF4D6D;
+      border-radius: 50%; animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="logo-icon.png" alt="Baraati" />
+
+    <!-- 1. identify -->
+    <section id="v-signin">
+      <h1>Upgrade your <span class="serif">wedding</span></h1>
+      <p class="sub">Sign in the same way you do in the app — we'll send you a one-time code.</p>
+
+      <div class="seg">
+        <button type="button" id="tabEmail" class="on">Email</button>
+        <button type="button" id="tabPhone">Phone</button>
+      </div>
+
+      <div id="msgSignin"></div>
+
+      <div id="fEmail">
+        <label for="email">Email address</label>
+        <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" />
+      </div>
+      <div id="fPhone" hidden>
+        <label for="phone">Mobile number</label>
+        <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" />
+      </div>
+
+      <button type="button" id="btnSend" class="btn btn-grad">Send code</button>
+      <p class="foot">Use the same email or number you use in the Baraati app.</p>
+    </section>
+
+    <!-- 2. verify -->
+    <section id="v-otp" hidden>
+      <h1>Enter your code</h1>
+      <p class="sub" id="otpSub">We sent a 6-digit code.</p>
+      <div id="msgOtp"></div>
+      <input id="otp" class="otp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000" />
+      <button type="button" id="btnVerify" class="btn btn-grad">Verify</button>
+      <button type="button" id="btnBack" class="btn btn-ghost">Use a different one</button>
+    </section>
+
+    <!-- 3. choose wedding -->
+    <section id="v-pick" hidden>
+      <h1>Which wedding?</h1>
+      <p class="sub" id="pickSub">Choose the wedding to upgrade.</p>
+      <div id="msgPick"></div>
+      <div class="wlist" id="wlist"></div>
+      <p class="foot">Only weddings you host can be upgraded. Don't see yours? Create it in the app first — it's free.</p>
+    </section>
+
+    <!-- busy / redirect -->
+    <section id="v-busy" hidden>
+      <div class="spinner"></div>
+      <p class="sub" id="busyText">Just a moment…</p>
+    </section>
+
+    <!-- terminal error -->
+    <section id="v-err" hidden>
+      <h1 id="errTitle">Something went wrong</h1>
+      <p class="sub" id="errBody"></p>
+      <a class="btn btn-ghost" href="pricing.html">Back to pricing</a>
+      <p class="foot">Need help? <a href="mailto:support@baraati.co.in">support@baraati.co.in</a></p>
+    </section>
+
+    <p class="foot" style="border-top:1px solid var(--line);margin-top:18px;padding-top:14px;">
+      Secure payments by Razorpay ·
+      <a href="terms.html">Terms</a> ·
+      <a href="refunds.html">Refunds</a> ·
+      <a href="privacy.html">Privacy</a>
+    </p>
+  </main>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    // Both values are public by design — the anon key is already embedded in
+    // every shipped app bundle and is safe only because RLS scopes every row.
+    const SUPABASE_URL  = 'https://nvirvasqwtenwqwpntog.supabase.co';
+    const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im52aXJ2YXNxd3Rlbndxd3BudG9nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzNDk1NTcsImV4cCI6MjA5NDkyNTU1N30.ttTrM5XzRMSJfFMW6gT5iPi4kd-KNMSkunwPR33r4X8';
+    const FUNCTIONS_URL = SUPABASE_URL + '/functions/v1';
+
+    const sb = createClient(SUPABASE_URL, SUPABASE_ANON, {
+      auth: { persistSession: true, autoRefreshToken: true },
+    });
+
+    const PLAN = (new URLSearchParams(location.search).get('plan') || 'premium').toLowerCase();
+    const PLAN_OK = ['standard', 'premium'].includes(PLAN) ? PLAN : 'premium';
+
+    const $ = (id) => document.getElementById(id);
+    const views = ['signin', 'otp', 'pick', 'busy', 'err'];
+    const show = (v) => views.forEach((x) => { $('v-' + x).hidden = (x !== v); });
+    const busy = (t) => { $('busyText').textContent = t; show('busy'); };
+    const fail = (t, b) => { $('errTitle').textContent = t; $('errBody').textContent = b; show('err'); };
+    function note(where, kind, text) {
+      $(where).innerHTML = text ? `<div class="msg ${kind}">${text}</div>` : '';
+    }
+
+    let mode = 'email';       // 'email' | 'phone'
+    let identifier = '';
+
+    $('tabEmail').onclick = () => {
+      mode = 'email'; $('tabEmail').classList.add('on'); $('tabPhone').classList.remove('on');
+      $('fEmail').hidden = false; $('fPhone').hidden = true; note('msgSignin', '', '');
+    };
+    $('tabPhone').onclick = () => {
+      mode = 'phone'; $('tabPhone').classList.add('on'); $('tabEmail').classList.remove('on');
+      $('fPhone').hidden = false; $('fEmail').hidden = true; note('msgSignin', '', '');
+    };
+
+    // E.164 for India; Supabase requires the country code.
+    function normalisePhone(raw) {
+      const d = (raw || '').replace(/[^\d]/g, '');
+      if (d.length === 10) return '+91' + d;
+      if (d.length === 12 && d.startsWith('91')) return '+' + d;
+      if ((raw || '').startsWith('+')) return '+' + d;
+      return null;
+    }
+
+    $('btnSend').onclick = async () => {
+      note('msgSignin', '', '');
+      let payload;
+      if (mode === 'email') {
+        const e = $('email').value.trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)) {
+          return note('msgSignin', 'err', 'Please enter a valid email address.');
+        }
+        identifier = e;
+        payload = { email: e };
+      } else {
+        const p = normalisePhone($('phone').value);
+        if (!p) return note('msgSignin', 'err', 'Please enter a valid mobile number with country code.');
+        identifier = p;
+        payload = { phone: p };
+      }
+
+      $('btnSend').disabled = true;
+      $('btnSend').textContent = 'Sending…';
+      // shouldCreateUser:false is deliberate — this page must never mint a new
+      // auth user. Accounts are created in the app; a stray signup here would
+      // squat the email/phone and block the real registration later.
+      const { error } = await sb.auth.signInWithOtp({ ...payload, options: { shouldCreateUser: false } });
+      $('btnSend').disabled = false;
+      $('btnSend').textContent = 'Send code';
+
+      if (error) {
+        const m = (error.message || '').toLowerCase();
+        if (m.includes('signups not allowed') || m.includes('not found') || m.includes('user not found')) {
+          return note('msgSignin', 'err',
+            "We couldn't find a Baraati account with that. Create your wedding in the app first — it's free — then come back here to upgrade.");
+        }
+        if (m.includes('rate') || m.includes('too many') || m.includes('seconds')) {
+          return note('msgSignin', 'err', 'Too many attempts. Please wait a minute and try again.');
+        }
+        return note('msgSignin', 'err', 'Could not send the code. Please try again.');
+      }
+
+      $('otpSub').textContent = `We sent a 6-digit code to ${identifier}.`;
+      note('msgOtp', '', '');
+      $('otp').value = '';
+      show('otp');
+      $('otp').focus();
+    };
+
+    $('btnBack').onclick = () => { note('msgSignin', '', ''); show('signin'); };
+
+    $('btnVerify').onclick = async () => {
+      const token = $('otp').value.replace(/\D/g, '');
+      if (token.length !== 6) return note('msgOtp', 'err', 'Enter the 6-digit code.');
+
+      $('btnVerify').disabled = true;
+      $('btnVerify').textContent = 'Verifying…';
+      const args = mode === 'email'
+        ? { email: identifier, token, type: 'email' }
+        : { phone: identifier, token, type: 'sms' };
+      const { error } = await sb.auth.verifyOtp(args);
+      $('btnVerify').disabled = false;
+      $('btnVerify').textContent = 'Verify';
+
+      if (error) return note('msgOtp', 'err', 'That code is not valid or has expired. Please try again.');
+      await loadWeddings();
+    };
+
+    async function loadWeddings() {
+      busy('Loading your weddings…');
+      const { data: { user } } = await sb.auth.getUser();
+      if (!user) return fail('Session expired', 'Please start again.');
+
+      // RLS lets members read their own membership rows; role='host' restricts
+      // this to weddings the signed-in user actually hosts.
+      const { data, error } = await sb
+        .from('wedding_guests')
+        .select('wedding_id, weddings(id, bride_name, groom_name, invite_code)')
+        .eq('user_id', user.id)
+        .eq('role', 'host');
+
+      if (error) return fail('Could not load your weddings', 'Please try again in a moment.');
+
+      const rows = (data || []).filter((r) => r.weddings);
+      if (!rows.length) {
+        return fail('No weddings to upgrade',
+          "This account doesn't host any weddings yet. Create one in the Baraati app first — it's free — then come back to upgrade.");
+      }
+
+      const ids = rows.map((r) => r.wedding_id);
+      const { data: ents } = await sb
+        .from('wedding_entitlements')
+        .select('wedding_id, plan')
+        .in('wedding_id', ids);
+      const planOf = Object.fromEntries((ents || []).map((e) => [e.wedding_id, e.plan]));
+
+      const priceText = PLAN_OK === 'premium' ? '₹21,000' : '₹11,000';
+      $('pickSub').textContent = `Choose the wedding to upgrade to ${PLAN_OK === 'premium' ? 'Premium' : 'Standard'} — ${priceText}.`;
+
+      const list = $('wlist');
+      list.innerHTML = '';
+      rows.forEach((r) => {
+        const w = r.weddings;
+        const cur = planOf[w.id] || 'free';
+        // Already on this plan, or already on the higher one.
+        const done = cur === PLAN_OK || cur === 'premium';
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'wrow';
+        btn.disabled = done;
+        btn.innerHTML =
+          `<span><span class="nm">${w.bride_name} & ${w.groom_name}</span>` +
+          `<span class="mt">${w.invite_code || ''}</span></span>` +
+          `<span class="pill ${cur === 'premium' ? 'prem' : ''}">${cur.toUpperCase()}</span>`;
+        btn.onclick = () => startCheckout(w.id);
+        list.appendChild(btn);
+      });
+      note('msgPick', '', '');
+      show('pick');
+    }
+
+    async function startCheckout(weddingId) {
+      busy('Opening secure checkout…');
+      const { data: { session } } = await sb.auth.getSession();
+      if (!session) return fail('Session expired', 'Please sign in again.');
+
+      let res;
+      try {
+        res = await fetch(FUNCTIONS_URL + '/checkout-create', {
+          method: 'POST',
+          headers: {
+            Authorization: 'Bearer ' + session.access_token,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ weddingId, plan: PLAN_OK }),
+        });
+      } catch {
+        return fail('Connection problem', 'We could not reach our servers. Check your connection and try again.');
+      }
+
+      if (res.status === 503) {
+        return fail('Payments unavailable',
+          "Online checkout isn't switched on right now. Message us on WhatsApp and we'll set your plan up directly.");
+      }
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok || !body.checkoutUrl) {
+        const code = body.error || '';
+        if (code === 'already_on_plan') {
+          note('msgPick', 'err', 'That wedding is already on this plan.');
+          return show('pick');
+        }
+        if (code === 'downgrade_not_supported') {
+          note('msgPick', 'err', 'That wedding is already on Premium, the higher plan.');
+          return show('pick');
+        }
+        if (code === 'Forbidden') {
+          note('msgPick', 'err', 'Only a host of that wedding can upgrade it.');
+          return show('pick');
+        }
+        return fail('Could not start checkout', 'Please try again, or contact support@baraati.co.in.');
+      }
+
+      // Hand off to the same hosted checkout page the app uses.
+      location.href = body.checkoutUrl;
+    }
+
+    // Already signed in from a previous visit? Skip straight to the picker.
+    (async () => {
+      const { data: { session } } = await sb.auth.getSession();
+      if (session) { await loadWeddings(); return; }
+      show('signin');
+      $('email').focus();
+    })();
+
+    // Enter-to-submit
+    $('email').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('btnSend').click(); });
+    $('phone').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('btnSend').click(); });
+    $('otp').addEventListener('keydown',   (e) => { if (e.key === 'Enter') $('btnVerify').click(); });
+  </script>
+</body>
+</html>
