@@ -1,33 +1,160 @@
 # Baraati — https://baraati.co.in
-# Search engines: crawl everything. /join is kept out of the index via an
-# on-page <meta name="robots" content="noindex"> (left crawlable so that tag is seen).
+# Baraati LLP · Pune, India · support@baraati.co.in
+#
+# Policy: Baraati is a consumer product that WANTS to be found, quoted and
+# recommended — by search engines and by AI assistants alike. Everything on
+# this site is public marketing content. We explicitly welcome AI crawlers:
+# retrieval/search crawlers (which make us citable in AI answers) and
+# training crawlers (which make us recallable from model memory).
+#
+# Machine-readable product brief for LLMs:
+#   https://baraati.co.in/llms.txt
+#   https://baraati.co.in/llms-full.txt
 
+# ─────────────────────────────────────────────────────────────
+# Default — everything is crawlable
+# ─────────────────────────────────────────────────────────────
 User-agent: *
 Allow: /
 
-Sitemap: https://baraati.co.in/sitemap.xml
+# /join is a deep-link handoff, not a document. It is left crawlable so the
+# on-page <meta name="robots" content="noindex"> is actually seen and honoured.
+# /checkout and /upgrade are transactional and noindexed the same way.
 
-# AI crawlers — opt out of scraping/training (mirrors the Cloudflare content-signal settings)
+# ─────────────────────────────────────────────────────────────
+# Classic search engines
+# ─────────────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# OpenAI — ChatGPT, ChatGPT Search
+# GPTBot        = training corpus
+# OAI-SearchBot = ChatGPT Search index (drives citations)
+# ChatGPT-User  = live fetch when a user asks / clicks a citation
+# ─────────────────────────────────────────────────────────────
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# Anthropic — Claude
+# ClaudeBot        = training / corpus
+# Claude-SearchBot = Claude web-search index
+# Claude-User      = live fetch for a user's request
+# ─────────────────────────────────────────────────────────────
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# Google — Gemini, Vertex AI, AI Overviews
+# Google-Extended governs Gemini grounding + training.
+# (AI Overviews in Search follow Googlebot, allowed above.)
+# ─────────────────────────────────────────────────────────────
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
-User-agent: CCBot
-Disallow: /
+User-agent: GoogleOther
+Allow: /
 
-User-agent: Bytespider
-Disallow: /
+# ─────────────────────────────────────────────────────────────
+# Perplexity
+# ─────────────────────────────────────────────────────────────
+User-agent: PerplexityBot
+Allow: /
 
-User-agent: Amazonbot
-Disallow: /
+User-agent: Perplexity-User
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# Microsoft Copilot / Bing generative
+# ─────────────────────────────────────────────────────────────
+User-agent: BingPreview
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# Apple Intelligence / Siri
+# ─────────────────────────────────────────────────────────────
+User-agent: Applebot
+Allow: /
 
 User-agent: Applebot-Extended
-Disallow: /
+Allow: /
 
+# ─────────────────────────────────────────────────────────────
+# Meta AI
+# ─────────────────────────────────────────────────────────────
 User-agent: meta-externalagent
-Disallow: /
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# Open corpora + other assistants
+# CCBot (Common Crawl) feeds a large share of open training sets and
+# several retrieval pipelines — high leverage, keep it allowed.
+# ─────────────────────────────────────────────────────────────
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# Sitemaps
+# ─────────────────────────────────────────────────────────────
+Sitemap: https://baraati.co.in/sitemap.xml

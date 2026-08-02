@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baraati — Pricing</title>
-  <meta name="description" content="Simple, per-wedding pricing for Baraati. One price for your whole celebration — guests always join free." />
-  <meta property="og:title" content="Baraati — Pricing" />
-  <meta property="og:description" content="One price for your whole wedding. Guests always join free." />
+  <title>Baraati Pricing — Free, ₹11,000 and ₹21,000 Per Wedding</title>
+  <meta name="description" content="Baraati pricing: free forever up to 10 guests, Standard ₹11,000, Premium ₹21,000 — one-time per wedding, not per guest and not a subscription. Guests always join, RSVP and post free on every plan. Premium includes a wedding album website for 3 years." />
+  <meta property="og:title" content="Baraati Pricing — Free, ₹11,000 and ₹21,000 Per Wedding" />
+  <meta property="og:description" content="One-time, per wedding: Free up to 10 guests · Standard ₹11,000 · Premium ₹21,000. Guests always join free." />
   <meta property="og:image" content="https://baraati.co.in/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -14,16 +14,161 @@
   <meta property="og:url" content="https://baraati.co.in/pricing" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Baraati" />
+  <meta property="og:locale" content="en_IN" />
   <link rel="canonical" href="https://baraati.co.in/pricing" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Baraati — Pricing" />
-  <meta name="twitter:description" content="One price for your whole wedding. Guests always join free." />
+  <meta name="twitter:site" content="@baraatii" />
+  <meta name="twitter:title" content="Baraati Pricing — Free, ₹11,000 and ₹21,000 Per Wedding" />
+  <meta name="twitter:description" content="One-time, per wedding: Free up to 10 guests · Standard ₹11,000 · Premium ₹21,000. Guests always join free." />
   <meta name="twitter:image" content="https://baraati.co.in/og.png" />
-  <link rel="icon" type="image/png" href="logo.png" />
-  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+  <link rel="alternate" type="text/plain" href="https://baraati.co.in/llms.txt" title="Baraati product brief for LLMs" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "@id": "https://baraati.co.in/pricing#product",
+        "name": "Baraati — wedding app for Indian weddings",
+        "url": "https://baraati.co.in/pricing",
+        "image": "https://baraati.co.in/og.png",
+        "brand": { "@type": "Brand", "name": "Baraati" },
+        "category": "Wedding planning software",
+        "description": "Baraati is priced once per wedding, never per guest and never as a subscription. Free covers a wedding with up to 10 guests. Standard (₹11,000) adds unlimited guests, encrypted government-ID collection, travel and accommodation management, guest groups and 150 printed thank-you cards. Premium (₹21,000) adds a published wedding album website, live for three years. Guests always join, RSVP, post and play free on every plan.",
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "INR",
+          "lowPrice": "0",
+          "highPrice": "21000",
+          "offerCount": "3",
+          "availability": "https://schema.org/InStock",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Free",
+              "sku": "baraati-free",
+              "price": "0",
+              "priceCurrency": "INR",
+              "url": "https://baraati.co.in/pricing",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "India" },
+              "description": "Free forever for a wedding with up to 10 guests. Includes the multi-day multi-ceremony schedule, guest list and RSVP, photo feed, I-Spy photo game, all Shaadi ka Khel games and the leaderboard, and every wedding theme."
+            },
+            {
+              "@type": "Offer",
+              "name": "Standard",
+              "sku": "baraati-standard",
+              "price": "11000",
+              "priceCurrency": "INR",
+              "url": "https://baraati.co.in/pricing",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "India" },
+              "description": "One-time payment for the whole wedding. Everything in Free, plus unlimited guests, AES-256 encrypted government-ID collection, travel and accommodation management, guest groups with targeted notifications, the full host admin dashboard, 150 printed A5 thank-you cards, and full-time support.",
+              "acceptedPaymentMethod": [
+                { "@type": "PaymentMethod", "name": "UPI" },
+                { "@type": "PaymentMethod", "name": "Credit card" },
+                { "@type": "PaymentMethod", "name": "Net banking" }
+              ]
+            },
+            {
+              "@type": "Offer",
+              "name": "Premium",
+              "sku": "baraati-premium",
+              "price": "21000",
+              "priceCurrency": "INR",
+              "url": "https://baraati.co.in/pricing",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "India" },
+              "description": "One-time payment for the whole wedding. Everything in Standard, plus a published wedding album website at your own baraati.co.in subdomain — live for three years and then ₹510 per year — premium album templates and priority support.",
+              "acceptedPaymentMethod": [
+                { "@type": "PaymentMethod", "name": "UPI" },
+                { "@type": "PaymentMethod", "name": "Credit card" },
+                { "@type": "PaymentMethod", "name": "Net banking" }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://baraati.co.in/pricing#webpage",
+        "url": "https://baraati.co.in/pricing",
+        "name": "Baraati Pricing — Free, ₹11,000 and ₹21,000 Per Wedding",
+        "isPartOf": { "@id": "https://baraati.co.in/#website" },
+        "about": { "@id": "https://baraati.co.in/pricing#product" },
+        "inLanguage": "en-IN",
+        "dateModified": "2026-08-02"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Baraati", "item": "https://baraati.co.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://baraati.co.in/pricing" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://baraati.co.in/pricing#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does Baraati cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Baraati is free for a wedding with up to 10 guests. Above that there are two one-time prices for the whole wedding: Standard at ₹11,000 and Premium at ₹21,000. There is no per-guest charge and no subscription."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do guests have to pay for Baraati?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Guests join, RSVP, post photos and play games free on every plan, including Premium. Only the host pays, and only once."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Baraati a subscription?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. It is a single payment per wedding that covers every day, every ceremony and every guest. The only recurring charge that can ever apply is ₹510 per year to keep a Premium wedding album website online after its first three years, which are included."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between Standard and Premium?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Standard (₹11,000) gives you unlimited guests, encrypted government-ID collection, travel and accommodation management, guest groups and targeted notifications, the full host dashboard, and 150 printed A5 thank-you cards. Premium (₹21,000) adds the published wedding album — your whole wedding as its own website at a baraati.co.in subdomain, live for three years, with premium templates and priority support."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I pay for Baraati?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Online by UPI, card or net banking. The plan unlocks on your wedding immediately after payment. Prices are in Indian Rupees; Baraati sells and delivers within India."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to my wedding content after the wedding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On Free and Standard, wedding content is kept for about two months after the last day of the wedding and then deleted, with advance warning to the host. On Premium the wedding continues to exist as a published album website for three years."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -240,15 +385,16 @@
 
 <nav class="top">
   <div class="nav-row">
-    <a class="nav-logo" href="index.html">
-      <img class="logo-img" src="logo.png" alt="Baraati logo" />
+    <a class="nav-logo" href="/">
+      <img class="logo-img" src="/logo.png" alt="Baraati logo" />
       <span>Baraati</span>
     </a>
     <div class="nav-links">
-      <a href="features.html">Features</a>
-      <a href="pricing.html" class="active">Pricing</a>
-      <a href="security.html">Security</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="/features">Features</a>
+      <a href="/pricing" class="active">Pricing</a>
+      <a href="/security">Security</a>
+      <a href="/faq">FAQ</a>
+      <a href="/support">Support</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     </div>
     <div class="nav-cta">
@@ -262,10 +408,10 @@
     </button>
   </div>
   <div class="nav-mobile">
-    <a href="features.html">Features</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="security.html">Security</a>
-    <a href="index.html#faq">FAQ</a>
+    <a href="/features">Features</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/security">Security</a>
+    <a href="/faq">FAQ</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     <div class="nav-mobile-cta">
       <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.href});return false;}" target="_blank" rel="noopener">Book a demo</a>
@@ -330,7 +476,7 @@
           <span class="cur">₹</span><span class="amt">21,000</span><span class="per">/ wedding</span>
         </div>
         <div class="plan-sub">One-time · unlimited guests</div>
-        <a class="btn btn-grad btn-block plan-cta" href="upgrade.html?plan=premium">Choose Premium</a>
+        <a class="btn btn-grad btn-block plan-cta" href="/upgrade?plan=premium">Choose Premium</a>
         <div class="feat-head">Everything in Standard, plus</div>
         <ul class="feat-list">
           <li><span class="tick">✓</span><span><strong>Published wedding album</strong> — its own website at yourwedding.baraati.co.in</span></li>
@@ -348,7 +494,7 @@
           <span class="cur">₹</span><span class="amt">11,000</span><span class="per">/ wedding</span>
         </div>
         <div class="plan-sub">One-time · unlimited guests</div>
-        <a class="btn btn-primary btn-block plan-cta" href="upgrade.html?plan=standard">Choose Standard</a>
+        <a class="btn btn-primary btn-block plan-cta" href="/upgrade?plan=standard">Choose Standard</a>
         <div class="feat-head">Everything in Free, plus</div>
         <ul class="feat-list">
           <li><span class="tick">✓</span><span><strong>Unlimited guests</strong></span></li>
@@ -426,8 +572,8 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <a class="footer-brand-logo" href="index.html">
-        <img class="logo-img" style="height:48px;width:48px;" src="logo.png" alt="Baraati logo" />
+      <a class="footer-brand-logo" href="/">
+        <img class="logo-img" style="height:48px;width:48px;" src="/logo.png" alt="Baraati logo" />
         <span>Baraati</span>
       </a>
       <p class="footer-brand-desc">One app for every part of an Indian wedding. Memories included.</p>
@@ -442,18 +588,19 @@
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Product</div>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="security.html">Security</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="/features">Features</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/security">Security</a>
+      <a href="/faq">FAQ</a>
+      <a href="/support">Support</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Company</div>
       <a href="https://wa.me/917058117443" target="_blank" rel="noopener">Contact Us</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="refunds.html">Refunds &amp; Cancellation</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="/refunds">Refunds &amp; Cancellation</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Follow</div>

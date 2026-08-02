@@ -3,27 +3,277 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baraati — Your Wedding, Your App</title>
-  <meta name="description" content="Baraati is a private wedding companion app. One beautiful space for your guests, your schedule, and your memories." />
-  <meta property="og:title" content="Baraati — Your Wedding, Your App" />
-  <meta property="og:description" content="A private wedding app made just for your celebration." />
+  <title>Baraati — The Wedding App Built for Indian Weddings</title>
+  <meta name="description" content="Baraati is a private, invite-only wedding app for Indian weddings. One app for your invitation, RSVP, multi-day ceremony schedule, guest travel, hotel rooms, photos and games. Free up to 10 guests; ₹11,000 or ₹21,000 one-time per wedding. Guests always join free." />
+  <meta name="keywords" content="wedding app India, Indian wedding app, wedding guest app, wedding RSVP app, digital wedding invitation, wedding itinerary app, shaadi planning app, destination wedding app" />
+  <meta property="og:title" content="Baraati — The Wedding App Built for Indian Weddings" />
+  <meta property="og:description" content="A private, invite-only app for your wedding — invitation, RSVP, multi-day schedule, travel, photos and games. Free up to 10 guests." />
   <meta property="og:image" content="https://baraati.co.in/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Baraati — the private wedding app" />
+  <meta property="og:image:alt" content="Baraati — the private wedding app for Indian weddings" />
   <meta property="og:url" content="https://baraati.co.in/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Baraati" />
+  <meta property="og:locale" content="en_IN" />
   <link rel="canonical" href="https://baraati.co.in/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Baraati — Your Wedding, Your App" />
-  <meta name="twitter:description" content="A private wedding app made just for your celebration." />
+  <meta name="twitter:site" content="@baraatii" />
+  <meta name="twitter:creator" content="@baraatii" />
+  <meta name="twitter:title" content="Baraati — The Wedding App Built for Indian Weddings" />
+  <meta name="twitter:description" content="A private, invite-only app for your wedding — invitation, RSVP, multi-day schedule, travel, photos and games. Free up to 10 guests." />
   <meta name="twitter:image" content="https://baraati.co.in/og.png" />
-  <link rel="icon" type="image/png" href="logo.png" />
-  <link rel="apple-touch-icon" href="logo.png" />
+  <meta name="twitter:image:alt" content="Baraati — the private wedding app for Indian weddings" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+  <link rel="alternate" type="text/plain" href="https://baraati.co.in/llms.txt" title="Baraati product brief for LLMs" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       Canonical entity graph. Every other page on baraati.co.in points
+       at these @ids rather than redefining the organisation or the app,
+       so search engines and LLMs resolve one unambiguous entity.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://baraati.co.in/#organization",
+        "name": "Baraati",
+        "legalName": "Baraati LLP",
+        "alternateName": ["Baraati App", "Baraati LLP"],
+        "url": "https://baraati.co.in/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://baraati.co.in/#logo",
+          "url": "https://baraati.co.in/logo.png",
+          "caption": "Baraati"
+        },
+        "image": { "@id": "https://baraati.co.in/#logo" },
+        "description": "Baraati LLP builds Baraati, a private invite-only wedding app for Indian weddings covering invitations, RSVP, multi-day ceremony schedules, guest travel and accommodation, encrypted government-ID collection, a private photo feed and wedding games.",
+        "foundingDate": "2025",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "T5B-1001 Godrej Infinity, Keshav Nagar, Mundhva",
+          "addressLocality": "Pune",
+          "postalCode": "411036",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "areaServed": { "@type": "Country", "name": "India" },
+        "knowsAbout": [
+          "Indian weddings",
+          "wedding guest management",
+          "wedding RSVP tracking",
+          "digital wedding invitations",
+          "destination wedding logistics",
+          "multi-day wedding itineraries",
+          "wedding photo sharing"
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "support@baraati.co.in",
+            "telephone": "+91-70581-17443",
+            "availableLanguage": ["en", "hi"],
+            "areaServed": "IN"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/baraati.co.in/",
+          "https://www.linkedin.com/company/baraati",
+          "https://x.com/baraatii",
+          "https://apps.apple.com/app/id6779397081"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://baraati.co.in/#website",
+        "url": "https://baraati.co.in/",
+        "name": "Baraati",
+        "description": "The wedding app built for Indian weddings.",
+        "publisher": { "@id": "https://baraati.co.in/#organization" },
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": ["SoftwareApplication", "MobileApplication"],
+        "@id": "https://baraati.co.in/#app",
+        "name": "Baraati",
+        "alternateName": "Baraati — Wedding App",
+        "url": "https://baraati.co.in/",
+        "downloadUrl": "https://apps.apple.com/app/id6779397081",
+        "installUrl": "https://apps.apple.com/app/id6779397081",
+        "applicationCategory": ["LifestyleApplication", "SocialNetworkingApplication"],
+        "applicationSubCategory": "Wedding planning and guest management",
+        "operatingSystem": "iOS 15.1 or later",
+        "inLanguage": "en-IN",
+        "isFamilyFriendly": true,
+        "publisher": { "@id": "https://baraati.co.in/#organization" },
+        "author": { "@id": "https://baraati.co.in/#organization" },
+        "image": "https://baraati.co.in/og.png",
+        "screenshot": "https://baraati.co.in/og.png",
+        "description": "Baraati is a private, invite-only wedding app for Indian weddings. Hosts create one app for their wedding; guests join with a 6-character invite code and get an animated digital invitation with slide-to-RSVP, the multi-day multi-ceremony schedule, travel and hotel-room details, a private photo feed, an I-Spy photo game and wedding trivia. Hosts additionally get a live RSVP headcount, guest groups, targeted notifications, a travel roster with shared-pickup clustering, and AES-256-encrypted government-ID collection for venue, hotel and airline requirements.",
+        "featureList": [
+          "Animated digital wedding invitation with slide-to-RSVP",
+          "Live RSVP headcount — yes, no, tentative, pending",
+          "Multi-day, multi-ceremony wedding itinerary",
+          "Private photo and video feed for guests",
+          "I-Spy photo scavenger hunt game",
+          "Shaadi ka Khel — Word Search, Predictions, Who's Most Likely",
+          "Shared leaderboard across all games",
+          "Guest travel roster with CSV export",
+          "Hotel room allocation",
+          "Travel Concierge shared airport pickups",
+          "AES-256 encrypted government-ID collection, audit-logged",
+          "Guest groups and targeted push notifications",
+          "Six complete wedding themes",
+          "150 printed A5 thank-you cards (Standard and Premium)",
+          "Published wedding album website for 3 years (Premium)"
+        ],
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Free",
+            "price": "0",
+            "priceCurrency": "INR",
+            "description": "Free forever for a wedding with up to 10 guests.",
+            "url": "https://baraati.co.in/pricing",
+            "availability": "https://schema.org/InStock",
+            "eligibleRegion": { "@type": "Country", "name": "India" }
+          },
+          {
+            "@type": "Offer",
+            "name": "Standard",
+            "price": "11000",
+            "priceCurrency": "INR",
+            "description": "One-time payment per wedding. Unlimited guests, encrypted government-ID collection, travel and accommodation management, guest groups, full host dashboard, and 150 printed A5 thank-you cards.",
+            "url": "https://baraati.co.in/pricing",
+            "availability": "https://schema.org/InStock",
+            "eligibleRegion": { "@type": "Country", "name": "India" }
+          },
+          {
+            "@type": "Offer",
+            "name": "Premium",
+            "price": "21000",
+            "priceCurrency": "INR",
+            "description": "One-time payment per wedding. Everything in Standard plus a published wedding album website, live for 3 years and then ₹510 per year.",
+            "url": "https://baraati.co.in/pricing",
+            "availability": "https://schema.org/InStock",
+            "eligibleRegion": { "@type": "Country", "name": "India" }
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://baraati.co.in/#webpage",
+        "url": "https://baraati.co.in/",
+        "name": "Baraati — The Wedding App Built for Indian Weddings",
+        "isPartOf": { "@id": "https://baraati.co.in/#website" },
+        "about": { "@id": "https://baraati.co.in/#app" },
+        "primaryImageOfPage": { "@id": "https://baraati.co.in/#logo" },
+        "inLanguage": "en-IN",
+        "dateModified": "2026-08-02",
+        "description": "Baraati is a private, invite-only wedding app for Indian weddings — invitation, RSVP, multi-day schedule, travel, photos and games in one place.",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".entity-answer", "h1"]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://baraati.co.in/#faq",
+        "isPartOf": { "@id": "https://baraati.co.in/#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Baraati?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Baraati is a private, invite-only mobile app for Indian weddings, made by Baraati LLP in Pune, India. One app is created per wedding. Hosts set up the multi-day, multi-ceremony schedule; guests join with a 6-character invite code and get an animated digital invitation with RSVP, the full itinerary, travel and hotel-room details, a private photo feed and wedding games — all in one place. It is live on the iOS App Store; Android is in development."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do guests join the wedding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Guests download the Baraati app and enter the 6-character invite code the host shares with them, or tap the host's invite link. They sign in with a one-time passcode sent to their email or phone — no password — pick their side (Bride's, Groom's, or Event Team), and they are in."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my wedding private?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Every wedding is invitation-only and reachable only via its unique invite code. Photos, games and the social feed all live inside your wedding's private space. There are no public listings, no strangers, and no ads. Unlike a WhatsApp group, guests' phone numbers are never exposed to other guests."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does Baraati cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Baraati is free forever for a wedding with up to 10 guests. Beyond that, Standard is ₹11,000 and Premium is ₹21,000 — one time, per wedding, not per guest and not a subscription. Guests always join, RSVP, post and play free on every plan; only the host pays. Premium adds a published wedding album website, live for three years and then ₹510 per year."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What games are available?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Baraati includes Word Search (find hidden wedding words in a 15×15 grid), Predictions (vote on questions about the couple), Who's Most Likely? (rapid-fire 15-second bride-or-groom questions), and I-Spy, a photo scavenger hunt. All of them feed one shared leaderboard, which also awards points for completing your profile, adding travel details and uploading your ID."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is I-Spy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I-Spy is a photo challenge where guests capture specific wedding moments the host defines — with the Bride, with the Groom, on the dance floor, candid emotions and more. Each guest can upload up to 10 photos per moment, and everyone can react to submissions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can the host collect guest travel and ID details?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Guests submit their own travel itinerary (arrival and departure date, time, mode and confirmation number) and hosts see one arrivals board they can export as CSV. Guests can also upload government-issued ID documents (Aadhaar, Passport, Driving Licence) for hotel, airline or visa requirements. Those documents are AES-256 encrypted, every access is audit-logged, they are visible only to that wedding's hosts, and they are auto-deleted three days after the wedding."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Baraati available to download?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — Baraati is live on the App Store for iPhone and iPad. The Android app on Google Play is in development; message us on WhatsApp and we'll let you know the moment it is out."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Baraati work for multi-day Indian weddings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — multi-day and multi-ceremony is the core structure, not an add-on. Mehndi, haldi, sangeet, baraat, phera, reception and any custom ceremony each get their own entry with date, time, venue, map link and dress code. Edits push to every guest's phone instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I track my wedding budget and vendors in Baraati?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, in Baraati Planner at planner.baraati.co.in — a web command centre for hosts and professional planners that syncs live with the guest app. It covers budget (estimates versus actuals), tasks and timeline, vendors and bookings, shopping lists, guest management and analytics."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -578,13 +828,13 @@
 <nav class="top">
   <div class="nav-row">
     <a class="nav-logo" href="#">
-      <img class="logo-img" src="logo.png" alt="Baraati logo" />
+      <img class="logo-img" src="/logo.png" alt="Baraati logo" />
       <span>Baraati</span>
     </a>
     <div class="nav-links">
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="security.html">Security</a>
+      <a href="/features">Features</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/security">Security</a>
       <a href="#faq">FAQ</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     </div>
@@ -599,10 +849,10 @@
     </button>
   </div>
   <div class="nav-mobile">
-    <a href="features.html">Features</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="security.html">Security</a>
-    <a href="index.html#faq">FAQ</a>
+    <a href="/features">Features</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/security">Security</a>
+    <a href="/faq">FAQ</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     <div class="nav-mobile-cta">
       <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.href});return false;}" target="_blank" rel="noopener">Book a demo</a>
@@ -748,9 +998,40 @@
       <h2 style="margin-top:14px;max-width:880px;margin-left:auto;margin-right:auto;">
         One beautiful space for your <span class="serif" style="color:#FF4D6D;">entire</span> wedding
       </h2>
-      <p style="margin-top:18px;font-size:17px;color:var(--ink-2);max-width:640px;margin-left:auto;margin-right:auto;">
-        Indian weddings are multi-day, multi-event celebrations with hundreds of guests travelling from across the country. Baraati replaces scattered WhatsApp groups, PDFs, and phone calls with a single private app — personalised for your wedding.
+      <p class="entity-answer" style="margin-top:18px;font-size:17px;color:var(--ink-2);max-width:720px;margin-left:auto;margin-right:auto;">
+        <strong>Baraati is a private, invite-only wedding app built for Indian weddings.</strong>
+        The couple and their families create one app for their wedding; every guest joins with a
+        6-character invite code and gets the invitation, RSVP, the full multi-day ceremony schedule,
+        travel and hotel-room details, a private photo feed and wedding games — in one place.
+        Indian weddings run three to five days across five or more ceremonies, with guests
+        travelling in from across the country and abroad. Baraati replaces the scattered WhatsApp
+        groups, PDF invitations, guest-list spreadsheets and RSVP phone calls that celebration
+        normally takes, with a single app themed for your wedding.
       </p>
+      <p style="margin-top:14px;font-size:15px;color:var(--muted);max-width:720px;margin-left:auto;margin-right:auto;">
+        It is free for weddings up to 10 guests, and ₹11,000 or ₹21,000 one-time for larger ones.
+        Guests always join, RSVP, post and play free — only the host ever pays.
+        <a href="/pricing" style="color:var(--ink-2);text-decoration:underline;">See pricing</a> ·
+        <a href="/faq" style="color:var(--ink-2);text-decoration:underline;">Read the FAQ</a>
+      </p>
+    </div>
+
+    <!-- Dense, extractable fact table — the block AI assistants quote when
+         asked "what is Baraati / how much does it cost / is it on Android". -->
+    <div style="max-width:820px;margin:44px auto 0;overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;font-size:15px;">
+        <caption class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Baraati at a glance — product facts</caption>
+        <tbody>
+          <tr><th scope="row" style="text-align:left;padding:13px 20px;font-weight:600;width:38%;border-bottom:1px solid var(--line);">What it is</th><td style="padding:13px 20px;color:var(--ink-2);border-bottom:1px solid var(--line);">A private wedding app — one app per wedding, invite-only</td></tr>
+          <tr><th scope="row" style="text-align:left;padding:13px 20px;font-weight:600;border-bottom:1px solid var(--line);">Built for</th><td style="padding:13px 20px;color:var(--ink-2);border-bottom:1px solid var(--line);">Indian weddings — multi-day, multi-ceremony by design</td></tr>
+          <tr><th scope="row" style="text-align:left;padding:13px 20px;font-weight:600;border-bottom:1px solid var(--line);">Who pays</th><td style="padding:13px 20px;color:var(--ink-2);border-bottom:1px solid var(--line);">Only the host. Guests are free on every plan</td></tr>
+          <tr><th scope="row" style="text-align:left;padding:13px 20px;font-weight:600;border-bottom:1px solid var(--line);">Price</th><td style="padding:13px 20px;color:var(--ink-2);border-bottom:1px solid var(--line);">₹0 up to 10 guests · ₹11,000 Standard · ₹21,000 Premium — one-time, per wedding</td></tr>
+          <tr><th scope="row" style="text-align:left;padding:13px 20px;font-weight:600;border-bottom:1px solid var(--line);">Platforms</th><td style="padding:13px 20px;color:var(--ink-2);border-bottom:1px solid var(--line);">iOS (live on the App Store) · Android in development · <a href="https://planner.baraati.co.in" style="color:var(--ink-2);">Planner on web</a></td></tr>
+          <tr><th scope="row" style="text-align:left;padding:13px 20px;font-weight:600;border-bottom:1px solid var(--line);">Sign-in</th><td style="padding:13px 20px;color:var(--ink-2);border-bottom:1px solid var(--line);">One-time passcode by email or phone. No passwords</td></tr>
+          <tr><th scope="row" style="text-align:left;padding:13px 20px;font-weight:600;border-bottom:1px solid var(--line);">Unusual for the category</th><td style="padding:13px 20px;color:var(--ink-2);border-bottom:1px solid var(--line);">Hotel-room allocation, guest travel roster, and AES-256 encrypted government-ID collection</td></tr>
+          <tr><th scope="row" style="text-align:left;padding:13px 20px;font-weight:600;">Made by</th><td style="padding:13px 20px;color:var(--ink-2);">Baraati LLP, Pune, India</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="metrics-grid">
@@ -1094,7 +1375,7 @@
   <div class="footer-inner">
     <div>
       <a class="footer-brand-logo" href="#">
-        <img class="logo-img" style="height:48px;width:48px;" src="logo.png" alt="Baraati logo" />
+        <img class="logo-img" style="height:48px;width:48px;" src="/logo.png" alt="Baraati logo" />
         <span>Baraati</span>
       </a>
       <p class="footer-brand-desc">One app for every part of an Indian wedding. Memories included.</p>
@@ -1109,26 +1390,29 @@
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Product</div>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="security.html">Security</a>
+      <a href="/features">Features</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/security">Security</a>
       <a href="#faq">FAQ</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Guides</div>
-      <a href="wedding-guest-app.html">Wedding guest app</a>
-      <a href="digital-wedding-invitation.html">Digital invitation</a>
-      <a href="vs-whatsapp-groups.html">vs WhatsApp groups</a>
-      <a href="destination-wedding-guest-app.html">Destination weddings</a>
+      <a href="/wedding-guest-app">Wedding guest app</a>
+      <a href="/digital-wedding-invitation">Digital invitation</a>
+      <a href="/vs-whatsapp-groups">vs WhatsApp groups</a>
+      <a href="/destination-wedding-guest-app">Destination weddings</a>
+      <a href="/best-wedding-apps-india">Best wedding apps in India</a>
+      <a href="/indian-wedding-planning-checklist">Planning checklist</a>
+      <a href="/glossary">Wedding glossary</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Company</div>
       <a href="https://wa.me/917058117443" target="_blank" rel="noopener">Contact Us</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="refunds.html">Refunds &amp; Cancellation</a>
-      <a href="delete-account.html">Delete account</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="/refunds">Refunds &amp; Cancellation</a>
+      <a href="/delete-account">Delete account</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Follow</div>

@@ -14,6 +14,7 @@
   <meta property="og:url" content="https://baraati.co.in/wedding-itinerary-app" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Baraati" />
+  <meta property="og:locale" content="en_IN" />
   <link rel="canonical" href="https://baraati.co.in/wedding-itinerary-app" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Wedding Itinerary App for Guests | Baraati" />
@@ -26,21 +27,87 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      { "@type": "BreadcrumbList", "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://baraati.co.in/" },
-        { "@type": "ListItem", "position": 2, "name": "Wedding Itinerary App", "item": "https://baraati.co.in/wedding-itinerary-app" }
-      ]},
-      { "@type": "FAQPage", "mainEntity": [
-        { "@type": "Question", "name": "What is a wedding itinerary app?", "acceptedAnswer": { "@type": "Answer", "text": "A wedding itinerary app puts your full multi-day schedule in every guest's pocket — each ceremony with its date, time, venue, directions and dress code — and keeps it current, so guests always know where to be." } },
-        { "@type": "Question", "name": "Does it handle multi-day Indian weddings?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Baraati is built for multi-day weddings — mehndi, haldi, sangeet, baraat, phere and reception each get their own card with venue, time and dress code, across as many days as your celebration runs." } },
-        { "@type": "Question", "name": "What happens when a timing or venue changes?", "acceptedAnswer": { "@type": "Answer", "text": "Update it once and every guest's schedule refreshes instantly, with a push notification — no 'please note the revised timing' forwards in the family group." } },
-        { "@type": "Question", "name": "Can guests get directions to each venue?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each ceremony carries its venue with a map link, so guests can navigate straight there, and hosts can broadcast live updates like shuttle timings." } }
-      ]}
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://baraati.co.in/wedding-itinerary-app#webpage",
+      "url": "https://baraati.co.in/wedding-itinerary-app",
+      "name": "Wedding Itinerary App",
+      "description": "Multi-day, multi-ceremony wedding schedules that every guest can follow.",
+      "isPartOf": {
+        "@id": "https://baraati.co.in/#website"
+      },
+      "about": {
+        "@id": "https://baraati.co.in/#app"
+      },
+      "publisher": {
+        "@id": "https://baraati.co.in/#organization"
+      },
+      "inLanguage": "en-IN",
+      "dateModified": "2026-08-02"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://baraati.co.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Wedding Itinerary App",
+          "item": "https://baraati.co.in/wedding-itinerary-app"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a wedding itinerary app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A wedding itinerary app puts your full multi-day schedule in every guest's pocket — each ceremony with its date, time, venue, directions and dress code — and keeps it current, so guests always know where to be."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it handle multi-day Indian weddings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Baraati is built for multi-day weddings — mehndi, haldi, sangeet, baraat, phere and reception each get their own card with venue, time and dress code, across as many days as your celebration runs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when a timing or venue changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Update it once and every guest's schedule refreshes instantly, with a push notification — no 'please note the revised timing' forwards in the family group."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can guests get directions to each venue?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Each ceremony carries its venue with a map link, so guests can navigate straight there, and hosts can broadcast live updates like shuttle timings."
+          }
+        }
+      ],
+      "@id": "https://baraati.co.in/wedding-itinerary-app#faq",
+      "isPartOf": {
+        "@id": "https://baraati.co.in/wedding-itinerary-app#webpage"
+      }
+    }
+  ]
+}
   </script>
 
   <style>
@@ -131,12 +198,13 @@
 
 <nav class="top">
   <div class="nav-row">
-    <a class="nav-logo" href="index.html"><img class="logo-img" src="logo.png" alt="Baraati logo" /><span>Baraati</span></a>
+    <a class="nav-logo" href="/"><img class="logo-img" src="/logo.png" alt="Baraati logo" /><span>Baraati</span></a>
     <div class="nav-links">
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="security.html">Security</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="/features">Features</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/security">Security</a>
+      <a href="/faq">FAQ</a>
+      <a href="/support">Support</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     </div>
     <div class="nav-cta">
@@ -150,10 +218,10 @@
     </button>
   </div>
   <div class="nav-mobile">
-    <a href="features.html">Features</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="security.html">Security</a>
-    <a href="index.html#faq">FAQ</a>
+    <a href="/features">Features</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/security">Security</a>
+    <a href="/faq">FAQ</a>
     <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     <div class="nav-mobile-cta">
       <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" target="_blank" rel="noopener">Book a demo</a>
@@ -169,7 +237,7 @@
     <p class="sub">Mehndi at 4, sangeet across town at 7, baraat the next morning — a multi-day Indian wedding is a logistics puzzle. Baraati puts the whole schedule in every guest's pocket, always current, with the venue, time, dress code and directions for each ceremony.</p>
     <div class="hero-cta">
       <a class="btn btn-grad" href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener">Get Baraati on iOS</a>
-      <a class="btn btn-ghost" href="wedding-guest-app.html">What is a guest app?</a>
+      <a class="btn btn-ghost" href="/wedding-guest-app">What is a guest app?</a>
     </div>
     <p class="hero-note">Free for up to 10 guests · Guests always join free · No ads, ever</p>
   </div>
@@ -225,7 +293,7 @@
     </div>
     <div class="faq">
       <details open><summary>What is a wedding itinerary app?</summary><p>A wedding itinerary app puts your full multi-day schedule in every guest's pocket — each ceremony with its date, time, venue, directions and dress code — and keeps it current, so guests always know where to be.</p></details>
-      <details><summary>Does it handle multi-day Indian weddings?</summary><p>Yes. Baraati is built for multi-day weddings — mehndi, haldi, sangeet, baraat, phere and reception each get their own card with venue, time and dress code, across as many days as your celebration runs. <a href="wedding-guest-app.html" style="color:var(--rose);text-decoration:none;">More on the guest app →</a></p></details>
+      <details><summary>Does it handle multi-day Indian weddings?</summary><p>Yes. Baraati is built for multi-day weddings — mehndi, haldi, sangeet, baraat, phere and reception each get their own card with venue, time and dress code, across as many days as your celebration runs. <a href="/wedding-guest-app" style="color:var(--rose);text-decoration:none;">More on the guest app →</a></p></details>
       <details><summary>What happens when a timing or venue changes?</summary><p>Update it once and every guest's schedule refreshes instantly, with a push notification — no "please note the revised timing" forwards in the family group.</p></details>
       <details><summary>Can guests get directions to each venue?</summary><p>Yes. Each ceremony carries its venue with a map link, so guests can navigate straight there, and hosts can broadcast live updates like shuttle timings.</p></details>
     </div>
@@ -238,7 +306,7 @@
     <p>Start free, build your schedule, and let every guest carry it with them. Every guest joins free.</p>
     <div class="cta-row">
       <a class="btn btn-grad" href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener">Get Baraati on iOS</a>
-      <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+      <a class="btn btn-ghost" href="/pricing">See pricing</a>
     </div>
   </div>
 </section>
@@ -246,7 +314,7 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <a class="footer-brand-logo" href="index.html"><img class="logo-img" style="height:48px;width:48px;" src="logo.png" alt="Baraati logo" /><span>Baraati</span></a>
+      <a class="footer-brand-logo" href="/"><img class="logo-img" style="height:48px;width:48px;" src="/logo.png" alt="Baraati logo" /><span>Baraati</span></a>
       <p class="footer-brand-desc">One app for every part of an Indian wedding. Memories included.</p>
       <a href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener" class="btn" style="background:#111;color:#fff;gap:9px;padding:9px 16px;margin-top:18px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.7 2.2-3.99 2.3-4.06-1.25-1.83-3.2-2.08-3.89-2.11-1.66-.17-3.24.98-4.08.98-.84 0-2.14-.96-3.52-.93-1.81.03-3.48 1.05-4.41 2.66-1.88 3.27-.48 8.1 1.35 10.75.89 1.29 1.96 2.74 3.36 2.69 1.34-.05 1.85-.87 3.47-.87s2.08.87 3.5.84c1.44-.03 2.36-1.32 3.24-2.62 1.02-1.5 1.44-2.95 1.46-3.03-.03-.01-2.8-1.08-2.83-4.27zM14.47 4.2c.74-.9 1.24-2.15 1.1-3.4-1.07.04-2.36.71-3.13 1.61-.68.79-1.28 2.06-1.12 3.28 1.19.09 2.41-.6 3.15-1.49z"/></svg>
@@ -256,25 +324,29 @@
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Product</div>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="security.html">Security</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="/features">Features</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/security">Security</a>
+      <a href="/faq">FAQ</a>
+      <a href="/support">Support</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Guides</div>
-      <a href="wedding-guest-app.html">Wedding guest app</a>
-      <a href="digital-wedding-invitation.html">Digital invitation</a>
-      <a href="wedding-rsvp-app.html">Wedding RSVP app</a>
-      <a href="wedding-photo-sharing.html">Photo sharing</a>
-      <a href="destination-wedding-guest-app.html">Destination weddings</a>
+      <a href="/wedding-guest-app">Wedding guest app</a>
+      <a href="/digital-wedding-invitation">Digital invitation</a>
+      <a href="/wedding-rsvp-app">Wedding RSVP app</a>
+      <a href="/wedding-photo-sharing">Photo sharing</a>
+      <a href="/destination-wedding-guest-app">Destination weddings</a>
+      <a href="/best-wedding-apps-india">Best wedding apps in India</a>
+      <a href="/indian-wedding-planning-checklist">Planning checklist</a>
+      <a href="/glossary">Wedding glossary</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Company</div>
       <a href="https://wa.me/917058117443" target="_blank" rel="noopener">Contact Us</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
     </div>
   </div>
   <div class="footer-bottom">

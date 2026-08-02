@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Security — How Baraati Protects Your Wedding</title>
-  <meta name="description" content="AES-256 envelope encryption for guest IDs, audit-logged access, auto-deletion after the wedding, OTP-only sign-in, and per-wedding isolation. The details, plainly." />
+  <title>Baraati Security — Encryption, Guest IDs and Data Retention</title>
+  <meta name="description" content="How Baraati protects wedding data: AES-256-GCM envelope encryption for guest government-ID documents, audit-logged access, streamed decrypts instead of public links, auto-deletion three days after the wedding, one-time-passcode sign-in with no stored passwords, per-wedding isolation and certificate pinning." />
   <meta property="og:title" content="Security — How Baraati Protects Your Wedding" />
   <meta property="og:description" content="How Baraati protects your guest lists, travel plans, photos, and government IDs — explained plainly." />
   <meta property="og:image" content="https://baraati.co.in/og.png" />
@@ -14,13 +14,108 @@
   <meta property="og:url" content="https://baraati.co.in/security" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Baraati" />
+  <meta property="og:locale" content="en_IN" />
   <link rel="canonical" href="https://baraati.co.in/security" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@baraatii" />
   <meta name="twitter:title" content="Security — How Baraati Protects Your Wedding" />
   <meta name="twitter:description" content="How Baraati protects your guest lists, travel plans, photos, and government IDs — explained plainly." />
   <meta name="twitter:image" content="https://baraati.co.in/og.png" />
-  <link rel="icon" type="image/png" href="logo.png" />
-  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+  <link rel="alternate" type="text/plain" href="https://baraati.co.in/llms.txt" title="Baraati product brief for LLMs" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://baraati.co.in/security#article",
+        "headline": "How Baraati protects your wedding data",
+        "url": "https://baraati.co.in/security",
+        "inLanguage": "en-IN",
+        "datePublished": "2026-07-27",
+        "dateModified": "2026-08-02",
+        "author": { "@id": "https://baraati.co.in/#organization" },
+        "publisher": { "@id": "https://baraati.co.in/#organization" },
+        "image": "https://baraati.co.in/og.png",
+        "about": { "@id": "https://baraati.co.in/#app" },
+        "description": "Baraati's security model: AES-256-GCM envelope encryption for guest government-ID documents, audit-logged access, streamed decrypts instead of public links, auto-deletion three days after the wedding, one-time-passcode sign-in with no stored passwords, per-wedding row-level isolation, and certificate pinning in the mobile app.",
+        "proficiencyLevel": "Beginner"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Baraati", "item": "https://baraati.co.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Security", "item": "https://baraati.co.in/security" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://baraati.co.in/security#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Baraati safe to use for my wedding?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every Baraati wedding is invitation-only and isolated from every other wedding at the database level, so a member of one wedding can never read another's data. Sign-in is by one-time passcode, so no passwords are stored. The mobile app uses certificate pinning. There are no ads and personal data is never sold."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Baraati encrypt government ID documents?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Baraati uses AES-256-GCM envelope encryption. Each uploaded document is encrypted with its own key, and that key is itself encrypted with a master key held server-side. Documents are never exposed by public or presigned link — a download is a streamed decrypt. Every access is written to an audit log, and the feature is disabled entirely on rooted or jailbroken devices."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who can see the ID documents guests upload?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only the hosts of that specific wedding, and only for as long as the documents exist. Uploads are optional, they are auto-deleted three days after the wedding, and a guest can delete their own document at any time from the app."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are guest phone numbers visible to other guests?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. This is a concrete difference from a wedding WhatsApp group, where every number is visible to everyone in it. In Baraati, guests see names, photos and roles — not each other's contact details."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I report or block someone in Baraati?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tap the ••• menu on any feed post, I-Spy capture or profile. Reporting hides the content from you immediately and notifies the wedding's hosts; violating content is removed within 24 hours. Blocking hides everything that person posts, and blocked accounts are managed under Profile → Blocked Accounts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does Baraati keep my wedding data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Government-ID uploads are deleted three days after the wedding. On Free and Standard plans the rest of the wedding's content is deleted about two months after the wedding's last day, with advance warning to the host. Premium weddings continue as a published album website for three years. Accounts can be deleted at any time from Profile → Delete Account."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Baraati compliant with India's data protection law?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Baraati's Privacy Policy is written to align with India's Digital Personal Data Protection Act, 2023, covering purpose limitation, consent, data-principal rights and deletion. Baraati does not claim any third-party security certification such as SOC 2 or ISO 27001."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -169,15 +264,15 @@
 
 <nav class="top">
   <div class="nav-row">
-    <a class="nav-logo" href="index.html">
-      <img class="logo-img" src="logo.png" alt="Baraati logo" />
+    <a class="nav-logo" href="/">
+      <img class="logo-img" src="/logo.png" alt="Baraati logo" />
       <span>Baraati</span>
     </a>
     <div class="nav-links">
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="security.html" class="active">Security</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="/features">Features</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/security" class="active">Security</a>
+      <a href="/faq">FAQ</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     </div>
     <div class="nav-cta">
@@ -191,10 +286,10 @@
     </button>
   </div>
   <div class="nav-mobile">
-    <a href="features.html">Features</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="security.html">Security</a>
-    <a href="index.html#faq">FAQ</a>
+    <a href="/features">Features</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/security">Security</a>
+    <a href="/faq">FAQ</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     <div class="nav-mobile-cta">
       <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.href});return false;}" target="_blank" rel="noopener">Book a demo</a>
@@ -276,7 +371,7 @@
       <h2>Found something? We take reports seriously.</h2>
       <p>If you believe you've found a security issue, write to us and we'll respond promptly.</p>
       <a class="btn btn-primary" href="mailto:support@baraati.co.in">Email support@baraati.co.in</a>
-      <p class="fine">For the full data story, read our <a href="privacy.html">privacy policy</a>.</p>
+      <p class="fine">For the full data story, read our <a href="/privacy">privacy policy</a>.</p>
     </div>
 
   </div>
@@ -286,8 +381,8 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <a class="footer-brand-logo" href="index.html">
-        <img class="logo-img" style="height:48px;width:48px;" src="logo.png" alt="Baraati logo" />
+      <a class="footer-brand-logo" href="/">
+        <img class="logo-img" style="height:48px;width:48px;" src="/logo.png" alt="Baraati logo" />
         <span>Baraati</span>
       </a>
       <p class="footer-brand-desc">One app for every part of an Indian wedding. Memories included.</p>
@@ -302,18 +397,19 @@
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Product</div>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="security.html">Security</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="/features">Features</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/security">Security</a>
+      <a href="/faq">FAQ</a>
+      <a href="/support">Support</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Company</div>
       <a href="https://wa.me/917058117443" target="_blank" rel="noopener">Contact Us</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="refunds.html">Refunds &amp; Cancellation</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="/refunds">Refunds &amp; Cancellation</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Follow</div>
