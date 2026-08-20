@@ -50,6 +50,22 @@
     }
     .btn-primary { background: var(--ink); color: #fff; }
     .btn-primary:disabled { opacity: 0.55; cursor: default; }
+    .promo { display: flex; gap: 8px; margin-bottom: 14px; }
+    .promo input {
+      flex: 1; min-width: 0; font-family: inherit; font-size: 14px; color: var(--ink);
+      background: #fff; border: 1px solid var(--border); border-radius: 12px;
+      padding: 12px 13px; text-transform: uppercase;
+    }
+    .promo input:focus { outline: none; border-color: var(--accent); }
+    .promo button {
+      font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+      padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border);
+      background: rgba(120,90,60,0.07); color: var(--ink);
+    }
+    .promo button:disabled { opacity: 0.5; cursor: default; }
+    .promo-note { font-size: 12.5px; margin: -6px 0 12px; text-align: left; }
+    .promo-note.ok  { color: var(--ok); }
+    .promo-note.err { color: var(--accent); }
     .pay-error {
       font-size: 13.5px; color: var(--accent); text-align: left;
       background: rgba(194,65,12,0.07); border: 1px solid rgba(194,65,12,0.22);
@@ -102,6 +118,12 @@
           <span class="total" id="amount">—</span>
         </div>
       </div>
+      <div class="promo">
+        <input id="promo" autocomplete="off" spellcheck="false" placeholder="Discount code" />
+        <button id="promoBtn" type="button">Apply</button>
+      </div>
+      <p id="promoNote" class="promo-note" hidden></p>
+
       <p id="payErr" class="pay-error" hidden></p>
       <button id="payBtn" class="btn btn-primary" type="button">Pay securely</button>
       <p class="hint">
@@ -241,7 +263,11 @@
           });
         }
 
-        var rzp = new Razorpay({
+        // The Razorpay handle is rebuilt whenever the order changes, because an
+        // order's amount is immutable — applying a code mints a new order.
+        var rzp = null;
+        function buildRzp() {
+          rzp = new Razorpay({
           key: s.keyId,
           order_id: s.orderId,
           amount: s.amountPaise,
@@ -270,10 +296,81 @@
         rzp.on('payment.failed', function (e) {
           payBtn.disabled = false;
           var reason = (e && e.error && e.error.description) ? e.error.description : '';
-          payErr.textContent = reason
-            ? ('Payment failed: ' + reason + ' — nothing was charged. Please try again.')
-            : 'Payment failed — nothing was charged. Please try again.';
-          payErr.hidden = false;
+            payErr.textContent = reason
+              ? ('Payment failed: ' + reason + ' — nothing was charged. Please try again.')
+              : 'Payment failed — nothing was charged. Please try again.';
+            payErr.hidden = false;
+          });
+        }
+        buildRzp();
+
+        // ── discount code ──────────────────────────────────────────────────
+        var promo = document.getElementById('promo');
+        var promoBtn = document.getElementById('promoBtn');
+        var promoNote = document.getElementById('promoNote');
+
+        var COUPON_MSG = {
+          coupon_invalid:    'That code is not valid.',
+          coupon_expired:    'That code has expired.',
+          coupon_wrong_plan: 'That code does not apply to this plan.',
+          coupon_exhausted:  'That code has been fully claimed.',
+          already_paid:      'This order has already been paid.',
+          expired:           'This checkout link has expired. Please start again.',
+        };
+
+        function note(kind, text) {
+          promoNote.className = 'promo-note ' + kind;
+          promoNote.textContent = text;
+          promoNote.hidden = false;
+        }
+
+        function repaint(d) {
+          s.amountPaise = d.amountPaise;
+          s.orderId = d.orderId;
+          document.getElementById('amount').textContent = rupees(d.amountPaise);
+          payBtn.textContent = 'Pay ' + rupees(d.amountPaise) + ' securely';
+          if (d.discountPaise > 0) {
+            document.getElementById('planName').textContent =
+              (d.planName || '') + ' plan · ' + rupees(d.listPaise);
+            document.getElementById('couponTag').textContent = d.couponCode ? '(' + d.couponCode + ')' : '';
+            document.getElementById('discount').textContent = '− ' + rupees(d.discountPaise);
+            document.getElementById('discountRow').hidden = false;
+          } else {
+            document.getElementById('planName').textContent = (d.planName || '') + ' plan';
+            document.getElementById('discountRow').hidden = true;
+          }
+          buildRzp();   // new order id — the old handle is stale
+        }
+
+        promoBtn.addEventListener('click', function () {
+          var code = (promo.value || '').trim();
+          if (!code) return;
+          promoBtn.disabled = true;
+          promoBtn.textContent = '…';
+          promoNote.hidden = true;
+          fetch(FUNCTIONS_URL + '/checkout-apply-coupon', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ t: token, code: code }),
+          }).then(function (r) {
+            return r.json().catch(function () { return {}; }).then(function (b) {
+              promoBtn.disabled = false;
+              promoBtn.textContent = 'Apply';
+              if (!r.ok) {
+                return note('err', COUPON_MSG[b.error] || 'Could not apply that code.');
+              }
+              repaint(b);
+              note('ok', 'Code applied — you save ' + rupees(b.discountPaise) + '.');
+            });
+          }).catch(function () {
+            promoBtn.disabled = false;
+            promoBtn.textContent = 'Apply';
+            note('err', 'Could not reach our servers. Please try again.');
+          });
+        });
+
+        promo.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') promoBtn.click();
         });
 
         payBtn.addEventListener('click', function () {
