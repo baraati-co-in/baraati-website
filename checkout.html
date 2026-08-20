@@ -93,6 +93,10 @@
           <span class="label">Plan</span>
           <span class="value" id="planName">—</span>
         </div>
+        <div class="row" id="discountRow" hidden>
+          <span class="label">Discount <span id="couponTag"></span></span>
+          <span class="value" id="discount">—</span>
+        </div>
         <div class="row">
           <span class="label">Amount</span>
           <span class="total" id="amount">—</span>
@@ -188,6 +192,13 @@
         document.getElementById('couple').textContent = s.coupleLabel || '';
         document.getElementById('planName').textContent = (s.planName || '') + ' plan';
         document.getElementById('amount').textContent = rupees(s.amountPaise);
+        if (s.discountPaise > 0) {
+          document.getElementById('planName').textContent =
+            (s.planName || '') + ' plan · ' + rupees(s.listPaise);
+          document.getElementById('couponTag').textContent = s.couponCode ? '(' + s.couponCode + ')' : '';
+          document.getElementById('discount').textContent = '− ' + rupees(s.discountPaise);
+          document.getElementById('discountRow').hidden = false;
+        }
         show('ready');
 
         var payBtn = document.getElementById('payBtn');

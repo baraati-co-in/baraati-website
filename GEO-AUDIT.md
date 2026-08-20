@@ -54,14 +54,27 @@ Claude-SearchBot, PerplexityBot, Perplexity-User, CCBot, Google-Extended, Appleb
 meta-externalagent, Bytespider, Googlebot. The `# BEGIN Cloudflare Managed content` block is
 gone from the served robots.txt.
 
-> **⚠️ Still outstanding: the repo is not deployed.** With Cloudflare no longer injecting or
-> blocking, the site now serves the **old** committed `robots.txt` verbatim — which still
-> says `Disallow: /` for GPTBot, ClaudeBot, Google-Extended, CCBot, Bytespider, Amazonbot,
-> Applebot-Extended and meta-externalagent. Well-behaved crawlers honour that and will keep
-> self-excluding. The edge now lets them in; the file still tells them to leave. Committing
-> and pushing this repo to `main` is the last step.
+### Deployed — 2026-08-02, commit `3f4b28d`
 
-**Re-verify after deploy:**
+Pushed to `main`; the GitHub Action shipped to Cloudflare in ~30 s. Verified in production:
+
+| Check | Result |
+|---|---|
+| `robots.txt` → `User-agent: GPTBot` | `Allow: /` |
+| `Disallow: /` directives remaining in `robots.txt` | **0** |
+| Cloudflare `# BEGIN Cloudflare Managed content` block | gone |
+| `/llms.txt`, `/llms-full.txt`, `/faq`, `/glossary`, `/best-wedding-apps-india`, `/indian-wedding-planning-checklist`, `/sitemap.xml` | all 200 |
+| GPTBot / OAI-SearchBot / ClaudeBot / PerplexityBot fetching `/`, `/faq`, `/llms.txt` | all 200 |
+| Homepage `<title>` | "Baraati — The Wedding App Built for Indian Weddings" |
+| Homepage JSON-LD live | Organization, WebSite, WebPage, FAQPage (10 Q&As), `["SoftwareApplication","MobileApplication"]`, 3 Offers, ContactPoint, PostalAddress, SpeakableSpecification |
+
+**One transient worth recording:** for roughly the first minute after deploy, `/llms.txt`
+returned an intermittent 404 (no `cf-cache-status` header — requests reaching a colo whose
+Workers Assets manifest had not yet propagated). It self-resolved; re-sampled at **30/30 200s**,
+and 6/6 on every other new URL. Expect this on any Workers Assets deploy — do not treat a 404
+in the first minute as a broken path.
+
+**Re-verify any time:**
 ```bash
 curl -s https://baraati.co.in/robots.txt | grep -A1 "User-agent: GPTBot"   # expect Allow: /
 curl -sI https://baraati.co.in/llms.txt | head -1                          # expect 200

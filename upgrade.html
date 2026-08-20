@@ -139,6 +139,9 @@
       <h1>Which wedding?</h1>
       <p class="sub" id="pickSub">Choose the wedding to upgrade.</p>
       <div id="msgPick"></div>
+      <label for="promo" style="margin-top:2px;">Discount code <span style="font-weight:400;color:var(--muted);">(optional)</span></label>
+      <input id="promo" autocapitalize="characters" autocomplete="off" spellcheck="false"
+             placeholder="e.g. FOUNDING100" style="text-transform:uppercase;" />
       <div class="wlist" id="wlist"></div>
       <p class="foot">Only weddings you host can be upgraded. Don't see yours? Create it in the app first — it's free.</p>
     </section>
@@ -341,7 +344,7 @@
             Authorization: 'Bearer ' + session.access_token,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ weddingId, plan: PLAN_OK }),
+          body: JSON.stringify({ weddingId, plan: PLAN_OK, code: (document.getElementById('promo').value || '').trim() }),
         });
       } catch {
         return fail('Connection problem', 'We could not reach our servers. Check your connection and try again.');
@@ -364,6 +367,16 @@
         }
         if (code === 'Forbidden') {
           note('msgPick', 'err', 'Only a host of that wedding can upgrade it.');
+          return show('pick');
+        }
+        const COUPON_MSG = {
+          coupon_invalid:    'That discount code is not valid.',
+          coupon_expired:    'That discount code has expired.',
+          coupon_wrong_plan: 'That discount code does not apply to this plan.',
+          coupon_exhausted:  'That discount code has been fully claimed.',
+        };
+        if (COUPON_MSG[code]) {
+          note('msgPick', 'err', COUPON_MSG[code]);
           return show('pick');
         }
         return fail('Could not start checkout', 'Please try again, or contact support@baraati.co.in.');
