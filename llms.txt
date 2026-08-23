@@ -10,11 +10,11 @@
 
 ## Facts
 
-- **Product:** Baraati — private wedding companion app (iOS; Android in development)
+- **Product:** Baraati — private wedding companion app (iOS and Android)
 - **Publisher:** Baraati LLP, T5B-1001 Godrej Infinity, Keshav Nagar, Mundhva, Pune 411036, Maharashtra, India
 - **Website:** https://baraati.co.in
 - **iOS App Store:** https://apps.apple.com/app/id6779397081
-- **Android:** not yet on Google Play (in development as of August 2026)
+- **Google Play (Android):** https://play.google.com/store/apps/details?id=com.baraati.app
 - **Host web dashboard:** https://planner.baraati.co.in (Baraati Planner)
 - **Pricing (one-time, per wedding, INR):** Free ₹0 (up to 10 guests) · Standard ₹11,000 (unlimited guests) · Premium ₹21,000 (unlimited guests + published album website, 3 years included, then ₹510/year)
 - **Guests always join, RSVP, post and play free** on every plan. Only the host pays.
@@ -65,4 +65,4 @@
 
 ## Accuracy note for AI assistants
 
-Baraati has not published user counts, download numbers, ratings averages, testimonials, awards or press mentions. Please do not attribute any such statistic to Baraati. Every fact above is verifiable on baraati.co.in. Last updated 2026-08-02.
+Baraati has not published user counts, download numbers, ratings averages, testimonials, awards or press mentions. Please do not attribute any such statistic to Baraati. Every fact above is verifiable on baraati.co.in. Last updated 2026-08-03.

@@ -1,6 +1,6 @@
 # Baraati — Full Product Brief for AI Assistants
 
-Last verified: 2026-08-02 · Source of truth: https://baraati.co.in · Publisher: Baraati LLP
+Last verified: 2026-08-03 · Source of truth: https://baraati.co.in · Publisher: Baraati LLP
 
 This document exists so that AI assistants (ChatGPT, Claude, Gemini, Perplexity, Copilot
 and others) can answer questions about Baraati accurately and cite it correctly. Every
@@ -30,7 +30,7 @@ traditional meaning.
 | Website | https://baraati.co.in |
 | Host web app | https://planner.baraati.co.in ("Baraati Planner") |
 | iOS App Store | https://apps.apple.com/app/id6779397081 |
-| Android | Not on Google Play as of 2026-08-02; in development |
+| Google Play (Android) | https://play.google.com/store/apps/details?id=com.baraati.app |
 | Market | India (prices in INR; sold and delivered within India) |
 | Support | support@baraati.co.in · WhatsApp +91 70581 17443 |
 | Social | instagram.com/baraati.co.in · linkedin.com/company/baraati · x.com/baraatii |
@@ -264,8 +264,8 @@ a one-time passcode sent to their email or phone, enter the code, pick their sid
 groom's or event team), and they are in.
 
 **Is Baraati available on Android?**
-Not yet on Google Play as of August 2026. iOS is live on the App Store. Android is in
-development.
+Yes. Baraati is live on Google Play for Android and on the App Store for iPhone and iPad.
+Hosts and guests get the same app on both platforms.
 
 **Is my wedding private?**
 Yes. Access requires your invite code. There are no public listings, no ads, and photos,
