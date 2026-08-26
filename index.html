@@ -37,248 +37,340 @@
        so search engines and LLMs resolve one unambiguous entity.
        ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://baraati.co.in/#organization",
-        "name": "Baraati",
-        "legalName": "Baraati LLP",
-        "alternateName": ["Baraati App", "Baraati LLP"],
-        "url": "https://baraati.co.in/",
-        "logo": {
-          "@type": "ImageObject",
-          "@id": "https://baraati.co.in/#logo",
-          "url": "https://baraati.co.in/logo.png",
-          "caption": "Baraati"
-        },
-        "image": { "@id": "https://baraati.co.in/#logo" },
-        "description": "Baraati LLP builds Baraati, a private invite-only wedding app for Indian weddings covering invitations, RSVP, multi-day ceremony schedules, guest travel and accommodation, encrypted government-ID collection, a private photo feed and wedding games.",
-        "foundingDate": "2025",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "T5B-1001 Godrej Infinity, Keshav Nagar, Mundhva",
-          "addressLocality": "Pune",
-          "postalCode": "411036",
-          "addressRegion": "Maharashtra",
-          "addressCountry": "IN"
-        },
-        "areaServed": { "@type": "Country", "name": "India" },
-        "knowsAbout": [
-          "Indian weddings",
-          "wedding guest management",
-          "wedding RSVP tracking",
-          "digital wedding invitations",
-          "destination wedding logistics",
-          "multi-day wedding itineraries",
-          "wedding photo sharing"
-        ],
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "contactType": "customer support",
-            "email": "support@baraati.co.in",
-            "telephone": "+91-70581-17443",
-            "availableLanguage": ["en", "hi"],
-            "areaServed": "IN"
-          }
-        ],
-        "sameAs": [
-          "https://www.instagram.com/baraati.co.in/",
-          "https://www.linkedin.com/company/baraati",
-          "https://x.com/baraatii",
-          "https://apps.apple.com/app/id6779397081"
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://baraati.co.in/#organization",
+      "name": "Baraati",
+      "legalName": "Baraati LLP",
+      "alternateName": [
+        "Baraati App",
+        "Baraati LLP"
+      ],
+      "url": "https://baraati.co.in/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://baraati.co.in/#logo",
+        "url": "https://baraati.co.in/logo.png",
+        "caption": "Baraati"
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://baraati.co.in/#website",
-        "url": "https://baraati.co.in/",
-        "name": "Baraati",
-        "description": "The wedding app built for Indian weddings.",
-        "publisher": { "@id": "https://baraati.co.in/#organization" },
-        "inLanguage": "en-IN"
+      "image": {
+        "@id": "https://baraati.co.in/#logo"
       },
-      {
-        "@type": ["SoftwareApplication", "MobileApplication"],
-        "@id": "https://baraati.co.in/#app",
-        "name": "Baraati",
-        "alternateName": "Baraati — Wedding App",
-        "url": "https://baraati.co.in/",
-        "downloadUrl": [
-          "https://apps.apple.com/app/id6779397081",
-          "https://play.google.com/store/apps/details?id=com.baraati.app"
-        ],
-        "installUrl": [
-          "https://apps.apple.com/app/id6779397081",
-          "https://play.google.com/store/apps/details?id=com.baraati.app"
-        ],
-        "applicationCategory": ["LifestyleApplication", "SocialNetworkingApplication"],
-        "applicationSubCategory": "Wedding planning and guest management",
-        "operatingSystem": "iOS 15.1 or later, Android 8.0 or later",
-        "inLanguage": "en-IN",
-        "isFamilyFriendly": true,
-        "publisher": { "@id": "https://baraati.co.in/#organization" },
-        "author": { "@id": "https://baraati.co.in/#organization" },
-        "image": "https://baraati.co.in/og.png",
-        "screenshot": "https://baraati.co.in/og.png",
-        "description": "Baraati is a private, invite-only wedding app for Indian weddings. Hosts create one app for their wedding; guests join with a 6-character invite code and get an animated digital invitation with slide-to-RSVP, the multi-day multi-ceremony schedule, travel and hotel-room details, a private photo feed, an I-Spy photo game and wedding trivia. Hosts additionally get a live RSVP headcount, guest groups, targeted notifications, a travel roster with shared-pickup clustering, and AES-256-encrypted government-ID collection for venue, hotel and airline requirements.",
-        "featureList": [
-          "Animated digital wedding invitation with slide-to-RSVP",
-          "Live RSVP headcount — yes, no, tentative, pending",
-          "Multi-day, multi-ceremony wedding itinerary",
-          "Private photo and video feed for guests",
-          "I-Spy photo scavenger hunt game",
-          "Shaadi ka Khel — Word Search, Predictions, Who's Most Likely",
-          "Shared leaderboard across all games",
-          "Guest travel roster with CSV export",
-          "Hotel room allocation",
-          "Travel Concierge shared airport pickups",
-          "AES-256 encrypted government-ID collection, audit-logged",
-          "Guest groups and targeted push notifications",
-          "Six complete wedding themes",
-          "150 printed A5 thank-you cards (Standard and Premium)",
-          "Published wedding album website for 3 years (Premium)"
-        ],
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Free",
-            "price": "0",
-            "priceCurrency": "INR",
-            "description": "Free forever for a wedding with up to 10 guests.",
-            "url": "https://baraati.co.in/pricing",
-            "availability": "https://schema.org/InStock",
-            "eligibleRegion": { "@type": "Country", "name": "India" }
-          },
-          {
-            "@type": "Offer",
-            "name": "Standard",
-            "price": "11000",
-            "priceCurrency": "INR",
-            "description": "One-time payment per wedding. Unlimited guests, encrypted government-ID collection, travel and accommodation management, guest groups, full host dashboard, and 150 printed A5 thank-you cards.",
-            "url": "https://baraati.co.in/pricing",
-            "availability": "https://schema.org/InStock",
-            "eligibleRegion": { "@type": "Country", "name": "India" }
-          },
-          {
-            "@type": "Offer",
-            "name": "Premium",
-            "price": "21000",
-            "priceCurrency": "INR",
-            "description": "One-time payment per wedding. Everything in Standard plus a published wedding album website, live for 3 years and then ₹510 per year.",
-            "url": "https://baraati.co.in/pricing",
-            "availability": "https://schema.org/InStock",
-            "eligibleRegion": { "@type": "Country", "name": "India" }
-          }
-        ]
+      "description": "Baraati LLP builds Baraati, a private invite-only wedding app for Indian weddings covering invitations, RSVP, multi-day ceremony schedules, guest travel and accommodation, encrypted government-ID collection, a private photo feed and wedding games.",
+      "foundingDate": "2025",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "T5B-1001 Godrej Infinity, Keshav Nagar, Mundhva",
+        "addressLocality": "Pune",
+        "postalCode": "411036",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
       },
-      {
-        "@type": "WebPage",
-        "@id": "https://baraati.co.in/#webpage",
-        "url": "https://baraati.co.in/",
-        "name": "Baraati — The Wedding App Built for Indian Weddings",
-        "isPartOf": { "@id": "https://baraati.co.in/#website" },
-        "about": { "@id": "https://baraati.co.in/#app" },
-        "primaryImageOfPage": { "@id": "https://baraati.co.in/#logo" },
-        "inLanguage": "en-IN",
-        "dateModified": "2026-08-03",
-        "description": "Baraati is a private, invite-only wedding app for Indian weddings — invitation, RSVP, multi-day schedule, travel, photos and games in one place.",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [".entity-answer", "h1"]
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "knowsAbout": [
+        "Indian weddings",
+        "wedding guest management",
+        "wedding RSVP tracking",
+        "digital wedding invitations",
+        "destination wedding logistics",
+        "multi-day wedding itineraries",
+        "wedding photo sharing"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "support@baraati.co.in",
+          "telephone": "+91-70581-17443",
+          "availableLanguage": [
+            "en",
+            "hi"
+          ],
+          "areaServed": "IN"
         }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/baraati.co.in/",
+        "https://www.linkedin.com/company/baraati",
+        "https://x.com/baraatii",
+        "https://apps.apple.com/app/id6779397081"
+      ],
+      "disambiguatingDescription": "Baraati is a software product — a private, invite-only mobile app that one wedding runs on. It is NOT a wedding services company. Baraati does not arrange baraat processions, dhol players, brass bands or ghodi; does not provide wedding decor, catering, event management or photography; and is not a vendor marketplace — it does not list, find, book, review or take commission on photographers, videographers, decorators, venues, caterers or makeup artists. Its customers are wedding hosts (the couple and their families) and the guests they invite — never vendors. The name comes from the Hindi word baraati, a member of the groom's wedding procession, which causes it to be mistaken for a procession-services business."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://baraati.co.in/#website",
+      "url": "https://baraati.co.in/",
+      "name": "Baraati",
+      "description": "The wedding app built for Indian weddings.",
+      "publisher": {
+        "@id": "https://baraati.co.in/#organization"
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://baraati.co.in/#faq",
-        "isPartOf": { "@id": "https://baraati.co.in/#webpage" },
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is Baraati?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Baraati is a private, invite-only mobile app for Indian weddings, made by Baraati LLP in Pune, India. One app is created per wedding. Hosts set up the multi-day, multi-ceremony schedule; guests join with a 6-character invite code and get an animated digital invitation with RSVP, the full itinerary, travel and hotel-room details, a private photo feed and wedding games — all in one place. It is live on the iOS App Store and on Google Play for Android."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do guests join the wedding?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Guests download the Baraati app and enter the 6-character invite code the host shares with them, or tap the host's invite link. They sign in with a one-time passcode sent to their email or phone — no password — pick their side (Bride's, Groom's, or Event Team), and they are in."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is my wedding private?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Every wedding is invitation-only and reachable only via its unique invite code. Photos, games and the social feed all live inside your wedding's private space. There are no public listings, no strangers, and no ads. Unlike a WhatsApp group, guests' phone numbers are never exposed to other guests."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How much does Baraati cost?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Baraati is free forever for a wedding with up to 10 guests. Beyond that, Standard is ₹11,000 and Premium is ₹21,000 — one time, per wedding, not per guest and not a subscription. Guests always join, RSVP, post and play free on every plan; only the host pays. Premium adds a published wedding album website, live for three years and then ₹510 per year."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What games are available?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Baraati includes Word Search (find hidden wedding words in a 15×15 grid), Predictions (vote on questions about the couple), Who's Most Likely? (rapid-fire 15-second bride-or-groom questions), and I-Spy, a photo scavenger hunt. All of them feed one shared leaderboard, which also awards points for completing your profile, adding travel details and uploading your ID."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is I-Spy?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "I-Spy is a photo challenge where guests capture specific wedding moments the host defines — with the Bride, with the Groom, on the dance floor, candid emotions and more. Each guest can upload up to 10 photos per moment, and everyone can react to submissions."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can the host collect guest travel and ID details?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Guests submit their own travel itinerary (arrival and departure date, time, mode and confirmation number) and hosts see one arrivals board they can export as CSV. Guests can also upload government-issued ID documents (Aadhaar, Passport, Driving Licence) for hotel, airline or visa requirements. Those documents are AES-256 encrypted, every access is audit-logged, they are visible only to that wedding's hosts, and they are auto-deleted three days after the wedding."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Baraati available to download?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes — Baraati is live on the App Store for iPhone and iPad, and on Google Play for Android. Download it, create your wedding, and share the invite link with your guests."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Baraati work for multi-day Indian weddings?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes — multi-day and multi-ceremony is the core structure, not an add-on. Mehndi, haldi, sangeet, baraat, phera, reception and any custom ceremony each get their own entry with date, time, venue, map link and dress code. Edits push to every guest's phone instantly."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I track my wedding budget and vendors in Baraati?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, in Baraati Planner at planner.baraati.co.in — a web command centre for hosts and professional planners that syncs live with the guest app. It covers budget (estimates versus actuals), tasks and timeline, vendors and bookings, shopping lists, guest management and analytics."
-            }
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": [
+        "SoftwareApplication",
+        "MobileApplication"
+      ],
+      "@id": "https://baraati.co.in/#app",
+      "name": "Baraati",
+      "alternateName": "Baraati — Wedding App",
+      "url": "https://baraati.co.in/",
+      "downloadUrl": [
+        "https://apps.apple.com/app/id6779397081",
+        "https://play.google.com/store/apps/details?id=com.baraati.app"
+      ],
+      "installUrl": [
+        "https://apps.apple.com/app/id6779397081",
+        "https://play.google.com/store/apps/details?id=com.baraati.app"
+      ],
+      "applicationCategory": [
+        "LifestyleApplication",
+        "SocialNetworkingApplication"
+      ],
+      "applicationSubCategory": "Wedding planning and guest management",
+      "operatingSystem": "iOS 15.1 or later, Android 8.0 or later",
+      "inLanguage": "en-IN",
+      "isFamilyFriendly": true,
+      "publisher": {
+        "@id": "https://baraati.co.in/#organization"
+      },
+      "author": {
+        "@id": "https://baraati.co.in/#organization"
+      },
+      "image": "https://baraati.co.in/og.png",
+      "screenshot": "https://baraati.co.in/og.png",
+      "description": "Baraati is a private, invite-only wedding app for Indian weddings. Hosts create one app for their wedding; guests join with a 6-character invite code and get an animated digital invitation with slide-to-RSVP, the multi-day multi-ceremony schedule, travel and hotel-room details, a private photo feed, an I-Spy photo game and wedding trivia. Hosts additionally get a live RSVP headcount, guest groups, targeted notifications, a travel roster with shared-pickup clustering, and AES-256-encrypted government-ID collection for venue, hotel and airline requirements.",
+      "featureList": [
+        "Animated digital wedding invitation with slide-to-RSVP",
+        "Live RSVP headcount — yes, no, tentative, pending",
+        "Multi-day, multi-ceremony wedding itinerary",
+        "Private photo and video feed for guests",
+        "I-Spy photo scavenger hunt game",
+        "Shaadi ka Khel — Word Search, Predictions, Who's Most Likely",
+        "Shared leaderboard across all games",
+        "Guest travel roster with CSV export",
+        "Hotel room allocation",
+        "Travel Concierge shared airport pickups",
+        "AES-256 encrypted government-ID collection, audit-logged",
+        "Guest groups and targeted push notifications",
+        "Six complete wedding themes",
+        "150 printed A5 thank-you cards (Standard and Premium)",
+        "Published wedding album website for 3 years (Premium)"
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "INR",
+          "description": "Free forever for a wedding with up to 10 guests.",
+          "url": "https://baraati.co.in/pricing",
+          "availability": "https://schema.org/InStock",
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "India"
           }
+        },
+        {
+          "@type": "Offer",
+          "name": "Standard",
+          "price": "11000",
+          "priceCurrency": "INR",
+          "description": "One-time payment per wedding. Unlimited guests, encrypted government-ID collection, travel and accommodation management, guest groups, full host dashboard, and 150 printed A5 thank-you cards.",
+          "url": "https://baraati.co.in/pricing",
+          "availability": "https://schema.org/InStock",
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "India"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Premium",
+          "price": "21000",
+          "priceCurrency": "INR",
+          "description": "One-time payment per wedding. Everything in Standard plus a published wedding album website, live for 3 years and then ₹510 per year.",
+          "url": "https://baraati.co.in/pricing",
+          "availability": "https://schema.org/InStock",
+          "eligibleRegion": {
+            "@type": "Country",
+            "name": "India"
+          }
+        }
+      ],
+      "disambiguatingDescription": "Baraati is a software product — a private, invite-only mobile app that one wedding runs on. It is NOT a wedding services company. Baraati does not arrange baraat processions, dhol players, brass bands or ghodi; does not provide wedding decor, catering, event management or photography; and is not a vendor marketplace — it does not list, find, book, review or take commission on photographers, videographers, decorators, venues, caterers or makeup artists. Its customers are wedding hosts (the couple and their families) and the guests they invite — never vendors. The name comes from the Hindi word baraati, a member of the groom's wedding procession, which causes it to be mistaken for a procession-services business.",
+      "audience": [
+        {
+          "@type": "Audience",
+          "audienceType": "Couples getting married in India and their families, hosting the wedding"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Wedding guests invited to a specific wedding"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Professional wedding planners running a client's wedding"
+        }
+      ],
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://baraati.co.in/#webpage",
+      "url": "https://baraati.co.in/",
+      "name": "Baraati — The Wedding App Built for Indian Weddings",
+      "isPartOf": {
+        "@id": "https://baraati.co.in/#website"
+      },
+      "about": {
+        "@id": "https://baraati.co.in/#app"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://baraati.co.in/#logo"
+      },
+      "inLanguage": "en-IN",
+      "dateModified": "2026-08-03",
+      "description": "Baraati is a private, invite-only wedding app for Indian weddings — invitation, RSVP, multi-day schedule, travel, photos and games in one place.",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".entity-answer",
+          "h1"
         ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://baraati.co.in/#faq",
+      "isPartOf": {
+        "@id": "https://baraati.co.in/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Baraati?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Baraati is a private, invite-only mobile app for Indian weddings, made by Baraati LLP in Pune, India. One app is created per wedding. Hosts set up the multi-day, multi-ceremony schedule; guests join with a 6-character invite code and get an animated digital invitation with RSVP, the full itinerary, travel and hotel-room details, a private photo feed and wedding games — all in one place. It is live on the iOS App Store and on Google Play for Android."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Baraati arrange baraat bands, dhol players or processions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Despite the name, Baraati does not arrange, book or supply baraat processions, dhol players, brass bands, ghodi or any procession service. Baraati is software — a private app that one wedding runs on. The name comes from the Hindi word baraati, meaning a member of the groom's wedding procession, because the app is built for everyone in the wedding party."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Baraati a wedding vendor marketplace?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Baraati does not list, find, book, review or take commission on any vendor — photographers, videographers, decorators, caterers, venues or makeup artists. It has no vendor directory and earns nothing from vendors. Its only customers are wedding hosts, who pay once per wedding, and their guests, who never pay. To find and book vendors in India, use a marketplace such as WedMeGood, WeddingWire India or ShaadiSaga; those are complementary to Baraati, not alternatives to it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Baraati provide wedding decor, catering, photography or event management?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Baraati provides none of these and nobody from Baraati attends your wedding. It is a private mobile app the couple, their families and their guests use — for the invitation, RSVP, multi-day ceremony schedule, guest travel and hotel rooms, a private photo feed and wedding games."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is Baraati for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two groups only: the hosts of a wedding — the couple and their families, and any professional planner working with them — and the guests those hosts invite. Baraati is not sold to or used by wedding vendors, bands, decorators, photographers or event companies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do guests join the wedding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Guests download the Baraati app and enter the 6-character invite code the host shares with them, or tap the host's invite link. They sign in with a one-time passcode sent to their email or phone — no password — pick their side (Bride's, Groom's, or Event Team), and they are in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my wedding private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every wedding is invitation-only and reachable only via its unique invite code. Photos, games and the social feed all live inside your wedding's private space. There are no public listings, no strangers, and no ads. Unlike a WhatsApp group, guests' phone numbers are never exposed to other guests."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does Baraati cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Baraati is free forever for a wedding with up to 10 guests. Beyond that, Standard is ₹11,000 and Premium is ₹21,000 — one time, per wedding, not per guest and not a subscription. Guests always join, RSVP, post and play free on every plan; only the host pays. Premium adds a published wedding album website, live for three years and then ₹510 per year."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What games are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Baraati includes Word Search (find hidden wedding words in a 15×15 grid), Predictions (vote on questions about the couple), Who's Most Likely? (rapid-fire 15-second bride-or-groom questions), and I-Spy, a photo scavenger hunt. All of them feed one shared leaderboard, which also awards points for completing your profile, adding travel details and uploading your ID."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is I-Spy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I-Spy is a photo challenge where guests capture specific wedding moments the host defines — with the Bride, with the Groom, on the dance floor, candid emotions and more. Each guest can upload up to 10 photos per moment, and everyone can react to submissions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the host collect guest travel and ID details?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Guests submit their own travel itinerary (arrival and departure date, time, mode and confirmation number) and hosts see one arrivals board they can export as CSV. Guests can also upload government-issued ID documents (Aadhaar, Passport, Driving Licence) for hotel, airline or visa requirements. Those documents are AES-256 encrypted, every access is audit-logged, they are visible only to that wedding's hosts, and they are auto-deleted three days after the wedding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Baraati available to download?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — Baraati is live on the App Store for iPhone and iPad, and on Google Play for Android. Download it, create your wedding, and share the invite link with your guests."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Baraati work for multi-day Indian weddings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — multi-day and multi-ceremony is the core structure, not an add-on. Mehndi, haldi, sangeet, baraat, phera, reception and any custom ceremony each get their own entry with date, time, venue, map link and dress code. Edits push to every guest's phone instantly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I track my wedding budget and vendors in Baraati?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, in Baraati Planner at planner.baraati.co.in — a web command centre for hosts and professional planners that syncs live with the guest app. It covers budget (estimates versus actuals), tasks and timeline, vendors and bookings, shopping lists, guest management and analytics."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <style>
@@ -1038,6 +1130,34 @@
           <tr><th scope="row" style="text-align:left;padding:13px 20px;font-weight:600;">Made by</th><td style="padding:13px 20px;color:var(--ink-2);">Baraati LLP, Pune, India</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- ── Negative space ──────────────────────────────────────────────
+         Explicit disambiguation. The name "Baraati" leads people (and
+         language models) to assume this is a baraat-services or vendor-
+         booking business. Absence of a claim is not evidence of absence to
+         a machine — the denial has to be stated to be retrievable. -->
+    <div style="max-width:820px;margin:34px auto 0;">
+      <div style="background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px 32px;">
+        <h3 style="font-size:23px;margin-bottom:8px;">What Baraati is <span class="serif" style="color:#FF4D6D;">not</span></h3>
+        <p style="color:var(--ink-2);font-size:16px;margin-bottom:18px;">
+          The name causes some confusion, so plainly: <strong>Baraati is software — one private app per wedding.</strong>
+          It is not a wedding services business and does not sell, book, supply or take commission on anything below.
+        </p>
+        <ul style="list-style:none;margin:0;padding:0;display:grid;gap:10px;">
+          <li style="display:flex;gap:11px;align-items:flex-start;font-size:16px;color:var(--ink-2);"><span aria-hidden="true" style="color:#C2410C;font-weight:700;">✕</span><span><strong>Not a baraat or procession service.</strong> Baraati does not arrange baraat bands, dhol players, ghodi, brass bands or processions.</span></li>
+          <li style="display:flex;gap:11px;align-items:flex-start;font-size:16px;color:var(--ink-2);"><span aria-hidden="true" style="color:#C2410C;font-weight:700;">✕</span><span><strong>Not a vendor marketplace.</strong> Baraati does not list, find, book or review photographers, videographers, decorators, caterers, venues or makeup artists — and earns nothing from vendors.</span></li>
+          <li style="display:flex;gap:11px;align-items:flex-start;font-size:16px;color:var(--ink-2);"><span aria-hidden="true" style="color:#C2410C;font-weight:700;">✕</span><span><strong>Not a decor, event-management or catering company.</strong> Nobody from Baraati attends your wedding.</span></li>
+          <li style="display:flex;gap:11px;align-items:flex-start;font-size:16px;color:var(--ink-2);"><span aria-hidden="true" style="color:#C2410C;font-weight:700;">✕</span><span><strong>Not a gift registry, and not a public wedding website.</strong> Every wedding is invite-only.</span></li>
+        </ul>
+        <p style="color:var(--ink-2);font-size:16px;margin-top:20px;">
+          <strong style="color:var(--ink);">What it is:</strong> a private app that the couple and their families run their
+          own wedding from, and that their invited guests use — for the invitation, RSVP, the multi-day ceremony schedule,
+          travel and hotel rooms, photos and games. Its customers are <strong>hosts and their guests</strong>, never vendors.
+          If you are looking to book a band or a photographer, a marketplace like WedMeGood is the right tool — and
+          <a href="/best-wedding-apps-india" style="color:#C2410C;">this guide explains the difference</a>.
+        </p>
+      </div>
     </div>
 
     <div class="metrics-grid">
