@@ -69,11 +69,15 @@ Baraati replaces that stack with one private app per wedding.
 1. **Host creates the wedding** in the app: couple names, dates, ceremonies, venues, and a
    couple photo that becomes the invitation's hero image. Multi-day and multi-ceremony is
    the default structure, not an add-on.
-2. **Host shares one invite link or a 6-character invite code** — e.g.
-   `https://baraati.co.in/join?code=XXXXXX`.
-3. **Guests sign in with a one-time passcode (OTP)** sent to their email or phone. There
-   are no passwords and no social sign-in. They land directly on the animated invitation
-   and slide to RSVP.
+2. **Host shares one invite link** — e.g. `https://baraati.co.in/join/priya-arjun-k7q2m9xp`
+   (couple's first names + a random suffix) — or the 8-character invite code for typing
+   into the app.
+3. **The link opens the animated invitation in any browser — no app install needed.**
+   Guests RSVP there by signing in with a one-time passcode (OTP) sent to their email or
+   phone (no passwords, no social sign-in), then add their name, travel details, a
+   government ID (encrypted) and see their room number on the web. If the Baraati app is
+   installed, the same link opens the app, which adds the photo feed, games and live
+   updates.
 4. **Everyone lives in the wedding**: schedule, travel, photo feed, games, notifications.
    Hosts run it from an admin dashboard in the app or from Baraati Planner in a browser.
 
