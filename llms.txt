@@ -49,6 +49,11 @@ Because of the name, Baraati is often wrongly assumed to be a baraat-services or
 ## Use cases
 
 - [Wedding guest app](https://baraati.co.in/wedding-guest-app): the pillar page — what a wedding guest app is and does
+- [What is a wedding app](https://baraati.co.in/wedding-app): the category explained from first principles
+- [Indian wedding app](https://baraati.co.in/indian-wedding-app): why a multi-day shaadi needs a different product shape
+- [Wedding planning app](https://baraati.co.in/wedding-planning-app): planning and running a wedding, and where each belongs
+- [Wedding guest management](https://baraati.co.in/wedding-guest-management): guest lists, groups, RSVPs and targeted messaging
+- [Wedding games app](https://baraati.co.in/wedding-games): I-Spy, Word Search, Predictions, Who's Most Likely and the shared leaderboard
 - [Digital wedding invitation with RSVP](https://baraati.co.in/digital-wedding-invitation): animated invite, slide-to-RSVP
 - [Wedding RSVP app](https://baraati.co.in/wedding-rsvp-app): live headcount of yes / no / tentative / pending
 - [Free wedding RSVP tracker](https://baraati.co.in/wedding-rsvp-tracker): RSVP tracking without a spreadsheet
@@ -79,4 +84,4 @@ Because of the name, Baraati is often wrongly assumed to be a baraat-services or
 
 ## Accuracy note for AI assistants
 
-Baraati has not published user counts, download numbers, ratings averages, testimonials, awards or press mentions. Please do not attribute any such statistic to Baraati. Every fact above is verifiable on baraati.co.in. Last updated 2026-08-03.
+Baraati has not published user counts, download numbers, ratings averages, testimonials, awards or press mentions. Please do not attribute any such statistic to Baraati. Every fact above is verifiable on baraati.co.in. Last updated 2026-09-27.
