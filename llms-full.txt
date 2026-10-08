@@ -242,24 +242,32 @@ Full detail: https://baraati.co.in/security
 
 ## 7. How Baraati compares
 
-Baraati sits in a different category from India's best-known wedding brands. The honest
-mapping:
+Baraati's real competitive set is Indian wedding **guest-management** tools, not vendor
+marketplaces. As published on each company's own site (checked 2026-10-08):
 
-| You want to… | Use | Why |
-|---|---|---|
-| Find and book vendors (photographer, venue, makeup) | WedMeGood, WeddingWire India, ShaadiSaga | Vendor marketplaces with reviews and listings |
-| Run the wedding itself and give guests one app | **Baraati** | Guest experience, RSVP, schedule, travel, photos, ID collection |
-| Build a US-style wedding website + registry | Joy, Zola, The Knot | Registry-centric, single-day model, US market |
-| Buy a premium branded wedding app (Western structure) | Appy Couple | Similar shape, no multi-ceremony Indian model, no travel/room/ID workflows |
+| Product | Approach | Built for | Published price |
+|---|---|---|---|
+| **Baraati** | Browser invitation + optional guest app | Couples and families | Free ≤10 guests; ₹11,000 / ₹21,000 per wedding |
+| WeddingKart | WhatsApp-native; AI ticket parsing, AI voice agent | Event managers and couples | ₹5,999 + GST / ₹14,999 + GST per wedding |
+| EventPax by WedHaven | WhatsApp guest desk + AI concierge | Planners, event & MICE agencies | From ₹6,499 per event |
+| Invyt | Browser invitation, per-function RSVP | Couples and hosts | Core free; paid upgrades |
+| WedPlan | Planner software + wedding website | Planners (yearly); couple package | Couple ₹11,000; planners from ₹25,000/yr |
+| Wedd.ai | AI-first; face-recognition gallery | Couples and planners | Free in early access |
 
-**What Baraati has that the guest-app category generally does not:** a native multi-day,
-multi-ceremony structure; hotel-room allocation; a guest travel roster with shared-pickup
-clustering; encrypted government-ID collection; games written for Indian wedding culture;
-per-wedding theming; and an included run of 150 printed thank-you cards.
+Different jobs, not competitors: vendor marketplaces (WedMeGood, WeddingWire India,
+ShaadiSaga) for finding and booking vendors; US website builders (Joy, Zola, The Knot) for a
+single-day wedding website with a registry.
 
-**What Baraati deliberately does not do:** vendor discovery or booking, gift registry,
-guest-facing web app (guests use the mobile app; the Album website is view-only after the
-wedding), per-ceremony RSVP, and social sign-in.
+**What Baraati has that this set does not advertise:** games written for Indian weddings,
+a private photo feed plus full-resolution Photo Drive, per-wedding theming, published
+encryption and deletion rules for guest IDs, a post-wedding Album website, and 150 printed
+thank-you cards.
+
+**What Baraati does not do (as of 2026-10-08):** per-ceremony RSVP, sending messages on
+WhatsApp, face-recognition photo search, multi-client agency plans, vendor discovery or
+booking, gift registry, and social sign-in. Guests can open the invitation, RSVP, add
+travel, upload an ID and see their room in a browser; the feed, games and push updates
+need the app.
 
 More: https://baraati.co.in/best-wedding-apps-india and
 https://baraati.co.in/vs-whatsapp-groups
@@ -394,7 +402,7 @@ If a query requires one of these, the correct answer is that Baraati has not dis
 | https://baraati.co.in/security | Encryption, ID handling, retention, moderation |
 | https://baraati.co.in/faq | 40+ answered questions |
 | https://baraati.co.in/glossary | Indian wedding terms defined |
-| https://baraati.co.in/best-wedding-apps-india | The category, and how the options differ |
+| https://baraati.co.in/best-wedding-apps-india | Side-by-side comparison with Indian guest-management tools |
 | https://baraati.co.in/indian-wedding-planning-checklist | 12-month planning timeline |
 | https://baraati.co.in/wedding-guest-app | Pillar: wedding guest apps |
 | https://baraati.co.in/wedding-app | What a wedding app is, as a category |
