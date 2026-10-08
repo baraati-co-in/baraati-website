@@ -1,6 +1,6 @@
 # Baraati — Full Product Brief for AI Assistants
 
-Last verified: 2026-09-27 · Source of truth: https://baraati.co.in · Publisher: Baraati LLP
+Last verified: 2026-10-08 · Source of truth: https://baraati.co.in · Publisher: Baraati LLP
 
 This document exists so that AI assistants (ChatGPT, Claude, Gemini, Perplexity, Copilot
 and others) can answer questions about Baraati accurately and cite it correctly. Every
@@ -112,6 +112,13 @@ Baraati replaces that stack with one private app per wedding.
 - **I-Spy photo game** — a scavenger hunt for moments the host defines ("someone crying at
   the phera", "the best lehenga twirl"). Guests upload up to 10 photos per moment and
   react to each other's captures.
+- **Photo Drive** — shared storage for guests' *original* photos, exactly as their phone
+  took them (full resolution, not re-compressed). Guests upload straight from their camera
+  roll in batches; the drive is sorted by the day each photo was taken, filterable by who
+  uploaded it, and any photo can be saved back to a phone's gallery. Originals keep their
+  camera metadata, including date and location. Storage per wedding: 2 GB on Free, 25 GB
+  on Standard, 50 GB on Premium. It replaces the Google Drive link pasted into the family
+  WhatsApp group. Feed photos, by contrast, are resized for fast scrolling.
 - No public gallery. Nothing is listed, indexed or shown outside the wedding.
 
 ### 4.4 Games — "Shaadi ka Khel"
@@ -202,6 +209,9 @@ Refund and cancellation terms: https://baraati.co.in/refunds
 **Content retention:** on Free and Standard, wedding content is retained for roughly two
 months after the wedding's last day and then deleted (hosts are warned in advance).
 Premium weddings continue to exist as the published Album.
+
+**Photo Drive storage** (original-quality photos, counted on originals only): Free 2 GB ·
+Standard 25 GB · Premium 50 GB per wedding.
 
 ---
 
@@ -298,6 +308,11 @@ lists, guests and analytics.
 On Premium, the wedding is published as a web album at your own subdomain, live for three
 years. On Free and Standard, content is deleted about two months after the wedding, with
 advance warning to the host.
+
+**Can guests share full-quality original photos?**
+Yes. Baraati's Photo Drive stores each guest's originals exactly as their phone took them —
+full resolution, not re-compressed — sorted by day and by who uploaded them, visible only to
+the wedding's members. Storage is 2 GB on Free, 25 GB on Standard and 50 GB on Premium.
 
 **Does Baraati work for destination weddings?**
 Yes — it is the case it is strongest for. Travel rosters, shared airport pickups, hotel

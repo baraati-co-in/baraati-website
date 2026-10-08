@@ -58,7 +58,7 @@ Because of the name, Baraati is often wrongly assumed to be a baraat-services or
 - [Wedding RSVP app](https://baraati.co.in/wedding-rsvp-app): live headcount of yes / no / tentative / pending
 - [Free wedding RSVP tracker](https://baraati.co.in/wedding-rsvp-tracker): RSVP tracking without a spreadsheet
 - [Wedding itinerary app](https://baraati.co.in/wedding-itinerary-app): multi-day, multi-ceremony schedules
-- [Wedding photo sharing](https://baraati.co.in/wedding-photo-sharing): private guest photo feed and I-Spy photo game
+- [Wedding photo sharing](https://baraati.co.in/wedding-photo-sharing): private guest photo feed, Photo Drive for full-resolution originals, and I-Spy photo game
 - [Destination wedding guest app](https://baraati.co.in/destination-wedding-guest-app): travel, rooms, encrypted ID collection
 - [Best wedding apps in India](https://baraati.co.in/best-wedding-apps-india): the category explained, and how the options differ
 - [Baraati vs wedding WhatsApp groups](https://baraati.co.in/vs-whatsapp-groups): the honest comparison against the real default
