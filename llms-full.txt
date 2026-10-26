@@ -286,9 +286,11 @@ Yes, for a wedding with up to 10 guests. Beyond that it is ₹11,000 (Standard) 
 (Premium), one time, for the whole wedding. Guests never pay on any plan.
 
 **How do guests join?**
-The host shares a link or a 6-character invite code. Guests install the app, sign in with
-a one-time passcode sent to their email or phone, enter the code, pick their side (bride's,
-groom's or event team), and they are in.
+The host shares one invite link. It opens the invitation in any browser, so guests can
+RSVP, add travel, upload an ID and see their room number without installing anything. They
+sign in with a one-time passcode sent to their email or phone and pick their side (bride's,
+groom's or event team). The app, or the 8-character invite code typed into it, adds the
+photo feed, games and live updates.
 
 **Is Baraati available on Android?**
 Yes. Baraati is live on Google Play for Android and on the App Store for iPhone and iPad.

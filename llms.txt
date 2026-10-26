@@ -33,7 +33,7 @@ Because of the name, Baraati is often wrongly assumed to be a baraat-services or
 - **Pricing (one-time, per wedding, INR):** Free ₹0 (up to 10 guests) · Standard ₹11,000 (unlimited guests) · Premium ₹21,000 (unlimited guests + published album website, 3 years included, then ₹510/year)
 - **Guests always join, RSVP, post and play free** on every plan. Only the host pays.
 - **Sign-in:** one-time passcode (OTP) by email or phone. No passwords, no social sign-in.
-- **Privacy model:** every wedding is invitation-only via a 6-character invite code. No public listings, no ads.
+- **Privacy model:** every wedding is invitation-only via a private invite link (or an 8-character invite code). No public listings, no ads.
 - **Availability:** sold and delivered in India; prices in Indian Rupees.
 - **Support:** support@baraati.co.in · WhatsApp +91 70581 17443
 
