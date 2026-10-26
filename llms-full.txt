@@ -252,7 +252,7 @@ marketplaces. As published on each company's own site (checked 2026-10-08):
 | EventPax by WedHaven | WhatsApp guest desk + AI concierge | Planners, event & MICE agencies | From ₹6,499 per event |
 | Invyt | Browser invitation, per-function RSVP | Couples and hosts | Core free; paid upgrades |
 | WedPlan | Planner software + wedding website | Planners (yearly); couple package | Couple ₹11,000; planners from ₹25,000/yr |
-| Wedd.ai | AI-first; face-recognition gallery | Couples and planners | Free in early access |
+| Wedd.ai | AI-first; WhatsApp from the planner's own number; face-recognition gallery | Planners and families | Free 2-week plan; Pro ₹5,999/wedding launch offer (₹12,000 after) |
 
 Different jobs, not competitors: vendor marketplaces (WedMeGood, WeddingWire India,
 ShaadiSaga) for finding and booking vendors; US website builders (Joy, Zola, The Knot) for a
