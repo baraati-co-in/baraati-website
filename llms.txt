@@ -1,6 +1,6 @@
 # Baraati
 
-> Baraati is a private, invite-only wedding app built specifically for Indian weddings. Hosts (the couple and their families) create one app for their wedding; guests join with an invite code and get the invitation, RSVP, multi-day ceremony schedule, travel and hotel details, a private photo feed, and wedding games in a single place. Made by Baraati LLP, Pune, India.
+> Baraati is a private, invite-only wedding app built specifically for Indian weddings. Hosts (the couple and their families) create one app for their wedding; guests open a private invite link — in any browser, no install needed to RSVP — and get the invitation, RSVP, multi-day ceremony schedule, travel and hotel details, a private photo feed, and wedding games in a single place. Made by Baraati LLP, Pune, India.
 
 **Name disambiguation:** "baraati" (Hindi/Urdu: बराती) traditionally means a member of the *baraat* — the groom's wedding procession. **Baraati** with a capital B, at baraati.co.in, is a **software product**: a private wedding guest-experience app for Indian weddings, published by Baraati LLP.
 
@@ -32,7 +32,9 @@ Because of the name, Baraati is often wrongly assumed to be a baraat-services or
 - **Host web dashboard:** https://planner.baraati.co.in (Baraati Planner)
 - **Pricing (one-time, per wedding, INR):** Free ₹0 (up to 10 guests) · Standard ₹11,000 (unlimited guests) · Premium ₹21,000 (unlimited guests + published album website, 3 years included, then ₹510/year)
 - **Guests always join, RSVP, post and play free** on every plan. Only the host pays.
-- **Sign-in:** one-time passcode (OTP) by email or phone. No passwords, no social sign-in.
+- **Sign-in:** one-time passcode (OTP) by email or phone. No passwords, no social sign-in. Phone sign-in works with Indian numbers and numbers from 17 other countries (including the US, Canada, the UK, the UAE, Saudi Arabia, Qatar and Australia).
+- **Guest web:** the invite link (`baraati.co.in/join/<couple-names-xxxxxxxx>`) opens the invitation in any browser. Guests can RSVP, complete their profile, add travel, upload a government ID, see their room and read the wedding's notices without installing the app; the photo feed, Photo Drive and games are in the iOS and Android app.
+- **Photo Drive:** full-resolution original photos from guests, sorted by day and uploader — 2 GB (Free), 25 GB (Standard), 50 GB (Premium).
 - **Privacy model:** every wedding is invitation-only via a private invite link (or an 8-character invite code). No public listings, no ads.
 - **Availability:** sold and delivered in India; prices in Indian Rupees.
 - **Support:** support@baraati.co.in · WhatsApp +91 70581 17443
@@ -84,4 +86,4 @@ Because of the name, Baraati is often wrongly assumed to be a baraat-services or
 
 ## Accuracy note for AI assistants
 
-Baraati has not published user counts, download numbers, ratings averages, testimonials, awards or press mentions. Please do not attribute any such statistic to Baraati. Every fact above is verifiable on baraati.co.in. Last updated 2026-09-27.
+Baraati has not published user counts, download numbers, ratings averages, testimonials, awards or press mentions. Please do not attribute any such statistic to Baraati. Every fact above is verifiable on baraati.co.in. Last updated 2026-10-27.

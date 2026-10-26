@@ -159,12 +159,12 @@
   <div class="page">
     <span class="page-tag">Legal</span>
     <h1 class="page-title">Privacy Policy</h1>
-    <p class="page-meta">Last updated: 16 September 2026 &nbsp;·&nbsp; Effective: 16 September 2026</p>
+    <p class="page-meta">Last updated: 27 October 2026 &nbsp;·&nbsp; Effective: 27 October 2026</p>
 
     <div class="doc">
 
       <p>
-        This Privacy Policy explains how <strong>Baraati LLP</strong> ("Baraati", "we", "our", or "us") collects, uses, stores, shares, and protects your information when you use the Baraati mobile application and related websites at <a href="https://baraati.co.in">baraati.co.in</a>, including the post-wedding album (the "Service").
+        This Privacy Policy explains how <strong>Baraati LLP</strong> ("Baraati", "we", "our", or "us") collects, uses, stores, shares, and protects your information when you use the Baraati mobile application and related websites at <a href="https://baraati.co.in">baraati.co.in</a>, including the web invitation that guests open from an invite link (baraati.co.in/join) and the post-wedding album (the "Service"). The web invitation lets a Guest RSVP, complete a profile, add travel details, upload a government ID and view wedding information in a browser, without installing the app; this Policy applies to it in the same way as to the app.
       </p>
       <p>
         Baraati is a private, invite-only platform for organising and participating in weddings. Within each wedding, some users are <strong>Hosts</strong> (the couple, family, or planners who administer that wedding) and others are <strong>Guests</strong>. A single account may be a Host in one wedding and a Guest in another.
@@ -184,8 +184,9 @@
 
       <h3>Account & Profile</h3>
       <ul>
-        <li>First and last name, email address, and mobile number</li>
-        <li>City and optional date of birth</li>
+        <li>First and last name</li>
+        <li>The email address or mobile number you sign in with (Indian or international). If you added a second contact to your profile in the past, it stays on your profile until you delete your account</li>
+        <li>Optional city and date of birth</li>
         <li>Optional profile photograph</li>
       </ul>
 
@@ -193,7 +194,7 @@
       <ul>
         <li>Couple/bride/groom names, wedding hashtag, dates and ceremonies</li>
         <li>Venue names, addresses, map links and coordinates, and venue contacts</li>
-        <li>Expected guest count and a hero/couple photograph</li>
+        <li>Expected guest count, a hero/couple photograph, and optional background photographs for event cards</li>
         <li>Room/accommodation allocations for guests</li>
       </ul>
 
@@ -227,7 +228,9 @@
       <ul>
         <li>Your email address and the one-time code used to sign you in (we use one-time-code login only — no passwords or social logins)</li>
         <li>Push notification tokens (to deliver wedding updates)</li>
+        <li>Whether notifications are allowed for the app on your device, and when you last opened the app. This is shown to the Hosts of weddings you belong to, as an indicator of whether you will receive push notifications, so they can reach you another way if you won't</li>
         <li>Device model, OS version, and app version</li>
+        <li>If you use the web invitation: a sign-in cookie stored in your browser to keep you signed in, and your browser type</li>
         <li>Crash and error reports for stability and debugging</li>
         <li>IP address and device/user-agent for government-ID access events</li>
       </ul>
@@ -236,9 +239,10 @@
       <ul>
         <li>To create and operate your account and verify it via one-time code</li>
         <li>To run weddings — schedule, venues, guest list, RSVPs, feed, games and leaderboards</li>
-        <li>To deliver in-app and push notifications about wedding activity</li>
+        <li>To deliver in-app and push notifications about wedding activity, and to show Hosts which Guests can receive them</li>
         <li>To let Hosts coordinate travel, rooms, and (where requested and consented) ID-based check-in</li>
         <li>To secure the Service, prevent abuse, enforce limits, and detect compromised devices</li>
+        <li>To stop a person a Host has removed from a wedding from rejoining it (see Section 7)</li>
         <li>To diagnose crashes and improve reliability, and to respond to support requests</li>
         <li>To print and deliver complimentary thank-you cards, where a Host orders them</li>
       </ul>
@@ -283,10 +287,10 @@
         <li><strong>Supabase</strong> — database, authentication, and serverless functions</li>
         <li><strong>Cloudflare</strong> — encrypted storage of media and IDs (R2), and hosting of the post-wedding album (Workers)</li>
         <li><strong>Resend</strong> — delivery of one-time login codes by email</li>
-        <li><strong>MSG91</strong> — delivery of one-time login codes by SMS, receiving only your mobile number and the code being sent</li>
+        <li><strong>MSG91</strong> — delivery of one-time login codes by SMS, receiving only your mobile number and the code being sent. For a number outside India, MSG91 passes the message to the telecom carriers in that country to deliver it</li>
         <li><strong>Expo</strong> — push notification delivery and app updates</li>
         <li><strong>Sentry</strong> — crash and error diagnostics</li>
-        <li><strong>PostHog</strong> — product analytics, receiving only anonymous usage events and an opaque account identifier, never your name, contact details, photos, or ID documents</li>
+        <li><strong>PostHog</strong> — product analytics in the app and the web invitation, receiving only anonymous usage events and an opaque account identifier, never your name, contact details, photos, or ID documents. On the web invitation, PostHog stores an identifier in your browser so that visits are counted correctly</li>
         <li><strong>Razorpay</strong> — payment processing, only if and when paid plans are processed</li>
         <li><strong>Printing and courier partners</strong> — printing and delivery of complimentary thank-you cards, receiving only the recipient name, phone number, postal address and card design for that order</li>
       </ul>
@@ -296,8 +300,11 @@
       <p>We retain personal data only for as long as necessary for the purpose for which it was collected, and erase it once that purpose is no longer being served, in accordance with Section 8(7) of the Act, except where retention is required by law. In practice:</p>
       <ul>
         <li>Account and profile data is retained while your account exists, then deleted on account deletion, unless retention is required by law</li>
-        <li>Wedding content is retained for the life of the wedding space; a published album persists for up to 3 years (or longer if its validity is extended/renewed), then expires</li>
+        <li>On the Free and Standard plans, a wedding and all of its content — schedule, guest list, RSVPs, travel and room details, feed, I-Spy, Photo Drive and game data — is automatically and permanently deleted about 2 months after the wedding's last day. Hosts are notified at least 7 days before the deletion so they can save anything they want to keep</li>
+        <li>On the Premium plan, the wedding's content is kept to power its published album, which persists for up to 3 years (or longer if its validity is extended/renewed), then expires</li>
+        <li>Hosts can delete a wedding, and members can delete their own content, at any time</li>
         <li>Government ID documents are automatically and permanently deleted 3 days after the wedding's last day, or sooner on request</li>
+        <li>When a Host removes someone from a wedding, we keep a record that the account was removed, together with a one-way hash (an irreversible fingerprint, not the readable value) of its email address and mobile number, so that the person cannot rejoin that wedding with the same account or contact. This record contains nothing else and is used for no other purpose. It is kept even if that person later deletes their account, and is deleted when the wedding is deleted</li>
         <li>Security and access-audit logs are retained for 12 months (one year), after which they are deleted unless required by law</li>
         <li>Incomplete/abandoned sign-ups are cleaned up automatically</li>
       </ul>
