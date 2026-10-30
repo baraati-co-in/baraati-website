@@ -126,6 +126,10 @@
           <span class="label">Discount <span id="couponTag"></span></span>
           <span class="value" id="discount">—</span>
         </div>
+        <div class="row" id="creditRow" hidden>
+          <span class="label">Standard already paid</span>
+          <span class="value" id="credit">—</span>
+        </div>
         <div class="row">
           <span class="label">Amount</span>
           <span class="total" id="amount">—</span>
@@ -224,21 +228,27 @@
           return fail('Something went wrong', 'We couldn’t start the payment. Please try again from the Baraati app.');
         }
 
-        document.getElementById('couple').textContent = s.coupleLabel || '';
-        document.getElementById('planName').textContent = (s.planName || '') + ' plan';
-        document.getElementById('amount').textContent = rupees(s.amountPaise);
-        if (s.discountPaise > 0) {
-          document.getElementById('planName').textContent =
-            (s.planName || '') + ' plan · ' + rupees(s.listPaise);
-          document.getElementById('couponTag').textContent = s.couponCode ? '(' + s.couponCode + ')' : '';
-          document.getElementById('discount').textContent = '− ' + rupees(s.discountPaise);
-          document.getElementById('discountRow').hidden = false;
-        }
-        show('ready');
-
         var payBtn = document.getElementById('payBtn');
         var payErr = document.getElementById('payErr');
-        payBtn.textContent = 'Pay ' + rupees(s.amountPaise) + ' securely';
+
+        // One painter for the first render and every re-price (code / plan).
+        function paintSummary(d) {
+          var discount = d.discountPaise > 0;
+          var credit = d.creditPaise > 0;
+          document.getElementById('planName').textContent = (d.planName || '') + ' plan' +
+            ((discount || credit) ? ' · ' + rupees(d.listPaise) : '');
+          document.getElementById('couponTag').textContent = d.couponCode ? '(' + d.couponCode + ')' : '';
+          document.getElementById('discount').textContent = '− ' + rupees(d.discountPaise || 0);
+          document.getElementById('discountRow').hidden = !discount;
+          document.getElementById('credit').textContent = '− ' + rupees(d.creditPaise || 0);
+          document.getElementById('creditRow').hidden = !credit;
+          document.getElementById('amount').textContent = rupees(d.amountPaise);
+          payBtn.textContent = 'Pay ' + rupees(d.amountPaise) + ' securely';
+        }
+
+        document.getElementById('couple').textContent = s.coupleLabel || '';
+        paintSummary(s);
+        show('ready');
 
         // Fast path: have the server verify the signature Razorpay handed the
         // browser. That signature is HMAC'd with the key secret, so only the
@@ -331,6 +341,7 @@
           expired:           'This checkout link has expired. Please start again.',
           already_on_plan:   'This wedding is already on that plan.',
           downgrade_not_supported: 'This wedding is already on Premium.',
+          coupon_not_needed: 'Your Standard payment already covers more than that code would save.',
         };
 
         function note(kind, text) {
@@ -345,18 +356,7 @@
           s.couponCode = d.couponCode || null;
           if (d.plan) s.plan = d.plan;
           if (d.planName) s.planName = d.planName;
-          document.getElementById('amount').textContent = rupees(d.amountPaise);
-          payBtn.textContent = 'Pay ' + rupees(d.amountPaise) + ' securely';
-          if (d.discountPaise > 0) {
-            document.getElementById('planName').textContent =
-              (d.planName || '') + ' plan · ' + rupees(d.listPaise);
-            document.getElementById('couponTag').textContent = d.couponCode ? '(' + d.couponCode + ')' : '';
-            document.getElementById('discount').textContent = '− ' + rupees(d.discountPaise);
-            document.getElementById('discountRow').hidden = false;
-          } else {
-            document.getElementById('planName').textContent = (d.planName || '') + ' plan';
-            document.getElementById('discountRow').hidden = true;
-          }
+          paintSummary(d);
           buildRzp();   // new order id — the old handle is stale
         }
 
