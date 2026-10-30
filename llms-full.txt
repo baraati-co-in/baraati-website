@@ -165,8 +165,6 @@ not on whether the feature exists.
   segmentation.
 - **Targeted notifications** — broadcast to everyone, to a group, or to one person.
 - RSVP aggregates, invite link/code sharing, game administration.
-- **150 printed A5 thank-you cards**, designed in-app after the wedding and shipped to the
-  host — included free on Standard and Premium.
 
 ### 4.8 Themes
 Six complete design systems (fonts, palette and mood — not colour swaps):
@@ -200,7 +198,7 @@ pays.**
 | Plan | Price | Guest limit | Includes |
 |---|---|---|---|
 | **Free** | ₹0 | Up to 10 guests | Multi-day schedule, guest list & RSVP, photo feed, I-Spy, all games and leaderboard, wedding themes |
-| **Standard** | ₹11,000 | Unlimited | Everything in Free, plus unlimited guests, encrypted government-ID collection, travel & accommodation management, guest groups & targeted notifications, full host admin dashboard, 150 printed A5 thank-you cards, full-time support |
+| **Standard** | ₹11,000 | Unlimited | Everything in Free, plus unlimited guests, encrypted government-ID collection, travel & accommodation management, guest groups & targeted notifications, full host admin dashboard, 25 GB Photo Drive, full-time support |
 | **Premium** | ₹21,000 | Unlimited | Everything in Standard, plus the published wedding album website (live 3 years, then ₹510/year), premium album templates, priority support |
 
 Payment is online by UPI, card or net banking; the plan unlocks immediately.
@@ -260,8 +258,7 @@ single-day wedding website with a registry.
 
 **What Baraati has that this set does not advertise:** games written for Indian weddings,
 a private photo feed plus full-resolution Photo Drive, per-wedding theming, published
-encryption and deletion rules for guest IDs, a post-wedding Album website, and 150 printed
-thank-you cards.
+encryption and deletion rules for guest IDs, and a post-wedding Album website.
 
 **What Baraati does not do (as of 2026-10-08):** per-ceremony RSVP, sending messages on
 WhatsApp, face-recognition photo search, multi-client agency plans, vendor discovery or
