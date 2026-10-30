@@ -50,6 +50,18 @@
     }
     .btn-primary { background: var(--ink); color: #fff; }
     .btn-primary:disabled { opacity: 0.55; cursor: default; }
+    .plans { display: flex; gap: 10px; margin-top: 22px; }
+    .plan-opt {
+      flex: 1; min-width: 0; text-align: left; font-family: inherit; color: var(--ink);
+      background: #fff; border: 1.5px solid var(--border); border-radius: 14px;
+      padding: 13px 13px 12px; cursor: pointer;
+    }
+    .plan-opt[aria-checked="true"] { border-color: var(--ink); background: #FDFBF8; }
+    .plan-opt:disabled { cursor: default; }
+    .plan-opt .pname { display: block; font-size: 14px; font-weight: 700; }
+    .plan-opt .pprice { display: block; font-size: 17px; font-weight: 800; margin: 3px 0 5px; letter-spacing: -0.3px; }
+    .plan-opt .pdesc { display: block; font-size: 12px; line-height: 1.4; color: var(--muted); }
+    .plans + .summary { margin-top: 14px; }
     .promo { display: flex; gap: 8px; margin-bottom: 14px; }
     .promo input {
       flex: 1; min-width: 0; font-family: inherit; font-size: 14px; color: var(--ink);
@@ -104,6 +116,7 @@
     <section id="view-ready" hidden>
       <div id="couple" class="couple"></div>
       <h1>Complete your payment</h1>
+      <div id="plans" class="plans" role="radiogroup" aria-label="Choose a plan" hidden></div>
       <div class="summary">
         <div class="row">
           <span class="label">Plan</span>
@@ -316,6 +329,8 @@
           coupon_exhausted:  'That code has been fully claimed.',
           already_paid:      'This order has already been paid.',
           expired:           'This checkout link has expired. Please start again.',
+          already_on_plan:   'This wedding is already on that plan.',
+          downgrade_not_supported: 'This wedding is already on Premium.',
         };
 
         function note(kind, text) {
@@ -327,6 +342,9 @@
         function repaint(d) {
           s.amountPaise = d.amountPaise;
           s.orderId = d.orderId;
+          s.couponCode = d.couponCode || null;
+          if (d.plan) s.plan = d.plan;
+          if (d.planName) s.planName = d.planName;
           document.getElementById('amount').textContent = rupees(d.amountPaise);
           payBtn.textContent = 'Pay ' + rupees(d.amountPaise) + ' securely';
           if (d.discountPaise > 0) {
@@ -372,6 +390,79 @@
         promo.addEventListener('keydown', function (e) {
           if (e.key === 'Enter') promoBtn.click();
         });
+
+        // ── plan switch ────────────────────────────────────────────────────
+        // The app's upgrade prompts always open checkout on Premium; let the
+        // host pick Standard here instead. Switching re-prices server-side (new
+        // order, same session) via checkout-apply-coupon, carrying any code.
+        var PLAN_DESC = {
+          standard: 'Unlimited guests · 150 printed thank-you cards',
+          premium:  'Everything in Standard + your album website for 3 years',
+        };
+        var plansEl = document.getElementById('plans');
+        var planOpts = (s.planOptions || []).filter(function (p) { return PLAN_DESC[p.code]; });
+        var planBtns = [];
+
+        function markPlan(code) {
+          planBtns.forEach(function (b) {
+            b.setAttribute('aria-checked', b.dataset.plan === code ? 'true' : 'false');
+          });
+        }
+
+        function switchPlan(code) {
+          if (code === s.plan) return;
+          planBtns.forEach(function (b) { b.disabled = true; });
+          payBtn.disabled = true;
+          promoNote.hidden = true;
+          payErr.hidden = true;
+          markPlan(code);
+          fetch(FUNCTIONS_URL + '/checkout-apply-coupon', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ t: token, code: s.couponCode || '', plan: code }),
+          }).then(function (r) {
+            return r.json().catch(function () { return {}; }).then(function (b) {
+              planBtns.forEach(function (x) { x.disabled = false; });
+              payBtn.disabled = false;
+              if (!r.ok) {
+                markPlan(s.plan);
+                return note('err', COUPON_MSG[b.error] || 'Could not change the plan. Please try again.');
+              }
+              repaint(b);
+              if (b.couponDropped) {
+                promo.value = '';
+                note('err', 'Your discount code doesn’t apply to the ' + b.planName + ' plan, so it was removed.');
+              }
+            });
+          }).catch(function () {
+            planBtns.forEach(function (x) { x.disabled = false; });
+            payBtn.disabled = false;
+            markPlan(s.plan);
+            note('err', 'Could not reach our servers. Please try again.');
+          });
+        }
+
+        if (planOpts.length > 1) {
+          planOpts.forEach(function (p) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'plan-opt';
+            b.setAttribute('role', 'radio');
+            b.dataset.plan = p.code;
+            [['pname', p.name], ['pprice', rupees(p.pricePaise)], ['pdesc', PLAN_DESC[p.code]]]
+              .forEach(function (pair) {
+                var el = document.createElement('span');
+                el.className = pair[0];
+                el.textContent = pair[1];
+                b.appendChild(el);
+              });
+            b.addEventListener('click', function () { switchPlan(p.code); });
+            plansEl.appendChild(b);
+            planBtns.push(b);
+          });
+          markPlan(s.plan);
+          plansEl.hidden = false;
+        }
 
         payBtn.addEventListener('click', function () {
           payBtn.disabled = true;
