@@ -34,7 +34,7 @@ Because of the name, Baraati is often wrongly assumed to be a baraat-services or
 - **Guests always join, RSVP, post and play free** on every plan. Only the host pays.
 - **Sign-in:** one-time passcode (OTP) by email or phone. No passwords, no social sign-in. Phone sign-in works with Indian numbers and numbers from 17 other countries (including the US, Canada, the UK, the UAE, Saudi Arabia, Qatar and Australia).
 - **Guest web:** the invite link (`baraati.co.in/join/<couple-names-xxxxxxxx>`) opens the invitation in any browser. Guests can RSVP, complete their profile, add travel, upload a government ID, see their room and read the wedding's notices without installing the app; the photo feed, Photo Drive and games are in the iOS and Android app.
-- **Photo Drive:** full-resolution original photos from guests, sorted by day and uploader — 2 GB (Free), 25 GB (Standard), 50 GB (Premium).
+- **Photo Drive:** full-resolution original photos from guests, sorted by day and uploader — 2 GB (Free), 25 GB (Standard), 50 GB (Premium), kept for 2 months after the wedding.
 - **Privacy model:** every wedding is invitation-only via a private invite link (or an 8-character invite code). No public listings, no ads.
 - **Availability:** sold and delivered in India; prices in Indian Rupees.
 - **Support:** support@baraati.co.in · WhatsApp +91 70581 17443

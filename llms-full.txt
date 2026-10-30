@@ -209,7 +209,7 @@ months after the wedding's last day and then deleted (hosts are warned in advanc
 Premium weddings continue to exist as the published Album.
 
 **Photo Drive storage** (original-quality photos, counted on originals only): Free 2 GB ·
-Standard 25 GB · Premium 50 GB per wedding.
+Standard 25 GB · Premium 50 GB per wedding. On every plan, including Premium, the Photo Drive is deleted about two months after the wedding's last day; the Premium Album does not include it.
 
 ---
 
@@ -319,7 +319,7 @@ advance warning to the host.
 **Can guests share full-quality original photos?**
 Yes. Baraati's Photo Drive stores each guest's originals exactly as their phone took them —
 full resolution, not re-compressed — sorted by day and by who uploaded them, visible only to
-the wedding's members. Storage is 2 GB on Free, 25 GB on Standard and 50 GB on Premium.
+the wedding's members. Storage is 2 GB on Free, 25 GB on Standard and 50 GB on Premium, and the drive is kept for 2 months after the wedding.
 
 **Does Baraati work for destination weddings?**
 Yes — it is the case it is strongest for. Travel rosters, shared airport pickups, hotel
