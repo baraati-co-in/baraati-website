@@ -274,11 +274,6 @@
     .founding-banner .fb-text strong { font-weight: 700; }
     .founding-banner .fb-text .fb-sub { color: var(--muted); }
     .founding-banner .btn { flex-shrink: 0; padding: 11px 20px; font-size: 14px; }
-    .fb-count { flex-basis: 100%; margin-top: 4px; }
-    .fb-bar { height: 7px; border-radius: 999px; background: rgba(31,18,38,0.08); overflow: hidden; }
-    .fb-bar span { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--grad-saffron); transition: width 0.7s ease; }
-    .fb-count-label { margin-top: 8px; font-size: 13px; color: var(--ink-2); text-align: center; }
-    .fb-count-label strong { color: var(--ink); font-weight: 700; }
 
     /* ── Pricing grid ── */
     .price-grid {
@@ -431,13 +426,9 @@
     </div>
     <div class="founding-banner">
       <div class="fb-text">
-        <strong>🎉 First 100 weddings:</strong> use code <strong>FIRST100</strong> at checkout for <strong>51% off</strong> any paid plan — Premium ₹21,000 → ₹10,290, Standard ₹11,000 → ₹5,390. <span class="fb-sub">Limited to the first 100 weddings.</span>
+        <strong>🎉 Season offers:</strong> connect with the Baraati team on WhatsApp for surprise deals and offers this wedding season. <span class="fb-sub">We reply personally.</span>
       </div>
-      <a class="btn btn-grad" href="upgrade.html?plan=premium">Claim 51% off</a>
-      <div class="fb-count" id="fbCount" hidden>
-        <div class="fb-bar"><span id="fbBar"></span></div>
-        <div class="fb-count-label"><strong id="fbLeft"></strong> of 100 spots left</div>
-      </div>
+      <a class="btn btn-grad" href="https://wa.me/917058117443?text=Hi%20Baraati%20team%2C%20I'd%20love%20to%20know%20about%20this%20season's%20offers." target="_blank" rel="noopener">Chat on WhatsApp</a>
     </div>
   </div>
 </header>
@@ -625,31 +616,5 @@
 </footer>
 
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<script>
-  /* ─────────────────────────────────────────────────────────────
-     First 100 counter.
-     "Claimed" now means a REDEEMED FIRST100 coupon, which is an exact
-     number rather than a guess. Get it with:
-
-       select count(*) from payments
-        where status = 'applied' and coupon_code = 'FIRST100';
-
-     👉 UPDATE THIS ONE NUMBER to match that query. Keep it honest.
-     ───────────────────────────────────────────────────────────── */
-  var FOUNDING_CLAIMED = 0;
-
-  (function () {
-    var TOTAL = 100;
-    var claimed = Math.max(0, Math.min(TOTAL, FOUNDING_CLAIMED));
-    var wrap = document.getElementById('fbCount');
-    if (!wrap) return;
-    document.getElementById('fbLeft').textContent = TOTAL - claimed;
-    wrap.hidden = false;
-    // Animate the bar in on next frame.
-    requestAnimationFrame(function () {
-      document.getElementById('fbBar').style.width = (claimed / TOTAL * 100) + '%';
-    });
-  })();
-</script>
 </body>
 </html>
