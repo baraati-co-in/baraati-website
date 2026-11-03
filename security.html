@@ -6,7 +6,7 @@
   <title>Baraati Security — Encryption, Guest IDs and Data Retention</title>
   <meta name="description" content="How Baraati protects wedding data: AES-256-GCM envelope encryption for guest government-ID documents, audit-logged access, streamed decrypts instead of public links, auto-deletion three days after the wedding, one-time-passcode sign-in with no stored passwords, per-wedding isolation and certificate pinning." />
   <meta property="og:title" content="Security — How Baraati Protects Your Wedding" />
-  <meta property="og:description" content="How Baraati protects your guest lists, travel plans, photos, and government IDs — explained plainly." />
+  <meta property="og:description" content="How Baraati protects your guest lists, travel plans, photos and government IDs, in plain language." />
   <meta property="og:image" content="https://baraati.co.in/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@baraatii" />
   <meta name="twitter:title" content="Security — How Baraati Protects Your Wedding" />
-  <meta name="twitter:description" content="How Baraati protects your guest lists, travel plans, photos, and government IDs — explained plainly." />
+  <meta name="twitter:description" content="How Baraati protects your guest lists, travel plans, photos and government IDs, in plain language." />
   <meta name="twitter:image" content="https://baraati.co.in/og.png" />
   <link rel="icon" type="image/png" href="/logo.png" />
   <link rel="apple-touch-icon" href="/logo.png" />
@@ -68,7 +68,7 @@
             "name": "How does Baraati encrypt government ID documents?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Baraati uses AES-256-GCM envelope encryption. Each uploaded document is encrypted with its own key, and that key is itself encrypted with a master key held server-side. Documents are never exposed by public or presigned link — a download is a streamed decrypt. Every access is written to an audit log, and the feature is disabled entirely on rooted or jailbroken devices."
+              "text": "Baraati uses AES-256-GCM envelope encryption. Each uploaded document is encrypted with its own key, and that key is itself encrypted with a master key held server-side. Documents are never exposed by public or presigned link. A download is a streamed decrypt. Every access is written to an audit log, and the feature is disabled entirely on rooted or jailbroken devices."
             }
           },
           {
@@ -84,7 +84,7 @@
             "name": "Are guest phone numbers visible to other guests?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. This is a concrete difference from a wedding WhatsApp group, where every number is visible to everyone in it. In Baraati, guests see names, photos and roles — not each other's contact details."
+              "text": "No. This is a concrete difference from a wedding WhatsApp group, where every number is visible to everyone in it. In Baraati, guests see each other's names, photos and roles, but not their contact details."
             }
           },
           {
@@ -318,15 +318,15 @@
 
     <section class="sec-block">
       <h2>Government IDs</h2>
-      <p>Indian hotels, airlines, and visa processes routinely require guest IDs, so Baraati includes a dedicated pipeline for them — separate from photos and everything else.</p>
+      <p>Indian hotels, airlines, and visa processes routinely require guest IDs, so Baraati has a dedicated pipeline for them, kept separate from photos and everything else.</p>
       <p>Each document is encrypted with AES-256-GCM envelope encryption the moment it is uploaded: every document gets its own key, and those keys are themselves encrypted by a master key that never leaves the server. Documents live in a private storage bucket that has no public access.</p>
       <ul class="sec-list">
-        <li><span class="tick">✦</span><span>Viewing an ID is a streamed decrypt for that single request — there is never a shareable link to the file.</span></li>
+        <li><span class="tick">✦</span><span>Viewing an ID is a streamed decrypt for that single request. There is never a shareable link to the file.</span></li>
         <li><span class="tick">✦</span><span>Only the hosts of that specific wedding (and the guest who uploaded it) can access a document.</span></li>
         <li><span class="tick">✦</span><span>Every access is audit-logged: who, when, from which IP and device.</span></li>
         <li><span class="tick">✦</span><span>Hosts export one encrypted master PDF for hotel check-in instead of forwarding individual photos.</span></li>
         <li><span class="tick">✦</span><span>ID features are disabled on rooted or jailbroken devices, and require recent re-authentication.</span></li>
-        <li><span class="tick">✦</span><span>Documents are automatically and permanently deleted 3 days after the wedding's last day — or sooner, whenever the guest chooses.</span></li>
+        <li><span class="tick">✦</span><span>Documents are automatically and permanently deleted 3 days after the wedding's last day, or sooner if the guest chooses.</span></li>
       </ul>
     </section>
 
@@ -334,7 +334,7 @@
       <h2>Your account</h2>
       <p>There are no passwords on Baraati, which means there are no passwords to reuse, guess, or leak. Sign-in uses one-time codes delivered to your email or phone, and sessions are stored in your device's encrypted secure storage.</p>
       <ul class="sec-list">
-        <li><span class="tick">✦</span><span>OTP-only sign-in — a code per sign-in, verified server-side.</span></li>
+        <li><span class="tick">✦</span><span>OTP-only sign-in: a new code for each sign-in, verified server-side.</span></li>
         <li><span class="tick">✦</span><span>No social logins, no third-party identity providers.</span></li>
         <li><span class="tick">✦</span><span>Full account deletion available in-app and at baraati.co.in/delete-account.</span></li>
       </ul>
@@ -342,7 +342,7 @@
 
     <section class="sec-block">
       <h2>Wedding isolation</h2>
-      <p>Every wedding on Baraati is a sealed space. Access rules are enforced at the database layer with row-level security — not just in the app — so a member of one wedding cannot read another wedding's data, even in principle. Joining requires an invite code from the hosts.</p>
+      <p>Every wedding on Baraati is a sealed space. Access rules are enforced in the database itself with row-level security, as well as in the app, so a member of one wedding cannot read another wedding's data. Joining requires an invite code from the hosts.</p>
       <ul class="sec-list">
         <li><span class="tick">✦</span><span>Row-level security on every table.</span></li>
         <li><span class="tick">✦</span><span>Invite-only joining, controlled by the hosts.</span></li>
