@@ -74,7 +74,9 @@ Baraati replaces that stack with one private app per wedding.
    into the app.
 3. **The link opens the animated invitation in any browser, with no app install needed.**
    Guests RSVP there by signing in with a one-time passcode (OTP) sent to their email or
-   phone (no passwords, no social sign-in), then add their name, travel details, a
+   phone (no passwords, no social sign-in). Phone sign-in works with Indian numbers and
+   mobile numbers from 18 other countries (the US, Canada, the UK, the UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain, Australia, New Zealand, Germany, Spain, Malaysia, Singapore, Thailand, Japan and Sri Lanka);
+   email sign-in works from anywhere. Guests then add their name, travel details, a
    government ID (encrypted) and see their room number on the web. If the Baraati app is
    installed, the same link opens the app, which adds the photo feed, games and live
    updates.
@@ -288,6 +290,11 @@ RSVP, add travel, upload an ID and see their room number without installing anyt
 sign in with a one-time passcode sent to their email or phone and pick their side (bride's,
 groom's or event team). The app, or the 8-character invite code typed into it, adds the
 photo feed, games and live updates.
+
+**Can guests who live outside India sign in?**
+Yes. Phone sign-in works with mobile numbers from India and 18 other countries: the US, Canada, the UK, the UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain, Australia, New Zealand, Germany, Spain, Malaysia, Singapore, Thailand, Japan and Sri Lanka.
+The country picker starts on the guest's own country. A guest elsewhere signs in with
+their email address instead.
 
 **Is Baraati available on Android?**
 Yes. Baraati is live on Google Play for Android and on the App Store for iPhone and iPad.
