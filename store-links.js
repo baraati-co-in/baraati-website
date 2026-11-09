@@ -14,9 +14,9 @@
 
   // Play: referrer=<url-encoded utm string>, read by Play Console's acquisition reports.
   var referrer = utm.map(function (k) { return k + '=' + encodeURIComponent(q.get(k)); }).join('&');
-  // App Store: ct= is a free-text campaign name, max 40 characters.
+  // App Store: ct= is a free-text campaign name, max 30 characters.
   var ct = [q.get('utm_source'), q.get('utm_campaign'), q.get('utm_content')]
-    .filter(Boolean).join('-').replace(/[^A-Za-z0-9_.-]/g, '_').slice(0, 40);
+    .filter(Boolean).join('-').replace(/[^A-Za-z0-9_.-]/g, '_').slice(0, 30);
 
   function tag() {
     document.querySelectorAll('a[href*="play.google.com/store/apps/details"]').forEach(function (a) {
