@@ -5,7 +5,7 @@
 (function () {
   // App Store Connect → App Analytics → Campaign link generator → "Provider token".
   // Apple ignores ct= without it, so iOS links are left untouched until this is set.
-  var APPLE_PROVIDER_TOKEN = '';
+  var APPLE_PROVIDER_TOKEN = '129028126';
 
   var q = new URLSearchParams(location.search);
   var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
