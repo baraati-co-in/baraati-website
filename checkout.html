@@ -181,6 +181,38 @@
 
       var token = (new URLSearchParams(location.search).get('t') || '').trim();
 
+      // ── Funnel analytics (PostHog) ───────────────────────────────────────
+      // Until 14 Nov 2026 nothing on this page was measured: 4 hosts a week
+      // opened checkout and we could not tell whether they left at the price,
+      // at Razorpay, or on a failed payment. Same posture as the app and the
+      // guest web: only these chosen events, no SDK, no cookie, no autocapture
+      // or replay; identified by the opaque account id checkout-session
+      // returns (the same id the app identifies by), never by contact details.
+      // The URL is never sent — it carries the one-time token.
+      var PH_KEY = 'phc_yaF8FzXSboCBR4WkVZuWpaDMWt2MqVPuZ5M6a9HcjVS3';
+      var PH_URL = 'https://us.i.posthog.com/i/v0/e/';
+      var phUser = null;
+      function track(event, props) {
+        if (location.hostname !== 'baraati.co.in') return;
+        try {
+          var p = { platform: 'web', surface: 'checkout', $process_person_profile: !!phUser };
+          for (var k in (props || {})) p[k] = props[k];
+          fetch(PH_URL, {
+            method: 'POST',
+            keepalive: true,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              api_key: PH_KEY,
+              event: event,
+              distinct_id: phUser || 'checkout-anonymous',
+              timestamp: new Date().toISOString(),
+              properties: p,
+            }),
+          }).catch(function () {});
+        } catch (e) { /* analytics never breaks a payment */ }
+      }
+      function inr(paise) { return Math.round((paise || 0) / 100); }
+
       function show(id) {
         ['loading', 'ready', 'confirming', 'paid', 'error'].forEach(function (v) {
           document.getElementById('view-' + v).hidden = (v !== id);
@@ -205,28 +237,44 @@
       }
 
       if (!token) {
+        track('checkout_unavailable', { reason: 'missing' });
         fail('Link not valid', 'This checkout link is missing its code. Please start again from the Baraati app.');
         return;
       }
 
       fetchSession().then(function (r) {
         var s = r.body || {};
+        if (typeof s.userId === 'string') phUser = s.userId;
 
         if (r.status === 404) {
+          track('checkout_unavailable', { reason: 'not_found' });
           return fail('Link not valid', 'This checkout link is not recognised. Please start again from the Baraati app.');
         }
         if (r.status === 410 || s.status === 'expired') {
+          track('checkout_unavailable', { reason: 'expired', plan: s.plan || null });
           return fail('This link has expired', 'Checkout links are valid for 30 minutes. Please start again from the Baraati app.');
         }
         if (r.status === 503) {
+          track('checkout_unavailable', { reason: 'payments_off' });
           return fail('Payments unavailable', 'Online payments aren’t switched on yet. Please contact us and we’ll set your plan up directly.');
         }
         if (s.status === 'paid') {
+          track('checkout_unavailable', { reason: 'already_paid', plan: s.plan || null });
           return show('paid');
         }
         if (r.status !== 200 || !s.orderId || !s.keyId) {
+          track('checkout_unavailable', { reason: 'error', status: r.status });
           return fail('Something went wrong', 'We couldn’t start the payment. Please try again from the Baraati app.');
         }
+
+        track('checkout_viewed', {
+          plan: s.plan,
+          amount_inr: inr(s.amountPaise),
+          list_inr: inr(s.listPaise),
+          promo: s.couponCode || null,
+          credited: (s.creditPaise || 0) > 0,
+          plan_choices: (s.planOptions || []).length,
+        });
 
         var payBtn = document.getElementById('payBtn');
         var payErr = document.getElementById('payErr');
@@ -272,14 +320,18 @@
         // Poll for the webhook to land. The browser's "success" callback is NOT
         // proof of payment — the server-side webhook is the source of truth, so
         // we wait for it to flip the session to `paid`.
+        function paid(via) {
+          track('checkout_paid', { plan: s.plan, amount_inr: inr(s.amountPaise), promo: s.couponCode || null, via: via });
+          show('paid');
+        }
         function awaitConfirmation(attempt) {
           if (attempt > 15) {
             document.getElementById('paidCopy').textContent =
               'Your payment went through. It can take a minute or two to unlock — reopen the Baraati app shortly and pull down to refresh. If it still looks locked, email support@baraati.co.in.';
-            return show('paid');
+            return paid('unconfirmed');
           }
           fetchSession().then(function (r2) {
-            if (r2.body && r2.body.status === 'paid') return show('paid');
+            if (r2.body && r2.body.status === 'paid') return paid('webhook');
             setTimeout(function () { awaitConfirmation(attempt + 1); }, 2000);
           }).catch(function () {
             setTimeout(function () { awaitConfirmation(attempt + 1); }, 2000);
@@ -302,7 +354,7 @@
           handler: function (resp) {
             show('confirming');
             verifySignature(resp).then(function (v) {
-              if (v && v.status === 'paid') return show('paid');
+              if (v && v.status === 'paid') return paid('verify');
               // Not confirmed yet (authorized-not-captured, or verify failed) —
               // the webhook is the backstop.
               awaitConfirmation(0);
@@ -312,12 +364,20 @@
           },
           modal: {
             // User closed the sheet without paying.
-            ondismiss: function () { payBtn.disabled = false; },
+            ondismiss: function () {
+              payBtn.disabled = false;
+              track('checkout_dismissed', { plan: s.plan, amount_inr: inr(s.amountPaise) });
+            },
           },
         });
 
         rzp.on('payment.failed', function (e) {
           payBtn.disabled = false;
+          var er = (e && e.error) || {};
+          track('checkout_payment_failed', {
+            plan: s.plan, amount_inr: inr(s.amountPaise),
+            reason: er.reason || null, step: er.step || null, source: er.source || null,
+          });
           var reason = (e && e.error && e.error.description) ? e.error.description : '';
             payErr.textContent = reason
               ? ('Payment failed: ' + reason + ' — nothing was charged. Please try again.')
@@ -374,6 +434,11 @@
             return r.json().catch(function () { return {}; }).then(function (b) {
               promoBtn.disabled = false;
               promoBtn.textContent = 'Apply';
+              track('checkout_code_applied', {
+                plan: s.plan, promo: code.toUpperCase().slice(0, 40), ok: r.ok,
+                error: r.ok ? null : (b.error || 'unknown'),
+                amount_inr: r.ok ? inr(b.amountPaise) : inr(s.amountPaise),
+              });
               if (!r.ok) {
                 return note('err', COUPON_MSG[b.error] || 'Could not apply that code.');
               }
@@ -392,9 +457,10 @@
         });
 
         // ── plan switch ────────────────────────────────────────────────────
-        // The app's upgrade prompts always open checkout on Premium; let the
-        // host pick Standard here instead. Switching re-prices server-side (new
-        // order, same session) via checkout-apply-coupon, carrying any code.
+        // The app opens checkout on Standard for Free weddings (Premium from
+        // the album prompts); the host can switch here. Switching re-prices
+        // server-side (new order, same session) via checkout-apply-coupon,
+        // carrying any code — including the launch code the app pre-applies.
         var PLAN_DESC = {
           standard: 'Unlimited guests · 25 GB Photo Drive',
           premium:  'Everything in Standard + your album website for 3 years',
@@ -424,6 +490,10 @@
             return r.json().catch(function () { return {}; }).then(function (b) {
               planBtns.forEach(function (x) { x.disabled = false; });
               payBtn.disabled = false;
+              track('checkout_plan_switched', {
+                from: s.plan, to: code, ok: r.ok, error: r.ok ? null : (b.error || 'unknown'),
+                amount_inr: r.ok ? inr(b.amountPaise) : inr(s.amountPaise),
+              });
               if (!r.ok) {
                 markPlan(s.plan);
                 return note('err', COUPON_MSG[b.error] || 'Could not change the plan. Please try again.');
@@ -465,6 +535,7 @@
         }
 
         payBtn.addEventListener('click', function () {
+          track('checkout_pay_tapped', { plan: s.plan, amount_inr: inr(s.amountPaise), promo: s.couponCode || null });
           payBtn.disabled = true;
           payErr.hidden = true;
           rzp.open();
