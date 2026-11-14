@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stop chasing RSVPs on WhatsApp | Baraati</title>
+  <meta name="description" content="Send your wedding guests one link. They RSVP in a tap from any browser, and you see who's coming, live. Free for up to 10 guests." />
+  <!-- Paid-ads landing page: kept out of search so it never competes with /digital-wedding-invitation. -->
+  <meta name="robots" content="noindex, follow" />
+  <meta property="og:title" content="Stop chasing RSVPs on WhatsApp | Baraati" />
+  <meta property="og:description" content="One link. Every RSVP. Guests reply in a tap, no app needed. Free for up to 10 guests." />
+  <meta property="og:image" content="https://baraati.co.in/og.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Baraati" />
+  <meta property="og:locale" content="en_IN" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <script>
+    /* Pick the visitor's store before first paint: one button on a phone, both on desktop.
+       Only reads the user agent; stores nothing. */
+    (function () {
+      var ua = navigator.userAgent || '';
+      var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var android = /Android/i.test(ua);
+      document.documentElement.className = ios ? 'os-ios' : android ? 'os-android' : 'os-other';
+    })();
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #FBF7F1; --bg-2: #F4ECE0; --ink: #1F1226; --ink-2: #4B3B55; --muted: #6B5F73;
+      --card: #ffffff; --line: rgba(31,18,38,0.08); --gold: #C9922A; --rose: #FF4D6D;
+      --grad-saffron: linear-gradient(135deg, #FF8A3D 0%, #FF4D6D 100%);
+    }
+    html { -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+    .serif { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 48px 0; }
+    h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.08; font-weight: 700; }
+    h1 { font-size: clamp(38px, 6vw, 64px); font-weight: 800; }
+    h2 { font-size: clamp(26px, 3.4vw, 38px); }
+    h3 { font-size: 18px; }
+    p { line-height: 1.6; }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); }
+
+    /* Top bar: logo + WhatsApp only. No site nav on a paid landing page. */
+    .bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1120px; margin: 0 auto; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; letter-spacing: -0.03em; color: var(--ink); }
+    .brand img { width: 34px; height: 34px; object-fit: contain; }
+    .wa { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink-2); text-decoration: none; padding: 8px 14px; border-radius: 999px; background: rgba(31,18,38,0.05); }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 26px; border-radius: 999px; font-family: inherit; font-weight: 700; font-size: 16px; letter-spacing: -0.01em; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; box-shadow: 0 10px 26px rgba(31,18,38,0.22); }
+    .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .cta { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cta-note { font-size: 14px; color: var(--ink-2); }
+    .cta-note b { color: var(--ink); }
+    .cta-alt { font-size: 13.5px; color: var(--muted); }
+    .cta-alt a { color: var(--ink-2); font-weight: 600; }
+    /* Device switching: one store button on a phone, both elsewhere. */
+    .lbl-device { display: none; }
+    .os-ios .lbl-device, .os-android .lbl-device { display: inline; }
+    .os-ios .lbl-generic, .os-android .lbl-generic { display: none; }
+    .os-ios .store-android, .os-android .store-ios { display: none; }
+    .cta-alt { display: none; }
+    .os-ios .cta-alt.for-ios, .os-android .cta-alt.for-android { display: block; }
+    .os-ios .cta-btns .btn, .os-android .cta-btns .btn { width: 100%; max-width: 420px; }
+
+    /* Hero */
+    .hero { padding: 28px 0 36px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .hero h1 { margin: 14px 0 18px; }
+    .hero .sub { font-size: clamp(16px, 2vw, 19px); color: var(--ink-2); max-width: 520px; margin-bottom: 26px; }
+
+    /* Problem → answer visual (mirrors the ad) */
+    .visual { max-width: 440px; width: 100%; margin: 0 auto; }
+    .chats { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+    .out { background: var(--ink); color: var(--bg); border-radius: 20px; border-bottom-right-radius: 6px; padding: 12px 18px 10px; font-weight: 700; font-size: 17px; }
+    .out.faded { background: #5A4C63; }
+    .out small { display: block; text-align: right; margin-top: 3px; font-size: 10.5px; letter-spacing: .14em; font-weight: 600; color: rgba(251,247,241,.6); }
+    .tally-card { margin-top: 22px; background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 22px; box-shadow: 0 24px 48px -28px rgba(31,18,38,.25); }
+    .tally-card .eyebrow { color: var(--muted); font-size: 11px; }
+    .tally-card h3 { font-size: 24px; font-weight: 800; margin-top: 6px; }
+    .tally-card h3 .serif { color: var(--rose); }
+    .tally { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+    .t { border-radius: 16px; padding: 14px; background: var(--bg-2); }
+    .t b { display: block; font-size: 32px; font-weight: 800; letter-spacing: -1px; line-height: 1; }
+    .t span { display: block; margin-top: 6px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+    .t.yes { background: #E7F4EC; } .t.yes b { color: #1E7A46; }
+    .t.maybe { background: #FFF1E2; } .t.maybe b { color: #B35512; }
+    .t.wait b { color: var(--muted); }
+    .visual-note { margin-top: 10px; font-size: 12px; color: var(--muted); text-align: center; }
+
+    /* Steps */
+    .sec-head { max-width: 680px; margin-bottom: 26px; }
+    .sec-head h2 { margin-top: 10px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .step { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px; }
+    .step-num { width: 32px; height: 32px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 800; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+    .step h3 { margin-bottom: 6px; }
+    .step p { font-size: 14.5px; color: var(--ink-2); }
+
+    /* What guests see */
+    .guests { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .guests-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .guests ul { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
+    .guests li { padding-left: 28px; position: relative; color: var(--ink-2); font-size: 15.5px; line-height: 1.5; }
+    .guests li::before { content: '✓'; position: absolute; left: 0; color: #1A7A4A; font-weight: 800; }
+    .invite-frame { background: linear-gradient(160deg, #2A0E1E 0%, #4A1530 55%, #201029 100%); border-radius: 28px; padding: 10px; max-width: 340px; margin: 0 auto; width: 100%; box-shadow: 0 36px 70px -30px rgba(74,21,48,.55); }
+    .invite-inner { background: radial-gradient(120% 90% at 50% 0%, #FFF3E0 0%, #FBF7F1 60%); border-radius: 20px; padding: 28px 22px 22px; text-align: center; }
+    .invite-eyebrow { font-size: 10.5px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
+    .invite-names { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 40px; line-height: 1.05; margin: 10px 0 6px; }
+    .invite-names i { color: var(--rose); font-style: normal; }
+    .invite-date { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+    .invite-cere { margin: 18px 0; display: flex; flex-direction: column; gap: 7px; text-align: left; }
+    .invite-row { display: flex; justify-content: space-between; font-size: 12.5px; padding: 8px 12px; background: rgba(31,18,38,.04); border-radius: 12px; }
+    .invite-row span { color: var(--muted); }
+    .slide-pill { position: relative; height: 48px; border-radius: 999px; background: var(--grad-saffron); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13.5px; }
+    .slide-knob { position: absolute; left: 5px; top: 5px; width: 38px; height: 38px; border-radius: 999px; background: #fff; color: var(--rose); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+
+    /* FAQ */
+    .faq { max-width: 760px; }
+    .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 2px 20px; margin-bottom: 10px; }
+    .faq summary { cursor: pointer; list-style: none; padding: 16px 0; font-weight: 700; font-size: 16px; display: flex; justify-content: space-between; gap: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; font-size: 22px; color: var(--rose); font-weight: 400; line-height: 1; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq details p { padding: 0 0 18px; color: var(--ink-2); font-size: 15px; }
+
+    /* Closing CTA */
+    .closing { text-align: center; }
+    .closing .cta { align-items: center; margin-top: 22px; }
+    .closing p.lead { color: var(--ink-2); max-width: 520px; margin: 14px auto 0; }
+
+    footer { padding: 28px 24px 40px; border-top: 1px solid var(--line); text-align: center; font-size: 13px; color: var(--muted); }
+    footer a { color: var(--ink-2); margin: 0 8px; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .guests-grid { grid-template-columns: 1fr; gap: 32px; }
+      .steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bar">
+  <span class="brand"><img src="/logo.png" alt="" width="34" height="34" />Baraati</span>
+  <a class="wa" href="https://wa.me/917058117443?text=Hi%2C%20I%20have%20a%20question%20about%20Baraati%20RSVPs" target="_blank" rel="noopener" aria-label="Questions? WhatsApp us">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74 1.59.69 2.21.74 3 .62.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+    Questions?
+  </a>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">✦ For couples &amp; families planning a wedding</span>
+      <h1>Still chasing RSVPs on <span class="serif" style="color:var(--rose)">WhatsApp?</span></h1>
+      <p class="sub">Send your guests one link. They open it in any browser and RSVP in a tap. You see who's coming, who's a maybe and who hasn't replied, live.</p>
+      <div class="cta">
+        <div class="cta-btns">
+          <a class="btn btn-primary store-ios" href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.45-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.27-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.65zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.1 1.76-.96 2.8 1.01.08 2.05-.52 2.68-1.28z"/></svg>
+            <span class="lbl-device">Create your wedding, free</span><span class="lbl-generic">Create on iPhone</span>
+          </a>
+          <a class="btn btn-primary store-android" href="https://play.google.com/store/apps/details?id=com.baraati.app" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3a1 1 0 0 0-.35.8v17.8c0 .33.13.6.35.8l9.75-9.7L3.6 2.3zm10.65 8.8 2.7-2.7L5.03 1.6c-.1-.06-.2-.1-.3-.12l9.52 9.62zm0 1.8-9.52 9.62c.1-.02.2-.06.3-.12l11.92-6.8-2.7-2.7zm6.62-1.66-2.88-1.65-2.94 2.91 2.94 2.92 2.88-1.65c.82-.47.82-2.06 0-2.53z"/></svg>
+            <span class="lbl-device">Create your wedding, free</span><span class="lbl-generic">Create on Android</span>
+          </a>
+        </div>
+        <p class="cta-note">You set it up in the free Baraati app. <b>Your guests won't need it</b>: they reply from the link.</p>
+        <p class="cta-alt for-ios">On Android? <a href="https://play.google.com/store/apps/details?id=com.baraati.app" target="_blank" rel="noopener">Get it on Google Play</a></p>
+        <p class="cta-alt for-android">On iPhone? <a href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener">Get it on the App Store</a></p>
+      </div>
+    </div>
+
+    <div class="visual" aria-hidden="true">
+      <div class="chats">
+        <div class="out">Aa rahe ho na?<small>SEEN · NO REPLY</small></div>
+        <div class="out faded">Kitne log aayenge?<small>SEEN · NO REPLY</small></div>
+      </div>
+      <div class="tally-card">
+        <div class="eyebrow">With Baraati</div>
+        <h3>One link. <span class="serif">Every RSVP.</span></h3>
+        <div class="tally">
+          <div class="t yes"><b>15</b><span>Coming</span></div>
+          <div class="t maybe"><b>4</b><span>Maybe</span></div>
+          <div class="t wait"><b>6</b><span>No reply</span></div>
+        </div>
+      </div>
+      <p class="visual-note">Example wedding</p>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ HOW IT WORKS ══════════ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">How it works</div>
+      <h2>Three steps, <span class="serif" style="color:#C2611A">a few minutes.</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Create your wedding</h3><p>Add your names, dates and each ceremony in the free app. Your invitation designs itself from one of six themes.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Share one link</h3><p>Post your private invite link in the family group, or send it to anyone. Nobody has to join a new WhatsApp group.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Watch the RSVPs land</h3><p>Guests slide to reply. You see the live headcount and get a notification for every answer, so you stop chasing the maybes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHAT GUESTS SEE ══════════ -->
+<section class="guests">
+  <div class="wrap guests-grid">
+    <div>
+      <div class="eyebrow">What your guests see</div>
+      <h2 style="margin-top:10px">An invitation they <span class="serif" style="color:var(--rose)">actually open.</span></h2>
+      <ul>
+        <li>Opens in any phone browser from your link. No download, no sign-up wall to read it.</li>
+        <li>Every ceremony with its date, time and venue in one place.</li>
+        <li>Reply with one slide: coming, can't make it, or tentative.</li>
+        <li>Change a time or venue later and everyone sees the update.</li>
+      </ul>
+    </div>
+    <div class="invite-frame" aria-hidden="true">
+      <div class="invite-inner">
+        <div class="invite-eyebrow">Together with their families</div>
+        <div class="invite-names">Aanya <i>&amp;</i> Vivaan</div>
+        <div class="invite-date">12 · 02 · 2027 &nbsp;·&nbsp; Udaipur</div>
+        <div class="invite-cere">
+          <div class="invite-row"><b>Mehndi</b><span>10 Feb · 4:00 PM</span></div>
+          <div class="invite-row"><b>Sangeet</b><span>11 Feb · 7:00 PM</span></div>
+          <div class="invite-row"><b>Phere</b><span>12 Feb · 9:00 PM</span></div>
+        </div>
+        <div class="slide-pill"><span class="slide-knob">›</span>Slide to RSVP: we'll be there</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Quick answers</div></div>
+    <div class="faq">
+      <details><summary>Do my guests need to download anything?</summary><p>No. Guests open your link in their phone's browser and reply there. Only you, the host, use the app to set up the wedding. Guests can install it later if they want photos, the schedule and games in one place, but they never have to.</p></details>
+      <details><summary>Is it really free?</summary><p>Yes, for a wedding with up to 10 guests, with no card needed. For a bigger guest list there are paid plans with unlimited guests. Guests always join free.</p></details>
+      <details><summary>We have a multi-day wedding. Does that work?</summary><p>Yes. Baraati is built for Indian weddings: add every ceremony (mehndi, haldi, sangeet, phere, reception) with its own date, time and venue.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CLOSING CTA ══════════ -->
+<section class="closing">
+  <div class="wrap">
+    <h2>Send one link. <span class="serif" style="color:var(--rose)">Get every RSVP.</span></h2>
+    <p class="lead">Set up your wedding in a few minutes. Free for up to 10 guests.</p>
+    <div class="cta">
+      <div class="cta-btns">
+        <a class="btn btn-primary store-ios" href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener"><span class="lbl-device">Create your wedding, free</span><span class="lbl-generic">Create on iPhone</span></a>
+        <a class="btn btn-primary store-android" href="https://play.google.com/store/apps/details?id=com.baraati.app" target="_blank" rel="noopener"><span class="lbl-device">Create your wedding, free</span><span class="lbl-generic">Create on Android</span></a>
+      </div>
+      <p class="cta-note">Your guests won't need the app.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © Baraati LLP · <a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/support">Support</a>
+</footer>
+
+<script src="/store-links.js" defer></script>
+</body>
+</html>
