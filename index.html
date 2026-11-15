@@ -176,7 +176,7 @@
           "name": "Free",
           "price": "0",
           "priceCurrency": "INR",
-          "description": "Free forever for a wedding with up to 10 guests.",
+          "description": "Free for a wedding with up to 10 guests.",
           "url": "https://baraati.co.in/pricing",
           "availability": "https://schema.org/InStock",
           "eligibleRegion": {
@@ -321,7 +321,7 @@
           "name": "How much does Baraati cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Baraati is free forever for a wedding with up to 10 guests. Beyond that, Standard is ₹11,000 and Premium is ₹21,000, paid once per wedding. The price is not per guest and not a subscription. Guests always join, RSVP, post and play free on every plan; only the host pays. Premium adds a published wedding album website, live for three years and then ₹510 per year."
+            "text": "Baraati is free for a wedding with up to 10 guests. Beyond that, Standard is ₹11,000 and Premium is ₹21,000, paid once per wedding. The price is not per guest and not a subscription. Guests always join, RSVP, post and play free on every plan; only the host pays. Premium adds a published wedding album website, live for three years and then ₹510 per year."
           }
         },
         {
@@ -329,7 +329,7 @@
           "name": "What games are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Baraati includes Word Search (find hidden wedding words in a 15×15 grid), Predictions (vote on questions about the couple), Who's Most Likely? (rapid-fire 15-second bride-or-groom questions), and I-Spy, a photo scavenger hunt. All of them feed one shared leaderboard, which also awards points for completing your profile, adding travel details and uploading your ID."
+            "text": "Baraati includes three games, Word Search (find hidden wedding words in a 15×15 grid), Predictions (vote on questions about the couple) and Who's Most Likely? (rapid-fire 15-second bride-or-groom questions), plus I-Spy, a photo scavenger hunt. All four earn points on one shared leaderboard, which also awards points for completing your profile, adding travel details and uploading your ID."
           }
         },
         {
@@ -345,7 +345,7 @@
           "name": "Can the host collect guest travel and ID details?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Guests submit their own travel itinerary (arrival and departure date, time, mode and confirmation number) and hosts see one arrivals board they can export as CSV. Guests can also upload government-issued ID documents (Aadhaar, Passport, Driving Licence) for hotel, airline or visa requirements. Those documents are AES-256 encrypted, every access is audit-logged, they are visible only to that wedding's hosts, and they are auto-deleted three days after the wedding."
+            "text": "Yes. Guests submit their own travel itinerary (arrival and departure date, time, mode and confirmation number) and hosts see one arrivals board they can export as CSV. Guests can also upload government-issued ID documents (Aadhaar, Passport, Driving Licence) for hotel, airline or visa requirements. Those documents are AES-256 encrypted, every access is audit-logged, only the guest who uploaded them and that wedding's hosts can open them (never other guests), and they are auto-deleted three days after the wedding."
           }
         },
         {
@@ -908,7 +908,11 @@
       .cta-inner { padding: 60px 28px; border-radius: 28px; }
       .footer-inner { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 400px) {
+      .metrics-grid { grid-template-columns: minmax(0, 1fr); }
+      .metric-num { font-size: 36px; }
     }
     @media (max-width: 480px) {
       .intro-cards-grid { grid-template-columns: 1fr; }
@@ -954,7 +958,7 @@
       <a href="/features">Features</a>
       <a href="/pricing">Pricing</a>
       <a href="/security">Security</a>
-      <a href="#faq">FAQ</a>
+      <a href="/faq">FAQ</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     </div>
     <div class="nav-cta">
@@ -972,6 +976,7 @@
     <a href="/pricing">Pricing</a>
     <a href="/security">Security</a>
     <a href="/faq">FAQ</a>
+    <a href="/support">Support</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     <div class="nav-mobile-cta">
       <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.href});return false;}" target="_blank" rel="noopener">Book a demo</a>
@@ -1190,7 +1195,7 @@
       </div>
       <div class="card metric-card">
         <div class="metric-num">3</div>
-        <div class="metric-label">built-in wedding games</div>
+        <div class="metric-label">games, plus the I-Spy photo challenge</div>
       </div>
       <div class="card metric-card">
         <div class="metric-num">Private</div>
@@ -1336,7 +1341,7 @@
       <div class="bento-card bento-live">
         <div class="chip" style="background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.15);">Games</div>
         <h3>
-          <span class="serif" style="color:#FF8A3D;">3 games.</span> 1 leaderboard.
+          <span class="serif" style="color:#FF8A3D;">3 games + I-Spy.</span> 1 leaderboard.
         </h3>
         <p style="color:rgba(255,255,255,0.65);margin-bottom:16px;">Guests compete before, during &amp; after the celebrations.</p>
         <div class="reaction-pills">
@@ -1458,7 +1463,7 @@
             What games are available?
             <span class="faq-icon">＋</span>
           </summary>
-          <p class="faq-answer">Baraati includes three built-in games: Word Search (find hidden wedding words in a 15×15 grid), Predictions (vote on questions about the couple), and Who's Most Likely? (rapid-fire 15-second bride-or-groom questions). All games feed into a shared leaderboard.</p>
+          <p class="faq-answer">Baraati includes three games, Word Search (find hidden wedding words in a 15×15 grid), Predictions (vote on questions about the couple) and Who's Most Likely? (rapid-fire 15-second bride-or-groom questions), plus the I-Spy photo challenge. All four earn points on one shared leaderboard.</p>
         </details>
         <details class="faq-item">
           <summary>
@@ -1472,7 +1477,7 @@
             Can the host collect guest travel &amp; ID details?
             <span class="faq-icon">＋</span>
           </summary>
-          <p class="faq-answer">Yes. Guests can submit their travel itinerary (arrival/departure date, time, mode, and confirmation number), and hosts can export it as a CSV. Guests can also upload government-issued ID documents (Aadhaar, Passport, Driving Licence) for hotel check-in. The documents are stored securely and only the host can view them.</p>
+          <p class="faq-answer">Yes. Guests can submit their travel itinerary (arrival/departure date, time, mode, and confirmation number), and hosts can export it as a CSV. Guests can also upload government-issued ID documents (Aadhaar, Passport, Driving Licence) for hotel check-in. The documents are encrypted, only the guest who uploaded them and the wedding's hosts can open them (never other guests), and they are deleted three days after the wedding.</p>
         </details>
         <details class="faq-item">
           <summary>
@@ -1552,7 +1557,7 @@
       <a href="/features">Features</a>
       <a href="/pricing">Pricing</a>
       <a href="/security">Security</a>
-      <a href="#faq">FAQ</a>
+      <a href="/faq">FAQ</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     </div>
     <div class="footer-col footer-col-guides">
@@ -1625,5 +1630,6 @@
 
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script src="/store-links.js" defer></script>
+<script src="/nav.js" defer></script>
 </body>
 </html>

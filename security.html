@@ -76,7 +76,7 @@
             "name": "Who can see the ID documents guests upload?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Only the hosts of that specific wedding, and only for as long as the documents exist. Uploads are optional, they are auto-deleted three days after the wedding, and a guest can delete their own document at any time from the app."
+              "text": "Only the guest who uploaded it and the hosts of that specific wedding (a wedding can have several hosts), and only for as long as the documents exist. Other guests never see it. An ID a guest uploads for a family member they added can be opened only by the hosts. Uploads are optional, they are auto-deleted three days after the wedding, and a guest can delete their own document at any time from the app."
             }
           },
           {
@@ -290,6 +290,7 @@
     <a href="/pricing">Pricing</a>
     <a href="/security">Security</a>
     <a href="/faq">FAQ</a>
+    <a href="/support">Support</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     <div class="nav-mobile-cta">
       <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.href});return false;}" target="_blank" rel="noopener">Book a demo</a>
@@ -322,7 +323,7 @@
       <p>Each document is encrypted with AES-256-GCM envelope encryption the moment it is uploaded: every document gets its own key, and those keys are themselves encrypted by a master key that never leaves the server. Documents live in a private storage bucket that has no public access.</p>
       <ul class="sec-list">
         <li><span class="tick">✦</span><span>Viewing an ID is a streamed decrypt for that single request. There is never a shareable link to the file.</span></li>
-        <li><span class="tick">✦</span><span>Only the hosts of that specific wedding (and the guest who uploaded it) can access a document.</span></li>
+        <li><span class="tick">✦</span><span>Only the guest who uploaded it and the hosts of that specific wedding can open a document. Other guests never can. An ID uploaded for an added family member can be opened only by the hosts.</span></li>
         <li><span class="tick">✦</span><span>Every access is audit-logged: who, when, from which IP and device.</span></li>
         <li><span class="tick">✦</span><span>Hosts export one encrypted master PDF for hotel check-in instead of forwarding individual photos.</span></li>
         <li><span class="tick">✦</span><span>ID features are disabled on rooted or jailbroken devices, and require recent re-authentication.</span></li>
@@ -431,5 +432,6 @@
 
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script src="/store-links.js" defer></script>
+<script src="/nav.js" defer></script>
 </body>
 </html>

@@ -203,7 +203,7 @@ pays.**
 | **Standard** | ₹11,000 | Unlimited | Everything in Free, plus unlimited guests, encrypted government-ID collection, travel & accommodation management, guest groups & targeted notifications, full host admin dashboard, 25 GB Photo Drive, full-time support |
 | **Premium** | ₹21,000 | Unlimited | Everything in Standard, plus the published wedding album website (live 3 years, then ₹510/year), premium album templates, priority support |
 
-Payment is online by UPI, card or net banking; the plan unlocks immediately.
+Payment is online by UPI, card or net banking, from the pricing page or the app; the plan usually unlocks within a minute and always within 24 hours.
 Refund and cancellation terms: https://baraati.co.in/refunds
 
 **Content retention:** on Free and Standard, wedding content is retained for roughly two
@@ -307,7 +307,7 @@ games and the feed exist only inside your wedding.
 **Can hosts collect guest ID documents?**
 Yes, on Standard and Premium. Guests can upload Aadhaar, Passport or Driving Licence for
 hotel, airline or visa requirements. Documents are AES-256 encrypted, audit-logged,
-visible only to that wedding's hosts, and auto-deleted 3 days after the wedding.
+visible only to the guest who uploaded them and that wedding's hosts, and auto-deleted 3 days after the wedding.
 
 **Does Baraati handle multi-day weddings?**
 Yes. That is the core data model. Every ceremony (mehndi, haldi, sangeet, baraat, phera,

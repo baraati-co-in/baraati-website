@@ -165,13 +165,17 @@
     .grow .gname { flex:1; font-weight:600; font-size:15px; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
     .grow .gpax { font-size:12.5px; color:var(--muted); flex-shrink:0; }
     .sbtns { display:flex; gap:6px; flex-shrink:0; }
-    .sbtn { width:34px; height:34px; border-radius:9px; border:1px solid var(--line); background:#fff; cursor:pointer; font-size:14px; font-weight:800; color:var(--muted); transition:all .15s; }
+    .sbtn { width:40px; height:40px; border-radius:9px; border:1px solid var(--line); background:#fff; cursor:pointer; font-size:14px; font-weight:800; color:var(--muted); transition:all .15s; }
     .sbtn:hover { border-color:var(--ink-2); }
     .sbtn.on.yes { background:var(--green); color:#fff; border-color:var(--green); }
     .sbtn.on.no { background:var(--red); color:#fff; border-color:var(--red); }
     .sbtn.on.maybe { background:var(--amber); color:#fff; border-color:var(--amber); }
-    .del { background:none; border:none; cursor:pointer; color:var(--muted); font-size:20px; line-height:1; padding:4px 6px; flex-shrink:0; }
-    .del:hover { color:var(--red); }
+    .del { width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; background:none; border:1px dashed var(--line); border-radius:9px; cursor:pointer; color:var(--muted); flex-shrink:0; margin-left:8px; }
+    .del:hover { color:var(--red); border-color:var(--red); }
+    .undo { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:10px; padding:10px 14px; border-radius:12px; background:rgba(31,18,38,0.05); font-size:14px; color:var(--ink-2); }
+    .undo[hidden] { display:none; }
+    .undo button { background:none; border:none; cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; color:var(--ink); text-decoration:underline; padding:6px 4px; }
+    @media (max-width:480px){ .grow { flex-wrap:wrap; row-gap:10px; } .grow .gname { flex:1 1 60%; } .grow .del { margin-left:auto; } }
     .empty { text-align:center; color:var(--muted); font-size:14.5px; padding:26px 0; }
     .tool-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:18px; flex-wrap:wrap; }
     .link-btn { background:none; border:none; color:var(--muted); font-family:inherit; font-size:13.5px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
@@ -195,7 +199,7 @@
     .footer-links a:hover { color:var(--ink); }
     .footer-bottom { max-width:1000px; margin:24px auto 0; font-size:13px; color:var(--muted); }
     @media (max-width:640px){ .tally { grid-template-columns:repeat(3,1fr); } .nav-links { display:none; } .wrap { padding:0 20px; } }
-    @media print { nav.top, .lp-hero .sub, .hero-note, .addform, .hint, .sbtns .sbtn:not(.on), .del, .tool-actions, .upsell, .faq, footer, .nav-cta { display:none !important; } .tool { border:none; box-shadow:none; padding:0; } body { background:#fff; } }
+    @media print { nav.top, .lp-hero .sub, .hero-note, .addform, .hint, .sbtns .sbtn:not(.on), .del, .undo, .tool-actions, .upsell, .faq, footer, .nav-cta { display:none !important; } .tool { border:none; box-shadow:none; padding:0; } body { background:#fff; } }
   </style>
 </head>
 <body>
@@ -243,6 +247,7 @@
       <p class="hint">Tip: use the number for how many people are in that party. The "Attending" count adds up everyone marked Yes.</p>
 
       <ul class="glist" id="gList"></ul>
+      <div class="undo" id="undoBar" hidden><span id="undoText"></span><button type="button" id="undoBtn">Undo</button></div>
       <div class="empty" id="emptyState">No guests yet. Add your first above to start tracking. 💌</div>
 
       <div class="tool-actions">
@@ -340,7 +345,7 @@
           '<button class="sbtn no' + (g.status === 'no' ? ' on' : '') + '" data-i="' + i + '" data-s="no" title="Not attending" aria-label="Mark not attending">✗</button>' +
           '<button class="sbtn maybe' + (g.status === 'maybe' ? ' on' : '') + '" data-i="' + i + '" data-s="maybe" title="Maybe" aria-label="Mark maybe">?</button>' +
         '</span>' +
-        '<button class="del" data-del="' + i + '" title="Remove" aria-label="Remove guest">&times;</button>';
+        '<button class="del" data-del="' + i + '" title="Remove from list" aria-label="Remove ' + esc(g.name) + ' from the list"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></svg></button>';
       listEl.appendChild(li);
     });
     tally();
@@ -356,12 +361,26 @@
     save(); render();
   });
 
+  var lastRemoved = null;
+  document.getElementById('undoBtn').addEventListener('click', function () {
+    if (!lastRemoved) return;
+    guests.splice(Math.min(lastRemoved.i, guests.length), 0, lastRemoved.g);
+    lastRemoved = null;
+    document.getElementById('undoBar').hidden = true;
+    save(); render();
+  });
+
   listEl.addEventListener('click', function (e) {
     var t = e.target.closest('button');
     if (!t) return;
     if (t.hasAttribute('data-del')) {
-      guests.splice(parseInt(t.getAttribute('data-del'), 10), 1);
-      save(); render(); return;
+      var di = parseInt(t.getAttribute('data-del'), 10);
+      lastRemoved = { g: guests[di], i: di };
+      guests.splice(di, 1);
+      save(); render();
+      document.getElementById('undoText').textContent = 'Removed ' + lastRemoved.g.name + '.';
+      document.getElementById('undoBar').hidden = false;
+      return;
     }
     if (t.hasAttribute('data-s')) {
       var i = parseInt(t.getAttribute('data-i'), 10);

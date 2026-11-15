@@ -58,7 +58,7 @@
               "url": "https://baraati.co.in/pricing",
               "availability": "https://schema.org/InStock",
               "eligibleRegion": { "@type": "Country", "name": "India" },
-              "description": "Free forever for a wedding with up to 10 guests. Includes the multi-day multi-ceremony schedule, guest list and RSVP, photo feed, I-Spy photo game, all Shaadi ka Khel games and the leaderboard, and every wedding theme."
+              "description": "Free for a wedding with up to 10 guests, with no time limit on setting it up. Wedding content is kept for about two months after the last day and then deleted, with a warning 7 days before. Includes the multi-day multi-ceremony schedule, guest list and RSVP, photo feed, I-Spy photo game, all Shaadi ka Khel games and the leaderboard, and every wedding theme."
             },
             {
               "@type": "Offer",
@@ -69,7 +69,7 @@
               "url": "https://baraati.co.in/pricing",
               "availability": "https://schema.org/InStock",
               "eligibleRegion": { "@type": "Country", "name": "India" },
-              "description": "One-time payment for the whole wedding. Everything in Free, plus unlimited guests, AES-256 encrypted government-ID collection, travel and accommodation management, guest groups with targeted notifications, the full host admin dashboard, a 25 GB Photo Drive, and full-time support.",
+              "description": "One-time payment for the whole wedding. Everything in Free, plus unlimited guests, AES-256 encrypted government-ID collection, travel and accommodation management, guest groups with targeted notifications, the full host admin dashboard, a 25 GB Photo Drive, and full-time support. Wedding content is kept for about two months after the last day and then deleted, with a warning 7 days before.",
               "acceptedPaymentMethod": [
                 { "@type": "PaymentMethod", "name": "UPI" },
                 { "@type": "PaymentMethod", "name": "Credit card" },
@@ -85,7 +85,7 @@
               "url": "https://baraati.co.in/pricing",
               "availability": "https://schema.org/InStock",
               "eligibleRegion": { "@type": "Country", "name": "India" },
-              "description": "One-time payment for the whole wedding. Everything in Standard, plus a published wedding album website at your own baraati.co.in subdomain (live for three years, then ₹510 per year), premium album templates and priority support.",
+              "description": "One-time payment for the whole wedding. Everything in Standard, plus a published wedding album website at your own baraati.co.in subdomain (live for three years, then ₹510 per year), premium album templates and priority support. The album shows the feed photos and videos, I-Spy captures and games; Photo Drive originals are not part of it and are deleted about two months after the wedding, so download them before then.",
               "acceptedPaymentMethod": [
                 { "@type": "PaymentMethod", "name": "UPI" },
                 { "@type": "PaymentMethod", "name": "Credit card" },
@@ -153,7 +153,7 @@
             "name": "How do I pay for Baraati?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Online by UPI, card or net banking. The plan unlocks on your wedding immediately after payment. Prices are in Indian Rupees; Baraati sells and delivers within India."
+              "text": "Online, by UPI, card or net banking. Choose Standard or Premium on the pricing page (or tap Upgrade in the app), sign in with the email or phone number you use in the Baraati app, pick your wedding and pay. The plan usually unlocks within a minute, and always within 24 hours. Prices are in Indian Rupees; Baraati sells and delivers within India. If you would like help, message us on WhatsApp."
             }
           },
           {
@@ -161,7 +161,7 @@
             "name": "What happens to my wedding content after the wedding?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "On Free and Standard, wedding content is kept for about two months after the last day of the wedding and then deleted, with advance warning to the host. On Premium the wedding continues to exist as a published album website for three years."
+              "text": "On Free and Standard, wedding content is kept for about two months after the last day of the wedding and then deleted, with a warning to the host 7 days before. On Premium, the published album website (feed photos and videos, I-Spy captures and games) stays live for three years, then ₹510 per year. Photo Drive originals are deleted about two months after the wedding on every plan, including Premium, so download them before then."
             }
           }
         ]
@@ -320,6 +320,15 @@
     .feat-list li.muted { color: var(--muted); }
     .feat-list li.muted .tick { background: rgba(31,18,38,0.05); color: var(--muted); }
     .feat-list li strong { color: var(--ink); font-weight: 700; }
+    .feat-list li.keep { margin-top: 4px; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 13.5px; }
+    .feat-list li.keep .tick { background: rgba(31,18,38,0.05); }
+    .start-free { margin-top: 40px; padding: 28px; border: 1px solid var(--line); border-radius: 24px; background: #fff; display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; scroll-margin-top: 90px; }
+    .start-free h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 10px; }
+    .start-free ol { margin: 0 0 0 18px; color: var(--ink-2); font-size: 14.5px; line-height: 1.7; }
+    .start-free .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .start-free .help { font-size: 13px; color: var(--muted); margin-top: 12px; }
+    .start-free .help a { color: #E11D48; }
+    @media (max-width: 768px) { .start-free { grid-template-columns: 1fr; padding: 22px; } }
 
     /* ── Reassurance row ── */
     .reassure {
@@ -407,6 +416,7 @@
     <a href="/pricing">Pricing</a>
     <a href="/security">Security</a>
     <a href="/faq">FAQ</a>
+    <a href="/support">Support</a>
       <a href="https://planner.baraati.co.in" target="_blank" rel="noopener">Planner</a>
     <div class="nav-mobile-cta">
       <a class="btn btn-grad" href="https://calendly.com/baraati-co-in/baraati-demo" onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.href});return false;}" target="_blank" rel="noopener">Book a demo</a>
@@ -422,11 +432,11 @@
     <h1>One price for<br /><span class="serif">your whole wedding.</span></h1>
     <p class="sub">Pay once per wedding. Not per guest, not per month. Your guests always join free, on every plan.</p>
     <div class="note-pill">
-      ✨ Pay online by UPI, card or net banking and your plan unlocks instantly.
+      ✨ Pay online by UPI, card or net banking. Your plan usually unlocks within a minute.
     </div>
     <div class="founding-banner">
       <div class="fb-text">
-        <strong>🎉 Season offers:</strong> connect with the Baraati team on WhatsApp for surprise deals and offers this wedding season. <span class="fb-sub">We reply personally.</span>
+        <strong>🎉 Season offers &amp; help choosing:</strong> message the Baraati team on WhatsApp for this season's offers, or if you'd like a hand picking or paying for a plan. <span class="fb-sub">We reply personally.</span>
       </div>
       <a class="btn btn-grad" href="https://wa.me/917058117443?text=Hi%20Baraati%20team%2C%20I'd%20love%20to%20know%20about%20this%20season's%20offers." target="_blank" rel="noopener">Chat on WhatsApp</a>
     </div>
@@ -445,8 +455,8 @@
         <div class="plan-price">
           <span class="cur">₹</span><span class="amt">0</span>
         </div>
-        <div class="plan-sub">Free forever, up to 10 guests</div>
-        <a class="btn btn-ghost btn-block plan-cta" href="https://wa.me/917058117443" target="_blank" rel="noopener">Start free</a>
+        <div class="plan-sub">Up to 10 guests · no card needed</div>
+        <a class="btn btn-ghost btn-block plan-cta" href="#start-free">Start free in the app</a>
         <div class="feat-head">What's included</div>
         <ul class="feat-list">
           <li><span class="tick">✓</span><span>Up to <strong>10 guests</strong></span></li>
@@ -457,6 +467,7 @@
           <li><span class="tick">✓</span><span>Guests RSVP from any browser, no app needed</span></li>
           <li><span class="tick">✓</span><span>Shaadi Ka Khel games &amp; leaderboard</span></li>
           <li><span class="tick">✓</span><span>Wedding themes</span></li>
+          <li class="keep"><span class="tick">⏳</span><span>Kept for <strong>2 months</strong> after the wedding, then deleted (we warn you 7 days before)</span></li>
         </ul>
       </div>
 
@@ -464,7 +475,7 @@
       <div class="price-card featured">
         <span class="ribbon">Most loved</span>
         <div class="plan-name">PREMIUM</div>
-        <div class="plan-tag">Keep the memories, forever</div>
+        <div class="plan-tag">Keep the memories for years</div>
         <div class="plan-price">
           <span class="cur">₹</span><span class="amt">21,000</span><span class="per">/ wedding</span>
         </div>
@@ -472,11 +483,12 @@
         <a class="btn btn-grad btn-block plan-cta" href="/upgrade?plan=premium">Choose Premium</a>
         <div class="feat-head">Everything in Standard, plus</div>
         <ul class="feat-list">
-          <li><span class="tick">✓</span><span><strong>Published wedding album</strong>: its own website at yourwedding.baraati.co.in</span></li>
+          <li><span class="tick">✓</span><span><strong>Published wedding album</strong>: feed photos &amp; videos, I-Spy captures and games, on its own website at yourwedding.baraati.co.in</span></li>
           <li><span class="tick">✓</span><span>Album live for <strong>3 years</strong> included, then ₹510/year</span></li>
-          <li><span class="tick">✓</span><span>Photo Drive grows to <strong>50 GB</strong> (kept 2 months after the wedding)</span></li>
+          <li><span class="tick">✓</span><span>Photo Drive grows to <strong>50 GB</strong></span></li>
           <li><span class="tick">✓</span><span>Premium album templates</span></li>
           <li><span class="tick">✓</span><span>Priority, full-time support from the Baraati team</span></li>
+          <li class="keep"><span class="tick">⏳</span><span>Album live <strong>3 years</strong>. Photo Drive originals are <strong>not</strong> in the album and are deleted 2 months after the wedding, so download them first</span></li>
         </ul>
       </div>
 
@@ -499,9 +511,41 @@
           <li><span class="tick">✓</span><span>Full host admin dashboard</span></li>
           <li><span class="tick">✓</span><span>Full-time support from the Baraati team</span></li>
           <li class="muted"><span class="tick">—</span><span>Published wedding album <em>(Premium)</em></span></li>
+          <li class="keep"><span class="tick">⏳</span><span>Kept for <strong>2 months</strong> after the wedding, then deleted (we warn you 7 days before)</span></li>
         </ul>
       </div>
 
+    </div>
+
+    <!-- Start free -->
+    <div class="start-free" id="start-free">
+      <div>
+        <h3>Start free in the app</h3>
+        <ol>
+          <li>Download Baraati and sign in with your phone number or email.</li>
+          <li>Tap <strong>Create a Wedding</strong>, add your names, dates and ceremonies.</li>
+          <li>Share your invite link. Up to 10 guests join free, and you can upgrade any time.</li>
+        </ol>
+      </div>
+      <div>
+        <div class="badges">
+      <a href="https://apps.apple.com/app/id6779397081" target="_blank" rel="noopener" class="btn" style="background:#111;color:#fff;gap:9px;padding:9px 16px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.7 2.2-3.99 2.3-4.06-1.25-1.83-3.2-2.08-3.89-2.11-1.66-.17-3.24.98-4.08.98-.84 0-2.14-.96-3.52-.93-1.81.03-3.48 1.05-4.41 2.66-1.88 3.27-.48 8.1 1.35 10.75.89 1.29 1.96 2.74 3.36 2.69 1.34-.05 1.85-.87 3.47-.87s2.08.87 3.5.84c1.44-.03 2.36-1.32 3.24-2.62 1.02-1.5 1.44-2.95 1.46-3.03-.03-.01-2.8-1.08-2.83-4.27zM14.47 4.2c.74-.9 1.24-2.15 1.1-3.4-1.07.04-2.36.71-3.13 1.61-.68.79-1.28 2.06-1.12 3.28 1.19.09 2.41-.6 3.15-1.49z"/></svg>
+        <span style="text-align:left;line-height:1.05;">
+          <span style="font-size:9px;font-weight:500;opacity:0.9;display:block;">Download on the</span>
+          <span style="font-size:14px;font-weight:700;display:block;">App Store</span>
+        </span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.baraati.app" target="_blank" rel="noopener" class="btn" style="background:#111;color:#fff;gap:9px;padding:9px 16px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.3.2-.5.6-.5 1.1v17.2c0 .5.2.9.5 1.1l9.3-9.7L3.6 2.3zm10.5 8.3l2.9-3-9.6-5.5c-.3-.2-.7-.2-.9 0l7.6 8.5zm0 2.8l-7.6 8.5c.2.2.6.2.9 0l9.6-5.5-2.9-3zm5.9-4.4l-2.4-1.4-3.2 3.3 3.2 3.3 2.4-1.4c.9-.5.9-1.9 0-2.4z"/></svg>
+        <span style="text-align:left;line-height:1.05;">
+          <span style="font-size:9px;font-weight:500;opacity:0.9;display:block;">Get it on</span>
+          <span style="font-size:14px;font-weight:700;display:block;">Google Play</span>
+        </span>
+      </a>
+        </div>
+        <p class="help">Rather we set it up with you? <a href="https://wa.me/917058117443" target="_blank" rel="noopener">Set up with us on WhatsApp</a></p>
+      </div>
     </div>
 
     <!-- Reassurance -->
@@ -516,7 +560,7 @@
       </div>
       <div class="item">
         <h4>Your data, protected</h4>
-        <p>Government IDs are AES-256 encrypted, seen only by your hosts, and deleted three days after the wedding. Private by design, for your family only.</p>
+        <p>Government IDs are AES-256 encrypted, seen only by the guest who uploaded them and your hosts, and deleted three days after the wedding. Private by design, for your family only.</p>
       </div>
     </div>
   </div>
@@ -540,15 +584,19 @@
       </div>
       <div class="faq-item">
         <h4>What's the wedding album?</h4>
-        <p>With Premium, when your celebrations wrap up you can turn all the photos, I-Spy captures and games into a private album with its own website (like yourwedding.baraati.co.in). It stays live for 3 years, after which you can keep it for ₹510/year.</p>
+        <p>With Premium, when your celebrations wrap up you can turn the feed photos and videos, I-Spy captures and games into an album with its own website (like yourwedding.baraati.co.in). It stays live for 3 years, after which you can keep it for ₹510/year. The Photo Drive's full-resolution originals are not part of the album: they are deleted about 2 months after the wedding on every plan, so download the ones you want before then.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How long is my wedding kept?</h4>
+        <p>On Free and Standard, everything is kept for about 2 months after the wedding's last day and then deleted. We warn the hosts 7 days before. On Premium the album stays online for 3 years (then ₹510/year), and the Photo Drive follows the same 2-month rule as the other plans.</p>
       </div>
       <div class="faq-item">
         <h4>Can I start free and upgrade later?</h4>
         <p>Absolutely. Begin on the free plan to set things up, then upgrade to Standard or Premium anytime. Your wedding and everything in it carries over.</p>
       </div>
       <div class="faq-item">
-        <h4>How do I pay right now?</h4>
-        <p>Secure online checkout is on the way. In the meantime, just message us on WhatsApp and we'll get your wedding set up on the plan you want.</p>
+        <h4>How do I pay?</h4>
+        <p>Online, by UPI, card or net banking (secure checkout by Razorpay). Tap <strong>Choose Standard</strong> or <strong>Choose Premium</strong> above, or <strong>Upgrade</strong> in the app's admin dashboard. Sign in with the email or phone number you use in the app, pick your wedding and pay. Your plan usually unlocks within a minute, and always within 24 hours. Want a hand? <a href="https://wa.me/917058117443" target="_blank" rel="noopener" style="color:#E11D48;">Message us on WhatsApp</a>.</p>
       </div>
     </div>
   </div>
@@ -617,5 +665,6 @@
 
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script src="/store-links.js" defer></script>
+<script src="/nav.js" defer></script>
 </body>
 </html>
