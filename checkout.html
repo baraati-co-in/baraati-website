@@ -78,6 +78,11 @@
     .promo-note { font-size: 12.5px; margin: -6px 0 12px; text-align: left; }
     .promo-note.ok  { color: var(--ok); }
     .promo-note.err { color: var(--accent); }
+    .wa-opt {
+      display: flex; gap: 10px; align-items: flex-start; text-align: left; cursor: pointer;
+      font-size: 13.5px; line-height: 1.45; color: var(--ink); margin: 0 0 14px;
+    }
+    .wa-opt input { width: 18px; height: 18px; margin-top: 1px; flex: none; accent-color: var(--ok); }
     .pay-error {
       font-size: 13.5px; color: var(--accent); text-align: left;
       background: rgba(194,65,12,0.07); border: 1px solid rgba(194,65,12,0.22);
@@ -141,6 +146,11 @@
       </div>
       <p id="promoNote" class="promo-note" hidden></p>
 
+      <label id="waRow" class="wa-opt" hidden>
+        <input id="waInvoice" type="checkbox" />
+        <span>Also send my invoice on WhatsApp to the number I sign in with</span>
+      </label>
+
       <p id="payErr" class="pay-error" hidden></p>
       <button id="payBtn" class="btn btn-primary" type="button">Pay securely</button>
       <p class="hint">
@@ -162,7 +172,7 @@
       <div class="badge badge-ok">🎉</div>
       <h1>Payment received</h1>
       <p id="paidCopy">Your plan is now active. Head back to the Baraati app — pull down to refresh and everything will be unlocked.</p>
-      <p class="hint">A receipt has been emailed to you by Razorpay. Questions? <a href="mailto:support@baraati.co.in">support@baraati.co.in</a></p>
+      <p class="hint"><span id="invoiceHint">Your Baraati invoice will reach you by email within a few minutes.</span> Questions? <a href="mailto:support@baraati.co.in">support@baraati.co.in</a></p>
     </section>
 
     <!-- Anything that needs a human -->
@@ -298,6 +308,29 @@
         paintSummary(s);
         show('ready');
 
+        // ── invoice on WhatsApp (opt-in, unticked) ─────────────────────────
+        // Shown only when the host signs in with a mobile number the server
+        // can message; the number itself never comes to this page. The choice
+        // is saved on the checkout session, which send-invoices reads.
+        var waRow = document.getElementById('waRow');
+        var waBox = document.getElementById('waInvoice');
+        function saveWa(keepalive) {
+          return fetch(FUNCTIONS_URL + '/checkout-session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ t: token, whatsappInvoice: waBox.checked }),
+            keepalive: !!keepalive,
+          }).catch(function () {});
+        }
+        if (s.canWhatsApp) {
+          waBox.checked = !!s.whatsappInvoice;
+          waRow.hidden = false;
+          waBox.addEventListener('change', function () {
+            track('checkout_whatsapp_invoice', { on: waBox.checked });
+            saveWa(false);
+          });
+        }
+
         // Fast path: have the server verify the signature Razorpay handed the
         // browser. That signature is HMAC'd with the key secret, so only the
         // server can check it — the browser still proves nothing on its own.
@@ -322,6 +355,10 @@
         // we wait for it to flip the session to `paid`.
         function paid(via) {
           track('checkout_paid', { plan: s.plan, amount_inr: inr(s.amountPaise), promo: s.couponCode || null, via: via });
+          if (s.canWhatsApp && waBox.checked) {
+            document.getElementById('invoiceHint').textContent =
+              'Your Baraati invoice will reach you by email and WhatsApp within a few minutes.';
+          }
           show('paid');
         }
         function awaitConfirmation(attempt) {
@@ -538,6 +575,8 @@
           track('checkout_pay_tapped', { plan: s.plan, amount_inr: inr(s.amountPaise), promo: s.couponCode || null });
           payBtn.disabled = true;
           payErr.hidden = true;
+          // Re-save the WhatsApp choice in case the change request was lost.
+          if (s.canWhatsApp) saveWa(true);
           rzp.open();
         });
       }).catch(function () {
