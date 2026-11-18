@@ -1,0 +1,32 @@
+/* Site-wide behaviour shared by every marketing page. Loaded after each page's
+   inline <style>, so it only adds rules; !important is used where it must win
+   over a page's own rule. */
+
+/* Jump links (#faq, #pricing, #m12 …) land below the sticky header. */
+html { scroll-padding-top: 88px; }
+
+/* Skip link: first Tab stop on the page, visible only when focused. */
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 1000;
+  padding: 10px 16px; border-radius: 999px;
+  background: #1F1226; color: #fff; font-weight: 700; font-size: 14px; text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+#main:focus { outline: none; }
+
+/* The mobile menu panel never shows at desktop width, even if it was left
+   open while the window was narrow (nav.js also resets its state). */
+@media (min-width: 769px) {
+  nav.top .nav-mobile { display: none !important; }
+}
+
+/* Reduced motion: no looping decoration, no reveal fades, instant jumps. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  #confetti, #confetti-cta { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}

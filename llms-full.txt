@@ -173,7 +173,7 @@ Six complete design systems, each with its own fonts, palette and mood:
 Gulabi Raat · Neel Shahi · Haldi Utsav · Mint Mehendi · Raat Ki Rani · Shwet Sangam.
 
 ### 4.9 Baraati Planner (web, planner.baraati.co.in)
-A browser command centre for hosts and professional wedding planners, synced live with the
+A browser command center for hosts and professional wedding planners, synced live with the
 guest app:
 - **Tasks**: checklists and a timeline to the wedding date
 - **Vendors & bookings**: every vendor, contact and booking in one place
@@ -314,7 +314,7 @@ Yes. That is the core data model. Every ceremony (mehndi, haldi, sangeet, baraat
 reception, or a custom one) is its own entry with time, venue, map and dress code.
 
 **Can I track my wedding budget in Baraati?**
-Yes, in Baraati Planner (planner.baraati.co.in), the web command centre for hosts. It
+Yes, in Baraati Planner (planner.baraati.co.in), the web command center for hosts. It
 covers budget (estimates vs actuals), tasks and timeline, vendors and bookings, shopping
 lists, guests and analytics.
 

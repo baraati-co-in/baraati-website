@@ -369,7 +369,7 @@
           "name": "Can I track my wedding budget and vendors in Baraati?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, in Baraati Planner at planner.baraati.co.in, a web command centre for hosts and professional planners that syncs live with the guest app. It covers budget (estimates versus actuals), tasks and timeline, vendors and bookings, shopping lists, guest management and analytics."
+            "text": "Yes, in Baraati Planner at planner.baraati.co.in, a web command center for hosts and professional planners that syncs live with the guest app. It covers budget (estimates versus actuals), tasks and timeline, vendors and bookings, shopping lists, guest management and analytics."
           }
         }
       ]
@@ -516,8 +516,10 @@
     .floaty { animation: floaty 5s ease-in-out infinite; }
 
     /* ── Reveal ── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    /* Hidden start state only once the reveal script is known to run (html.js-reveal,
+       set in <head> when IntersectionObserver exists and motion is allowed). */
+    .js-reveal .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .js-reveal .reveal.visible { opacity: 1; transform: none; }
 
     /* ═══════════════════════════════════════
        HERO
@@ -943,9 +945,16 @@
     .planner-tile span { font-weight: 500; font-size: 12px; color: var(--muted); }
     @media (max-width: 900px) { #planner .wrap { grid-template-columns: 1fr; gap: 36px; } }
   </style>
+<link rel="stylesheet" href="/site.css" />
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+<script>
+  if ("IntersectionObserver" in window && !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) {
+    document.documentElement.classList.add("js-reveal");
+  }
+</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ══════════════ NAV ══════════════ -->
 <nav class="top">
@@ -984,6 +993,7 @@
     </div>
   </div>
 </nav>
+<div id="main" tabindex="-1"></div>
 
 <!-- ══════════════ HERO ══════════════ -->
 <section class="hero">
@@ -1066,7 +1076,7 @@
               <div class="app-event-time">Sun · 11:00 AM · Main Hall</div>
             </div>
           </div>
-          <div style="margin-top:10px;font-size:11px;color:var(--muted);text-align:center;">🎮 Who's Most Likely? · Play now</div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted);text-align:center;">🎮 Game preview · Who's Most Likely?</div>
         </div>
         <div class="phone-indicator"></div>
       </div>
@@ -1615,8 +1625,11 @@
       wrap.appendChild(piece);
     }
   }
-  spawnConfetti('confetti', 36);
-  spawnConfetti('confetti-cta', 40);
+  var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!calm) {
+    spawnConfetti('confetti', 36);
+    spawnConfetti('confetti-cta', 40);
+  }
 
   // ── Scroll reveal ─────────────────────────────────────────
   const observer = new IntersectionObserver(
@@ -1625,7 +1638,9 @@
     }),
     { threshold: 0.1 }
   );
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  if (document.documentElement.classList.contains('js-reveal')) {
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
 </script>
 
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
