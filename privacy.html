@@ -159,7 +159,7 @@
   <div class="page">
     <span class="page-tag">Legal</span>
     <h1 class="page-title">Privacy Policy</h1>
-    <p class="page-meta">Last updated: 15 November 2026 &nbsp;·&nbsp; Effective: 15 November 2026</p>
+    <p class="page-meta">Last updated: 18 November 2026 &nbsp;·&nbsp; Effective: 18 November 2026</p>
 
     <div class="doc">
 
@@ -179,7 +179,7 @@
       <h2>1. Information We Collect</h2>
 
       <p>
-        We collect the information below for the following specified purposes: to create and operate your account; to set up and run your wedding — schedule, venues, guest list, RSVPs, feed, games and leaderboards; to enable Hosts to coordinate travel, room allocations, and (where requested and consented) ID-based check-in for Guests; to deliver in-app and push notifications about wedding activity; to diagnose issues and improve reliability; and to secure the Service, prevent abuse, and detect compromised devices, in terms of the present Policy. If we intend to use your personal data for a purpose not described in this Policy, we will update this Policy and, where the new purpose requires it, seek your consent before that use begins.
+        We collect the information below for the following specified purposes: to create and operate your account; to set up and run your wedding — schedule, venues, guest list, RSVPs, feed, games and leaderboards; to enable Hosts to coordinate travel, room allocations, and (where requested and consented) ID-based check-in for Guests; to deliver in-app and push notifications about wedding activity, and, only if you ask for them, WhatsApp updates; to diagnose issues and improve reliability; and to secure the Service, prevent abuse, and detect compromised devices, in terms of the present Policy. If we intend to use your personal data for a purpose not described in this Policy, we will update this Policy and, where the new purpose requires it, seek your consent before that use begins.
       </p>
 
       <h3>Account & Profile</h3>
@@ -231,8 +231,10 @@
 
       <h3>Authentication, Device & Usage Data</h3>
       <ul>
-        <li>Your email address and the one-time code used to sign you in (we use one-time-code login only — no passwords or social logins)</li>
+        <li>Your email address or mobile number and the one-time code used to sign you in (we use one-time-code login only — no passwords or social logins). A code for a mobile number may be delivered by WhatsApp or by SMS; if you ask for the code again, it is sent by SMS. To decide which, we keep a one-way hash of the number (an irreversible fingerprint, not the readable value) and the channel last used, and delete it within a few hours</li>
         <li>Push notification tokens (to deliver wedding updates)</li>
+        <li>Whether you have asked for WhatsApp updates, and a record of when and where you turned them on or off</li>
+        <li>If you get WhatsApp updates: a log of which kind of message we sent you, for which wedding, when, and whether it was accepted for delivery. The log does not contain the message text</li>
         <li>Whether notifications are allowed for the app on your device, and when you last opened the app. This is shown to the Hosts of weddings you belong to, as an indicator of whether you will receive push notifications, so they can reach you another way if you won't</li>
         <li>Device model, OS version, and app version</li>
         <li>If you use the web invitation: a sign-in cookie stored in your browser to keep you signed in, and your browser type</li>
@@ -245,6 +247,7 @@
         <li>To create and operate your account and verify it via one-time code</li>
         <li>To run weddings — schedule, venues, guest list, RSVPs, feed, games and leaderboards</li>
         <li>To deliver in-app and push notifications about wedding activity, and to show Hosts which Guests can receive them</li>
+        <li>If you have turned on WhatsApp updates, to send you important updates on WhatsApp when the app cannot notify you (see Section 5)</li>
         <li>To let Hosts coordinate travel, rooms, and (where requested and consented) ID-based check-in</li>
         <li>To secure the Service, prevent abuse, enforce limits, and detect compromised devices</li>
         <li>To stop a person a Host has removed from a wedding from rejoining it (see Section 7)</li>
@@ -284,6 +287,9 @@
       <p>
         We collect and process that information only where you give specific, informed consent for the stated purpose, through a clear action — such as filling in an optional field, enabling a toggle, or completing an upload — separate from your general use of the Service. You may withdraw this consent at any time by writing to <a href="mailto:support@baraati.co.in">support@baraati.co.in</a>.
       </p>
+      <p>
+        <strong>WhatsApp updates.</strong> We send WhatsApp messages about a wedding only if you ask for them, by ticking "Send me wedding updates on WhatsApp" (never ticked for you) or turning on WhatsApp updates in your Profile or on the web invitation's checklist. They go to the mobile number on your profile, and only when the app cannot notify you, for example because you use the web invitation or have notifications turned off. A Guest may receive their room number and reminders from the Hosts to RSVP, add travel details or upload an ID, if the wedding's Hosts use those features; a Host may receive a reminder to invite their guests. Each message contains your first name, the couple's names, the update itself (such as a room number or a date) and a link to the wedding. We never send advertising or promotional messages on WhatsApp. You can turn WhatsApp updates off at any time in the app (Profile) or on the web invitation's checklist, or by writing to us; turning them off does not affect anything else in your account.
+      </p>
 
       <h2>6. Data Sharing & Service Providers</h2>
       <p>We share data only within a wedding, with that wedding's Hosts and Guests per role, and government IDs and travel/room details only with that wedding's Hosts.</p>
@@ -294,7 +300,8 @@
         <li><strong>Supabase</strong> — database, authentication, and serverless functions</li>
         <li><strong>Cloudflare</strong> — encrypted storage of media and IDs (R2), and hosting of the post-wedding album (Workers)</li>
         <li><strong>Resend</strong> — delivery of one-time login codes by email</li>
-        <li><strong>MSG91</strong> — delivery of one-time login codes by SMS, receiving only your mobile number and the code being sent. For a number outside India, MSG91 passes the message to the telecom carriers in that country to deliver it</li>
+        <li><strong>MSG91</strong> — delivery of one-time login codes by SMS or WhatsApp, and of WhatsApp updates you have asked for, receiving your mobile number and the message being sent. For an SMS to a number outside India, MSG91 passes the message to the telecom carriers in that country to deliver it</li>
+        <li><strong>Meta Platforms (WhatsApp Business Platform)</strong> — delivery of WhatsApp messages passed to it by MSG91, receiving your mobile number and the message being sent</li>
         <li><strong>Expo</strong> — push notification delivery and app updates</li>
         <li><strong>Sentry</strong> — crash and error diagnostics</li>
         <li><strong>PostHog</strong> — product analytics in the app, the web invitation and the plan checkout page, receiving only anonymous usage events and an opaque account identifier, never your name, contact details, photos, or ID documents. On the web invitation, PostHog stores an identifier in your browser so that visits are counted correctly</li>
@@ -313,6 +320,7 @@
         <li>Government ID documents are automatically and permanently deleted 3 days after the wedding's last day, or sooner on request. A government ID uploaded for someone added to a guest list is also deleted when that person is removed, or when they join the wedding with their own account</li>
         <li>When a Host removes someone from a wedding, we keep a record that the account was removed, together with a one-way hash (an irreversible fingerprint, not the readable value) of its email address and mobile number, so that the person cannot rejoin that wedding with the same account or contact. This record contains nothing else and is used for no other purpose. It is kept even if that person later deletes their account, and is deleted when the wedding is deleted</li>
         <li>Security and access-audit logs are retained for 12 months (one year), after which they are deleted unless required by law</li>
+        <li>The log of WhatsApp messages sent to you (Section 1) is deleted after 90 days. The record of when you turned WhatsApp updates on or off is kept while your account exists, as proof of your choice, and deleted with your account</li>
         <li>Incomplete/abandoned sign-ups are cleaned up automatically</li>
       </ul>
 
@@ -323,7 +331,7 @@
         <li>Obtain any information relating to your personal data and its processing</li>
         <li>Correct inaccurate or incomplete data</li>
         <li>Request deletion of your data ("right to erasure")</li>
-        <li>Withdraw consent (e.g. for government-ID storage or notifications) at any time</li>
+        <li>Withdraw consent (e.g. for government-ID storage, notifications or WhatsApp updates) at any time</li>
         <li>Nominate another person to exercise your rights in case of death or incapacity</li>
         <li>Raise a grievance with our Grievance Officer, and, if it remains unresolved, file a complaint with the Data Protection Board of India in the manner prescribed under the Act</li>
       </ul>
@@ -372,7 +380,7 @@
         For privacy-related questions or requests, or to reach our Grievance / Data Protection Officer, please contact:<br><br>
         <strong>Baraati LLP</strong><br>
         Grievance / Data Protection Officer: Manju Gupta<br>
-        T5B-1001 Godrej Infinity, Keshav Nagar, Mundhva, Pune – 411036, Maharashtra, India<br>
+        T5B-1001 Godrej Infinity, Keshav Nagar, Mundhwa, Pune – 411036, Maharashtra, India<br>
         Email: <a href="mailto:support@baraati.co.in">support@baraati.co.in</a><br>
         Website: <a href="https://baraati.co.in">baraati.co.in</a>
       </p>
@@ -393,7 +401,7 @@
       <a href="/delete-account">Delete account</a>
       <a href="mailto:support@baraati.co.in">Contact</a>
     </nav>
-    <p class="footer-copy">© 2026 Baraati. All rights reserved.</p>
+    <p class="footer-copy">© 2026 Baraati LLP · Keshav Nagar, Mundhwa, Pune 411036, Maharashtra · <a href="mailto:support@baraati.co.in" style="color:inherit">support@baraati.co.in</a>. All rights reserved.</p>
   </footer>
 
 </body>

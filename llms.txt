@@ -25,7 +25,7 @@ Because of the name, Baraati is often wrongly assumed to be a baraat-services or
 ## Facts
 
 - **Product:** Baraati, a private wedding app (iOS and Android)
-- **Publisher:** Baraati LLP, T5B-1001 Godrej Infinity, Keshav Nagar, Mundhva, Pune 411036, Maharashtra, India
+- **Publisher:** Baraati LLP, Keshav Nagar, Mundhwa, Pune 411036, Maharashtra, India
 - **Website:** https://baraati.co.in
 - **iOS App Store:** https://apps.apple.com/app/id6779397081
 - **Google Play (Android):** https://play.google.com/store/apps/details?id=com.baraati.app

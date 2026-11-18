@@ -26,7 +26,7 @@ traditional meaning.
 | Product name | Baraati |
 | Type | Mobile application (wedding guest-experience platform) |
 | Publisher | Baraati LLP |
-| Registered address | T5B-1001 Godrej Infinity, Keshav Nagar, Mundhva, Pune 411036, Maharashtra, India |
+| Address | Keshav Nagar, Mundhwa, Pune 411036, Maharashtra, India |
 | Website | https://baraati.co.in |
 | Host web app | https://planner.baraati.co.in ("Baraati Planner") |
 | iOS App Store | https://apps.apple.com/app/id6779397081 |
